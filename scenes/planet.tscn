@@ -1,7 +1,8 @@
-[gd_scene format=4 uid="uid://0qkm1f0xs2ig"]
+[gd_scene format=3 uid="uid://0qkm1f0xs2ig"]
 
 [ext_resource type="Texture2D" uid="uid://cxigknyak4pw3" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
 [ext_resource type="Texture2D" uid="uid://djl4g8fww1pi0" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
+[ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k1rn"]
 texture = ExtResource("1_h8ms6")
@@ -21,6 +22,8 @@ sources/1 = SubResource("TileSetAtlasSource_48b8c")
 
 [node name="Planet" type="Node2D" unique_id=825123736]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=505039747]
-tile_map_data = PackedByteArray("AAACAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAQAAAAAAAAA=")
+[node name="BuildingLayer" type="TileMapLayer" parent="." unique_id=505039747]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_0wmcs")
+script = ExtResource("3_ggt7d")
