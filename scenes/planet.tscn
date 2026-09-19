@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cxigknyak4pw3" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
 [ext_resource type="Texture2D" uid="uid://djl4g8fww1pi0" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
+[ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k1rn"]
 texture = ExtResource("1_h8ms6")
@@ -24,6 +25,79 @@ sources/1 = SubResource("TileSetAtlasSource_48b8c")
 
 [node name="BuildingLayer" type="TileMapLayer" parent="." unique_id=505039747]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_0wmcs")
 script = ExtResource("3_ggt7d")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1783903701]
+
+[node name="FlowContainer" type="FlowContainer" parent="UI" unique_id=1580624323]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer" unique_id=974228274]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Top Bar" type="HBoxContainer" parent="UI/FlowContainer/MarginContainer" unique_id=1643685907]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MoneyLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1656173612]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
+
+[node name="VSeparator" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1967387674]
+layout_mode = 2
+
+[node name="PopLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1734353335]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
+
+[node name="VSeparator2" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1986929248]
+layout_mode = 2
+
+[node name="RobotLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=617035796]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
+
+[node name="VSeparator3" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=879898909]
+layout_mode = 2
+
+[node name="SteelLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=289855563]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
+
+[node name="VSeparator4" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=670817834]
+layout_mode = 2
+
+[node name="TitaniumLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=28561981]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
+
+[node name="VSeparator5" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=836320907]
+layout_mode = 2
+
+[node name="ElectricityLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=870082437]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "aaaaaaaa"
