@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="somegamename"
+run/main_scene="uid://0qkm1f0xs2ig"
 config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/bg_color=Color(0.2, 0.2, 0.2, 1)
 config/icon="res://res/icon.svg"
 
 [autoload]
