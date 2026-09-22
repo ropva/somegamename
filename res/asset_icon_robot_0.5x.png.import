@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5a7ie8uqa3ud"
-path="res://.godot/imported/asset_solar_plant_2x.png-9cf5371e3bfb334c894ba3e4a13ef8df.ctex"
+uid="uid://dp6clsgboxs8h"
+path="res://.godot/imported/asset_icon_robot_0.5x.png-8c3313971d94ead36ef539d5f65022a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/asset_solar_plant_2x.png"
-dest_files=["res://.godot/imported/asset_solar_plant_2x.png-9cf5371e3bfb334c894ba3e4a13ef8df.ctex"]
+source_file="res://res/asset_icon_robot_0.5x.png"
+dest_files=["res://.godot/imported/asset_icon_robot_0.5x.png-8c3313971d94ead36ef539d5f65022a7.ctex"]
 
 [params]
 

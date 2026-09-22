@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0t24yxia6e0e"
-path="res://.godot/imported/asset_open_pit_mine_4x.png-9978c94051b3ab3d5a8d9eb08db97a3f.ctex"
+uid="uid://21kk2tnr4rkb"
+path="res://.godot/imported/asset_icon_energy_4x.png-fa18f41959e17c65cd82efd36802e1f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/asset_open_pit_mine_4x.png"
-dest_files=["res://.godot/imported/asset_open_pit_mine_4x.png-9978c94051b3ab3d5a8d9eb08db97a3f.ctex"]
+source_file="res://res/asset_icon_energy_4x.png"
+dest_files=["res://.godot/imported/asset_icon_energy_4x.png-fa18f41959e17c65cd82efd36802e1f7.ctex"]
 
 [params]
 

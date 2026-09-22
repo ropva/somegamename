@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wmvd3u8wdeqx"
-path="res://.godot/imported/asset_open_pit_mine_2x.png-a0f62446f500cec3372a7af454c52e5b.ctex"
+uid="uid://b30s3ocrtin3t"
+path="res://.godot/imported/asset_icon_titanium_4x.png-86deb9556d9b06129c25cf14e00e6989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/asset_open_pit_mine_2x.png"
-dest_files=["res://.godot/imported/asset_open_pit_mine_2x.png-a0f62446f500cec3372a7af454c52e5b.ctex"]
+source_file="res://res/asset_icon_titanium_4x.png"
+dest_files=["res://.godot/imported/asset_icon_titanium_4x.png-86deb9556d9b06129c25cf14e00e6989.ctex"]
 
 [params]
 

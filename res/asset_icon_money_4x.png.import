@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0t24yxia6e0e"
-path="res://.godot/imported/asset_open_pit_mine_4x.png-9978c94051b3ab3d5a8d9eb08db97a3f.ctex"
+uid="uid://dbfjo1sx1ikq6"
+path="res://.godot/imported/asset_icon_money_4x.png-13b6c3d046fb7ac048b65ab5dcf69129.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/asset_open_pit_mine_4x.png"
-dest_files=["res://.godot/imported/asset_open_pit_mine_4x.png-9978c94051b3ab3d5a8d9eb08db97a3f.ctex"]
+source_file="res://res/asset_icon_money_4x.png"
+dest_files=["res://.godot/imported/asset_icon_money_4x.png-13b6c3d046fb7ac048b65ab5dcf69129.ctex"]
 
 [params]
 
