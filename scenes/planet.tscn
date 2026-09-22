@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://0qkm1f0xs2ig"]
 
-[ext_resource type="Texture2D" uid="uid://cxigknyak4pw3" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
-[ext_resource type="Texture2D" uid="uid://djl4g8fww1pi0" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
+[ext_resource type="Texture2D" uid="uid://cdxenmcgvy0df" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
+[ext_resource type="Texture2D" uid="uid://fglx0cehn3jy" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
+[ext_resource type="Texture2D" uid="uid://dwkbtqgv5s17o" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
+[ext_resource type="Texture2D" uid="uid://4hulojjoj1c5" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
+[ext_resource type="Texture2D" uid="uid://dp6clsgboxs8h" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://8q8eulc48bck" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://de0exdsrdqepk" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://b5jr65sbubnm7" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k1rn"]
 texture = ExtResource("1_h8ms6")
@@ -20,6 +26,9 @@ tile_shape = 3
 tile_size = Vector2i(298, 340)
 sources/0 = SubResource("TileSetAtlasSource_0k1rn")
 sources/1 = SubResource("TileSetAtlasSource_48b8c")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw1i6"]
+bg_color = Color(0, 0, 0, 0)
 
 [node name="Planet" type="Node2D" unique_id=825123736]
 
@@ -49,55 +58,95 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Top Bar" type="HBoxContainer" parent="UI/FlowContainer/MarginContainer" unique_id=1643685907]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 10
 
 [node name="MoneyLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1656173612]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=237672390]
+layout_mode = 2
+texture = ExtResource("5_qw1i6")
+expand_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1967387674]
 layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
 [node name="PopLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1734353335]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=2049315845]
+layout_mode = 2
+texture = ExtResource("6_ekhpw")
+expand_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1986929248]
 layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
 [node name="RobotLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=617035796]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect3" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1046935528]
+layout_mode = 2
+texture = ExtResource("7_11eka")
+expand_mode = 2
 
 [node name="VSeparator3" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=879898909]
 layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
 [node name="SteelLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=289855563]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect4" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1835958676]
+layout_mode = 2
+texture = ExtResource("8_n1t4m")
+expand_mode = 2
 
 [node name="VSeparator4" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=670817834]
 layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
 [node name="TitaniumLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=28561981]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect5" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1148502600]
+layout_mode = 2
+texture = ExtResource("9_kp5tw")
+expand_mode = 2
 
 [node name="VSeparator5" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=836320907]
 layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
 [node name="ElectricityLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=870082437]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-text = "aaaaaaaa"
+text = "100"
+
+[node name="TextureRect6" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=276966344]
+layout_mode = 2
+texture = ExtResource("10_qa7os")
+expand_mode = 2
