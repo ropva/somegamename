@@ -24,8 +24,8 @@ texture_region_size = Vector2i(273, 315)
 [sub_resource type="TileSet" id="TileSet_0wmcs"]
 tile_shape = 3
 tile_size = Vector2i(298, 340)
-sources/0 = SubResource("TileSetAtlasSource_0k1rn")
 sources/1 = SubResource("TileSetAtlasSource_48b8c")
+sources/0 = SubResource("TileSetAtlasSource_0k1rn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw1i6"]
 bg_color = Color(0, 0, 0, 0)
