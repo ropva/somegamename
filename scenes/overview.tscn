@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://io2ct38otw1j"]
 
+[ext_resource type="Script" uid="uid://x741v5g34ykm" path="res://scripts/overview.gd" id="1_eg1db"]
+[ext_resource type="Texture2D" uid="uid://bn0wuytgysjlt" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
+
 [node name="Overview" type="Node2D" unique_id=1347622079]
+script = ExtResource("1_eg1db")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=454673676]
+
+[node name="PlanetTooltip" type="VBoxContainer" parent="CanvasLayer" unique_id=1727421022]
+unique_name_in_owner = true
+visible = false
+offset_right = 156.0
+offset_bottom = 108.0
+
+[node name="PlanetTooltipTitle" type="Label" parent="CanvasLayer/PlanetTooltip" unique_id=243061941]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Planet 8"
+
+[node name="PlanetTooltipDesc" type="Label" parent="CanvasLayer/PlanetTooltip" unique_id=309980532]
+unique_name_in_owner = true
+layout_mode = 2
+text = "30% Titanium
+11% Iron"
+
+[node name="Planet" type="Sprite2D" parent="." unique_id=781621643]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("2_2b8kb")
