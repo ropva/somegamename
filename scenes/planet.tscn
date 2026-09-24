@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://0qkm1f0xs2ig"]
 
-[ext_resource type="Texture2D" uid="uid://cdxenmcgvy0df" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
-[ext_resource type="Texture2D" uid="uid://fglx0cehn3jy" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
+[ext_resource type="Texture2D" uid="uid://bs2cnj004lkci" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
+[ext_resource type="Texture2D" uid="uid://c17sxp8jl43y" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
-[ext_resource type="Texture2D" uid="uid://dwkbtqgv5s17o" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
-[ext_resource type="Texture2D" uid="uid://4hulojjoj1c5" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
-[ext_resource type="Texture2D" uid="uid://dp6clsgboxs8h" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
-[ext_resource type="Texture2D" uid="uid://8q8eulc48bck" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
-[ext_resource type="Texture2D" uid="uid://de0exdsrdqepk" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://b5jr65sbubnm7" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://b8f8arymx85qv" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
+[ext_resource type="Texture2D" uid="uid://u2j2i8g6gpbm" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
+[ext_resource type="Texture2D" uid="uid://c14pn8o3dq3cd" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://t3n2ufffr5lp" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://dn32we0vxovlh" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://o10if1rmmycx" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k1rn"]
 texture = ExtResource("1_h8ms6")

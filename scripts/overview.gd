@@ -5,6 +5,10 @@ extends Node2D
 func _ready() -> void:
 	pass # Replace with function body.
 	
+func _draw():
+	var screen_size = get_viewport_rect().size
+	for p in Global.planets:
+		draw_circle(p.pos*screen_size, p.size, p.color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
