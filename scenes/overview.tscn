@@ -10,6 +10,7 @@ script = ExtResource("1_eg1db")
 
 [node name="PlanetTooltip" type="VBoxContainer" parent="CanvasLayer" unique_id=1727421022]
 unique_name_in_owner = true
+visible = false
 offset_right = 156.0
 offset_bottom = 108.0
 

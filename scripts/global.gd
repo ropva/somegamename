@@ -3,7 +3,7 @@ extends Node
 var money = 0
 
 var planets: Array[Planet]
-var selected_planet: int
+var selected_planet: int = -1
 
 
 const IRON_COLOR = Color(1.0, 0.353, 0.0, 1.0)

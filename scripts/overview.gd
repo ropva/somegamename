@@ -1,5 +1,6 @@
 extends Node2D
 
+var PlanetScene = load("res://scenes/planet.tscn")
 
 func hovered_planet(screen_position: Vector2) -> int:
 	return Global.planets.find_custom(
@@ -27,6 +28,15 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 func _ready():
 	draw_planets()
+	if (Global.selected_planet >= 0):
+		var planet: Global.Planet = Global.planets[Global.selected_planet]
+		var planetScene: Node2D = PlanetScene.instantiate()
+		add_child(planetScene)
+		print("jdjd")
+		var tween = planetScene.create_tween()
+		# tween.tween_property(planetScene, "global_position", planet.pos * get_viewport_rect().size, 1.0)
+		tween.tween_property(planetScene, "scale", Vector2(0.001, 0.001), 1.0)
+		tween.tween_callback(planetScene.queue_free.bind())
 func draw_planets():
 	var screen_size = get_viewport_rect().size
 	for p in Global.planets:
