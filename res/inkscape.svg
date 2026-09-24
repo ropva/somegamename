@@ -26,15 +26,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2"
-     inkscape:cx="203.25"
-     inkscape:cy="156.75"
+     inkscape:zoom="1"
+     inkscape:cx="334"
+     inkscape:cy="244.5"
      inkscape:window-width="1920"
      inkscape:window-height="1046"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4-2-7-6-1-4"
+     inkscape:current-layer="layer4-2"
      inkscape:export-bgcolor="#ffffff00">
     <inkscape:grid
        type="axonomgrid"
@@ -1520,7 +1520,7 @@
     <path
        sodipodi:type="star"
        style="fill:#ffffff;stroke:#ffffff;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round"
-       id="path1"
+       id="path8"
        inkscape:flatsided="true"
        sodipodi:sides="3"
        sodipodi:cx="29"
@@ -1538,10 +1538,10 @@
     <path
        style="fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none"
        d="M 28.999999,30 V 26.999999"
-       id="path8" />
+       id="path10" />
     <path
        style="fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        d="m 27.999999,26.999999 h 1.999998"
-       id="path10" />
+       id="path11" />
   </g>
 </svg>
