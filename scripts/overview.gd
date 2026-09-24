@@ -31,12 +31,30 @@ func _ready():
 	if (Global.selected_planet >= 0):
 		var planet: Global.Planet = Global.planets[Global.selected_planet]
 		var planetScene: Node2D = PlanetScene.instantiate()
-		add_child(planetScene)
-		print("jdjd")
-		var tween = planetScene.create_tween()
-		# tween.tween_property(planetScene, "global_position", planet.pos * get_viewport_rect().size, 1.0)
-		tween.tween_property(planetScene, "scale", Vector2(0.001, 0.001), 1.0)
-		tween.tween_callback(planetScene.queue_free.bind())
+		var screen_size: Vector2 = get_viewport().get_visible_rect().size
+
+		var vp := SubViewport.new()
+		vp.add_child(PlanetScene.instantiate())
+
+		var container := SubViewportContainer.new()
+		container.stretch = true
+		container.size = screen_size
+		container.pivot_offset = planet.pos * get_viewport_rect().size
+		container.scale = Vector2.ONE
+		container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		container.add_child(vp)
+
+		var layer := CanvasLayer.new()
+		layer.layer = 100
+		layer.add_child(container)
+		get_tree().root.add_child(layer)
+
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.tween_property(container, "scale", Vector2.ONE * 0.0001, 0.5)
+		await tween.finished
+		tween.tween_callback(vp.queue_free.bind())
+
 func draw_planets():
 	var screen_size = get_viewport_rect().size
 	for p in Global.planets:
