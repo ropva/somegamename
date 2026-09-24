@@ -3,6 +3,7 @@ extends Node
 var money = 0
 
 var planets: Array[Planet]
+var selected_planet: int
 
 
 const IRON_COLOR = Color(1.0, 0.353, 0.0, 1.0)
@@ -14,16 +15,16 @@ func generate_planet_pos():
 		var pos = Vector2(randf_range(0.1, 0.9), randf_range(0.1, 0.9))
 		if planets.all(
 			func planet_dist(e: Planet):
-				return e.pos.distance_squared_to(pos) > 0.01
+				return e.pos.distance_squared_to(pos) > 0.015
 		):
 			return pos
 
 class Planet:
-	var iron = int(pow(randf_range(2, 9), 2)-4)
-	var titanium = randi_range(0, max(80-iron*1.5, 0))
+	var iron = max(int(pow(randf_range(2, 10), 2)-10), 0)
+	var titanium = randi_range(0, max(80-iron*1.7, 0))
 	var rock = 100 - iron - titanium
 	var color = lerp(ROCK_COLOR, IRON_COLOR, iron / 100.0) if iron > titanium else lerp(ROCK_COLOR, TITANIUM_COLOR, titanium / 100.0)
-	var size = randi_range(40, 60)
+	var size = randi_range(30, 80)
 	var pos: Vector2 = Global.generate_planet_pos()
 	var id = ""
 	func _init(_id: String):
@@ -39,6 +40,4 @@ func _ready():
 	planets.push_back(Planet.new("8"))
 	planets.push_back(Planet.new("9"))
 	planets.push_back(Planet.new("7"))
-	for p in planets:
-		print(p.pos, " Iron:", p.iron, " Titanium:", p.titanium, " Rock:", p.rock, " Color:", p.color)
 	

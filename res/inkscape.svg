@@ -26,15 +26,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1"
-     inkscape:cx="334"
-     inkscape:cy="244.5"
+     inkscape:zoom="2"
+     inkscape:cx="540.5"
+     inkscape:cy="166.25"
      inkscape:window-width="1920"
      inkscape:window-height="1046"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4-2"
+     inkscape:current-layer="layer5"
      inkscape:export-bgcolor="#ffffff00">
     <inkscape:grid
        type="axonomgrid"
@@ -1543,5 +1543,24 @@
        style="fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        d="m 27.999999,26.999999 h 1.999998"
        id="path11" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="planet_base"
+     transform="rotate(-18.456299,154.95712,39.929827)">
+    <circle
+       style="fill:#ffffff;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       id="path1"
+       cx="139"
+       cy="40"
+       r="25"
+       transform="translate(16)" />
+    <path
+       style="fill:#cccccc;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       d="m 129,63 c -7.87172,-5.518534 -7.17479,-44.527281 20,-46 14.97953,-0.811805 0,0 0,0 C 130,9.0000001 113,25 114,39.999999 113.66667,45.666667 117,58 129,63 Z"
+       id="path12"
+       sodipodi:nodetypes="csccc"
+       transform="translate(16)" />
   </g>
 </svg>
