@@ -1,40 +1,52 @@
-[gd_scene format=3 uid="uid://0qkm1f0xs2ig"]
+[gd_scene format=4 uid="uid://0qkm1f0xs2ig"]
 
 [ext_resource type="Script" uid="uid://ba7oxx26bt735" path="res://scripts/planet.gd" id="1_ekhpw"]
-[ext_resource type="Texture2D" uid="uid://bs2cnj004lkci" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
-[ext_resource type="Texture2D" uid="uid://c17sxp8jl43y" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
+[ext_resource type="Texture2D" uid="uid://ltfmlbss1bvk" path="res://res/asset_housing_4x.png" id="2_11eka"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
+[ext_resource type="Texture2D" uid="uid://cugaiskoqu30f" path="res://res/asset_open_pit_mine_4x.png" id="3_n1t4m"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
-[ext_resource type="Texture2D" uid="uid://b8f8arymx85qv" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
-[ext_resource type="Texture2D" uid="uid://u2j2i8g6gpbm" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
-[ext_resource type="Texture2D" uid="uid://c14pn8o3dq3cd" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
-[ext_resource type="Texture2D" uid="uid://t3n2ufffr5lp" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
-[ext_resource type="Texture2D" uid="uid://dn32we0vxovlh" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://o10if1rmmycx" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://cee8cw88qp51w" path="res://res/asset_solar_plant_4x.png" id="4_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://bf2fnhiff4fqr" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
+[ext_resource type="Texture2D" uid="uid://cxibhjg5u0ts2" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
+[ext_resource type="Texture2D" uid="uid://b8xriokyv2iri" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://oixjbudchug4" path="res://res/asset_solar_plant_0.5x.png" id="13_n1t4m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k1rn"]
-texture = ExtResource("1_h8ms6")
-texture_region_size = Vector2i(273, 315)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7os"]
+texture = ExtResource("2_11eka")
+texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48b8c"]
-texture = ExtResource("2_ggt7d")
-texture_region_size = Vector2i(273, 315)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkmej"]
+texture = ExtResource("3_n1t4m")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5i4l"]
+texture = ExtResource("4_kp5tw")
+texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0wmcs"]
 tile_shape = 3
-tile_size = Vector2i(298, 340)
-sources/1 = SubResource("TileSetAtlasSource_48b8c")
-sources/0 = SubResource("TileSetAtlasSource_0k1rn")
+tile_size = Vector2i(1191, 1360)
+sources/3 = SubResource("TileSetAtlasSource_y5i4l")
+sources/2 = SubResource("TileSetAtlasSource_qkmej")
+sources/1 = SubResource("TileSetAtlasSource_qa7os")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw1i6"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_cbdsw"]
+resource_name = "hotbar"
 
 [node name="Planet" type="Node2D" unique_id=825123736]
 script = ExtResource("1_ekhpw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1695141060]
+layer = -1
 
 [node name="Background" type="Panel" parent="CanvasLayer" unique_id=1641827582]
 unique_name_in_owner = true
@@ -43,10 +55,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="BuildingLayer" type="TileMapLayer" parent="." unique_id=505039747]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+scale = Vector2(0.1, 0.1)
+tile_map_data = PackedByteArray("AAAAAAEAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAACAAIAAwAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_0wmcs")
 script = ExtResource("3_ggt7d")
 
@@ -179,8 +193,57 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Top Bar" unique_id=1852669520]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
 text = "Back"
+
+[node name="FlowContainer3" type="FlowContainer" parent="UI" unique_id=2111249864]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -237.0
+offset_right = 108.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+alignment = 2
+last_wrap_alignment = 3
+vertical = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer3" unique_id=1318178449]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="Hotbar" type="HBoxContainer" parent="UI/FlowContainer3/MarginContainer" unique_id=910243130]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=1995383591]
+custom_maximum_size = Vector2(-1, 60)
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_cbdsw")
+texture_normal = ExtResource("13_n1t4m")
+stretch_mode = 5
+
+[node name="Button2" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=722476396]
+custom_maximum_size = Vector2(-1, 60)
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_cbdsw")
+texture_normal = ExtResource("13_n1t4m")
+stretch_mode = 5
 
 [connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Top Bar/Button" to="." method="_on_back_button_pressed"]

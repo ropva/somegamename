@@ -2,17 +2,16 @@ extends TileMapLayer
 
 #Do we really have to update money and ui every tick
 var tick_timer = 0
-var tick_scaler = 0.5
+var tick_scaler = 0.001
 
 @export var planetIndex: int = -1
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		#psa don't use scales with these lmao
-		var tile_coord = %BuildingLayer.local_to_map(event.position)
+		var tile_coord = local_to_map(to_local(event.position))
 		print(tile_coord)
-		%BuildingLayer.set_cell(tile_coord,0)
+		set_cell(tile_coord,1, Vector2(0, 0))
 		
 func _physics_process(delta: float) -> void:
 	
@@ -23,18 +22,11 @@ func _physics_process(delta: float) -> void:
 	#building output
 	if(tick_scaler<tick_timer):
 		tick_timer=tick_timer-tick_scaler
-		var cells = %BuildingLayer.get_used_cells()
+		var cells = get_used_cells()
 		for cell in cells:
-			# we gotta get a better system asap
-			# 0 mine
-			# 1 panel
-			#
-			#
-			#
-			#
-			if(%BuildingLayer.get_cell_source_id(cell)==0):
+			if(get_cell_source_id(cell)==2):
 				planet.resources.steel=planet.resources.steel+1*tick_scaler
-			elif(%BuildingLayer.get_cell_source_id(cell)==1):
+			elif(get_cell_source_id(cell)==3):
 				planet.resources.electricity=planet.resources.electricity+1*tick_scaler
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))

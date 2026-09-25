@@ -6,7 +6,7 @@ var planets: Array[Planet]
 var selected_planet: int = -1
 
 
-const IRON_COLOR = Color(1.0, 0.353, 0.0, 1.0)
+const IRON_COLOR = Color(0.82, 0.219, 0.0, 1.0)
 const TITANIUM_COLOR=Color(0.0, 0.0, 0.0, 1.0)
 const ROCK_COLOR = Color(0.741, 0.706, 0.753, 1.0)
 
@@ -64,13 +64,25 @@ func _ready():
 		planets.push_back(Planet.new(str(i), generate_planet_name(i)))
 		i += 1
 
+# INGREDIENTS
+# 0: titanium
+# 1: steel
+# 2: money
+
+
 class Tile:
-	var id = ""
-	var sprite = ""
-	func _init(_id: String, _sprite: String):
+	var id: String
+	var name: String
+	var sprite: int
+	var recipe: Array[int]
+	func _init(_id: String,_name: String, _sprite: int, _recipe: Array[int]):
 		id = _id
+		name = _name
 		sprite = _sprite
+		recipe = _recipe
 
 var tiles = [
-	Tile.new("solar_plant", "asset_solar_plant_1x")
+	Tile.new("solar_plant", "Solar plant", 3, [10, 1, 3, 0]),
+	Tile.new("housing", "Housing", 1, [10, 1, 20, 2]),
+	Tile.new("open_pit_mine", "Open pit mine", 1, [10, 1, 20, 2])
 ]

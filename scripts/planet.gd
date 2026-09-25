@@ -20,7 +20,7 @@ func _ready() -> void:
 	%Background.add_theme_stylebox_override("panel",style)
 	#%Background.theme = .color
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _on_back_button_pressed() -> void:
