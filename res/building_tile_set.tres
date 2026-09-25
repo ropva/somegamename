@@ -1,0 +1,30 @@
+[gd_resource type="TileSet" format=3 uid="uid://4i5ciqcb1goq"]
+
+[ext_resource type="Texture2D" uid="uid://ltfmlbss1bvk" path="res://res/asset_housing_4x.png" id="1_yblt2"]
+[ext_resource type="Texture2D" uid="uid://cugaiskoqu30f" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://cee8cw88qp51w" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7os"]
+resource_name = "housing"
+texture = ExtResource("1_yblt2")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkmej"]
+resource_name = "open_pit_mine"
+texture = ExtResource("2_bnhxx")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yblt2"]
+resource_name = "solar_plant"
+texture = ExtResource("3_qjhfv")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[resource]
+tile_shape = 3
+tile_size = Vector2i(1191, 1360)
+sources/0 = SubResource("TileSetAtlasSource_qa7os")
+sources/1 = SubResource("TileSetAtlasSource_qkmej")
+sources/2 = SubResource("TileSetAtlasSource_yblt2")

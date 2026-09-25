@@ -23,6 +23,9 @@ var num = randi_range(1, 150)
 var system = start + mid + end
 var SYSTEM_NAME = "%d %s" % [num, system]
 
+var tileSourceArray = []
+
+
 func generate_planet_name(i):
 	var planet_name = PLANET_IDS[i % PLANET_IDS.size()] + str(i)
 
@@ -58,12 +61,18 @@ class Planet:
 	func _init(n_id: String, n_name: String):
 		id = n_id
 		name = n_name
+
 func _ready():
 	var i: int = 0
 	while i < 10:
 		planets.push_back(Planet.new(str(i), generate_planet_name(i)))
 		i += 1
-
+		
+	var building_tile_set=load("res://res/building_tile_set.tres")
+	for src in building_tile_set.get_source_count()+1:
+		if(not building_tile_set.get_source(src)==null):
+			tileSourceArray.resize(tileSourceArray.size()+1)
+			tileSourceArray[src]=building_tile_set.get_source(src).resource_name
 # INGREDIENTS
 # 0: titanium
 # 1: steel
@@ -86,5 +95,7 @@ class Tile:
 var tiles: Array[Tile] = [
 	Tile.new("solar_plant", "Solar plant", 3, "res://res/asset_solar_plant_0.5x.png", [10, 1, 3, 0]),
 	Tile.new("housing", "Housing", 1, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2]),
-	Tile.new("open_pit_mine", "Open pit mine", 1, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2])
+	Tile.new("open_pit_mine", "Open pit mine", 1, "res://res/asset_open_pit_mine_0.5x.png", [10, 1, 20, 2])
 ]
+
+	
