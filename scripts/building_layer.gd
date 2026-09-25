@@ -4,6 +4,7 @@ extends TileMapLayer
 var tick_timer = 0
 var tick_scaler = 0.5
 
+@export var planetIndex: int = -1
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -14,7 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func _physics_process(delta: float) -> void:
 	
-	var planet = Global.planets[Global.selected_planet]
+	var planet = Global.planets[planetIndex]
 	#Do we really have to update money and ui every tick
 	tick_timer=tick_timer+delta
 	

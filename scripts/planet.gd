@@ -2,15 +2,14 @@ extends Node2D
 
 signal on_back
 
-var planet = Global.planets[Global.selected_planet]
+@export var planetIndex: int = -1
 
 func _ready() -> void:
-	%Background.color = planet.color
+	%BuildingLayer.planetIndex = planetIndex
+	%Background.color = Global.planets[planetIndex].color
 
 func _process(delta: float) -> void:
 	pass
 	
 func _on_back_button_pressed() -> void:
-	print("jdkjdj")
-	print(on_back.get_connections())
 	on_back.emit()

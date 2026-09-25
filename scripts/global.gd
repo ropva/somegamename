@@ -33,6 +33,8 @@ class Planet:
 		robots = 0,
 		people = 10
 	}
+	var layer: CanvasLayer
+	var container: SubViewportContainer
 	var id = ""
 	func _init(_id: String):
 		id = _id
