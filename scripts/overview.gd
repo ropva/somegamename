@@ -9,11 +9,53 @@ func hovered_planet(screen_position: Vector2) -> int:
 			return screen_position.distance_squared_to(pos) <= pow(p.size, 2)
 	)
 
+func close_planet(container: SubViewportContainer, layer: CanvasLayer): 
+	Global.selected_planet = -1
+	visible = true
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.tween_property(container, "scale", Vector2.ONE * 0.0001, 0.3)
+	await tween.finished
+	tween.tween_callback(layer.queue_free.bind())
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var planet = hovered_planet(event.position)
-		Global.selected_planet = planet
-		get_tree().change_scene_to_file("res://scenes/planet.tscn")
+		var planetIndex = hovered_planet(event.position)
+		if planetIndex == -1 or Global.selected_planet != -1:
+			return
+		var planet = Global.planets[planetIndex]
+		Global.selected_planet = planetIndex
+		var planetScene: Node2D = PlanetScene.instantiate()
+		var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	
+
+		var vp := SubViewport.new()
+		vp.add_child(planetScene)
+
+		var container := SubViewportContainer.new()
+		container.stretch = true
+		container.size = screen_size
+		container.pivot_offset = planet.pos * get_viewport_rect().size
+		container.scale = Vector2.ONE * 0.0001
+		container.mouse_filter = Control.MOUSE_FILTER_STOP
+		container.add_child(vp)
+
+		var layer := CanvasLayer.new()
+		layer.layer = 100
+		layer.add_child(container)
+		get_tree().root.add_child(layer)
+		
+		planetScene.on_back.connect(
+			func on_exit():
+				print("hdhdh")
+				close_planet(container, layer)
+		)
+		var tween := create_tween()
+		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.tween_property(container, "scale", Vector2.ONE, 0.3)
+		await tween.finished
+		visible = false
+	
 	if event is InputEventMouseMotion:
 		var planetIndex = hovered_planet(event.position)
 		%PlanetTooltip.visible = planetIndex != -1
@@ -28,32 +70,6 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 func _ready():
 	draw_planets()
-	if (Global.selected_planet >= 0):
-		var planet: Global.Planet = Global.planets[Global.selected_planet]
-		var planetScene: Node2D = PlanetScene.instantiate()
-		var screen_size: Vector2 = get_viewport().get_visible_rect().size
-
-		var vp := SubViewport.new()
-		vp.add_child(PlanetScene.instantiate())
-
-		var container := SubViewportContainer.new()
-		container.stretch = true
-		container.size = screen_size
-		container.pivot_offset = planet.pos * get_viewport_rect().size
-		container.scale = Vector2.ONE
-		container.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		container.add_child(vp)
-
-		var layer := CanvasLayer.new()
-		layer.layer = 100
-		layer.add_child(container)
-		get_tree().root.add_child(layer)
-
-		var tween := create_tween()
-		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-		tween.tween_property(container, "scale", Vector2.ONE * 0.0001, 0.5)
-		await tween.finished
-		tween.tween_callback(vp.queue_free.bind())
 
 func draw_planets():
 	var screen_size = get_viewport_rect().size

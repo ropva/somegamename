@@ -7,14 +7,11 @@ extends TileMapLayer
 @export var titanium = 0
 @export var electricity = 0
 
-var planet = Global.planets[Global.selected_planet]
-
 #Do we really have to update money and ui every tick
 var tick_timer = 0
 var tick_scaler = 0.5
 
-func _ready() -> void:
-	%Background.color = planet.color
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -49,7 +46,3 @@ func _physics_process(delta: float) -> void:
 	%SteelLabel.text = str(int(titanium))
 	%TitaniumLabel.text = str(int(steel))
 	%ElectricityLabel.text = str(int(electricity))
-
-
-func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/overview.tscn")

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://0qkm1f0xs2ig"]
 
+[ext_resource type="Script" uid="uid://ba7oxx26bt735" path="res://scenes/planet.gd" id="1_ekhpw"]
 [ext_resource type="Texture2D" uid="uid://bs2cnj004lkci" path="res://res/asset_open_pit_mine_1x.png" id="1_h8ms6"]
 [ext_resource type="Texture2D" uid="uid://c17sxp8jl43y" path="res://res/asset_solar_plant_1x.png" id="2_ggt7d"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
@@ -31,6 +32,7 @@ sources/0 = SubResource("TileSetAtlasSource_0k1rn")
 bg_color = Color(0, 0, 0, 0)
 
 [node name="Planet" type="Node2D" unique_id=825123736]
+script = ExtResource("1_ekhpw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1695141060]
 
@@ -182,4 +184,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Back"
 
-[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Top Bar/Button" to="BuildingLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Top Bar/Button" to="." method="_on_back_button_pressed"]
