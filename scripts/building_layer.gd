@@ -13,6 +13,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		print(tile_coord)
 		set_cell(tile_coord,1, Vector2(0, 0))
 		
+func _ready() -> void:
+	for tile in Global.tiles:
+		var new_button: TextureButton = %TileButton.duplicate()
+		new_button.visible = true
+		new_button.texture_normal = load(tile.sprite_path)
+		%Hotbar.add_child(new_button)
+
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]

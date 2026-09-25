@@ -74,15 +74,17 @@ class Tile:
 	var id: String
 	var name: String
 	var sprite: int
+	var sprite_path: String
 	var recipe: Array[int]
-	func _init(_id: String,_name: String, _sprite: int, _recipe: Array[int]):
+	func _init(_id: String,_name: String, _sprite: int, _sprite_path: String, _recipe: Array[int]):
 		id = _id
 		name = _name
 		sprite = _sprite
+		sprite_path = _sprite_path
 		recipe = _recipe
 
-var tiles = [
-	Tile.new("solar_plant", "Solar plant", 3, [10, 1, 3, 0]),
-	Tile.new("housing", "Housing", 1, [10, 1, 20, 2]),
-	Tile.new("open_pit_mine", "Open pit mine", 1, [10, 1, 20, 2])
+var tiles: Array[Tile] = [
+	Tile.new("solar_plant", "Solar plant", 3, "res://res/asset_solar_plant_0.5x.png", [10, 1, 3, 0]),
+	Tile.new("housing", "Housing", 1, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2]),
+	Tile.new("open_pit_mine", "Open pit mine", 1, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2])
 ]

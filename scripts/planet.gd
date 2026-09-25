@@ -18,7 +18,6 @@ func _ready() -> void:
 	style.border_width_right = 16
 	
 	%Background.add_theme_stylebox_override("panel",style)
-	#%Background.theme = .color
 
 func _process(_delta: float) -> void:
 	pass

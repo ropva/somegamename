@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
 [ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
-[ext_resource type="Texture2D" uid="uid://oixjbudchug4" path="res://res/asset_solar_plant_0.5x.png" id="13_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://dr8y36bdnor1v" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7os"]
 texture = ExtResource("2_11eka")
@@ -218,27 +218,19 @@ vertical = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer3" unique_id=1318178449]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
-theme_override_constants/margin_bottom = 36
+theme_override_constants/margin_bottom = 96
 
 [node name="Hotbar" type="HBoxContainer" parent="UI/FlowContainer3/MarginContainer" unique_id=910243130]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=1995383591]
-custom_maximum_size = Vector2(-1, 60)
-layout_mode = 2
-theme = ExtResource("4_0k1rn")
-toggle_mode = true
-button_group = SubResource("ButtonGroup_cbdsw")
-texture_normal = ExtResource("13_n1t4m")
-stretch_mode = 5
-
-[node name="Button2" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=722476396]
-custom_maximum_size = Vector2(-1, 60)
+[node name="TileButton" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=1995383591]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 toggle_mode = true
