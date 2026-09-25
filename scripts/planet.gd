@@ -6,7 +6,19 @@ signal on_back
 
 func _ready() -> void:
 	%BuildingLayer.planetIndex = planetIndex
-	%Background.color = Global.planets[planetIndex].color
+	
+	var planet = Global.planets[planetIndex]
+	
+	var style = StyleBoxFlat.new()
+	style.bg_color = planet.color
+	style.border_color = lerp(planet.color, Color.BLACK, 0.5)
+	style.border_width_bottom = 16
+	style.border_width_top = 16
+	style.border_width_left = 16
+	style.border_width_right = 16
+	
+	%Background.add_theme_stylebox_override("panel",style)
+	#%Background.theme = .color
 
 func _process(delta: float) -> void:
 	pass

@@ -27,7 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Global.selected_planet = planetIndex
 		
 		var tween := create_tween()
-		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tween.tween_callback(func(): planet.layer.visible = true)
 		tween.tween_property(planet.container, "scale", Vector2.ONE, 0.3)
 		await tween.finished
@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if (planetIndex != -1):
 			var planet = Global.planets[planetIndex]
 			%PlanetTooltip.position = event.position
-			%PlanetTooltipTitle.text = "Planet " + planet.id
+			%PlanetTooltipTitle.text = planet.name
 			if (planet.titanium > planet.iron):
 				%PlanetTooltipDesc.text = "Titanium: {0}%\nIron: {1}%".format([ planet.titanium, planet.iron])
 			else:
@@ -67,8 +67,9 @@ func draw_planets():
 
 		var container := SubViewportContainer.new()
 		container.stretch = true
-		container.size = screen_size
-		container.pivot_offset = p.pos * get_viewport_rect().size
+		container.position = Vector2(-16, -16)
+		container.size = screen_size + Vector2(32,32)
+		container.pivot_offset = p.pos * get_viewport_rect().size + Vector2(16, 16)
 		container.scale = Vector2.ONE * 0.0001
 		container.mouse_filter = Control.MOUSE_FILTER_STOP
 		container.add_child(vp)
@@ -81,7 +82,6 @@ func draw_planets():
 		
 		planetScene.on_back.connect(
 			func on_exit():
-				print("hdhdh")
 				close_planet(container, layer)
 		)
 		p.container = container

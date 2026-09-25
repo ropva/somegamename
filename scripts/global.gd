@@ -10,6 +10,24 @@ const IRON_COLOR = Color(1.0, 0.353, 0.0, 1.0)
 const TITANIUM_COLOR=Color(0.0, 0.0, 0.0, 1.0)
 const ROCK_COLOR = Color(0.741, 0.706, 0.753, 1.0)
 
+const SYLLABLES_START = ["Zul", "Var", "Kry", "Xan", "Bel", "Thra", "Myr", "Oph", "Hex", "Quar"]
+const SYLLABLES_MID = ["o", "i", "a", "u", "e", "an", "on", "or"]
+const SYLLABLES_END = ["s", "x", "n", "th", "d", "m", "ria", "tium", "vis", "cion"]
+const PLANET_IDS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G"]
+	
+var start = SYLLABLES_START[randi() % SYLLABLES_START.size()]
+var mid = SYLLABLES_MID[randi() % SYLLABLES_MID.size()]
+var end = SYLLABLES_END[randi() % SYLLABLES_END.size()]
+var num = randi_range(1, 150)
+
+var system = start + mid + end
+var SYSTEM_NAME = "%d %s" % [num, system]
+
+func generate_planet_name(i):
+	var planet_name = PLANET_IDS[i % PLANET_IDS.size()] + str(i)
+
+	return "%s %s" % [SYSTEM_NAME, planet_name]
+	
 func generate_planet_pos():
 	while true:
 		var pos = Vector2(randf_range(0.1, 0.9), randf_range(0.1, 0.9))
@@ -36,20 +54,15 @@ class Planet:
 	var layer: CanvasLayer
 	var container: SubViewportContainer
 	var id = ""
-	func _init(_id: String):
-		id = _id
+	var name = ""
+	func _init(n_id: String, n_name: String):
+		id = n_id
+		name = n_name
 func _ready():
-	planets.push_back(Planet.new("1"))
-	planets.push_back(Planet.new("2"))
-	planets.push_back(Planet.new("3"))
-	planets.push_back(Planet.new("4"))
-	planets.push_back(Planet.new("5"))
-	planets.push_back(Planet.new("6"))
-	planets.push_back(Planet.new("7"))
-	planets.push_back(Planet.new("8"))
-	planets.push_back(Planet.new("9"))
-	planets.push_back(Planet.new("7"))
-	
+	var i: int = 0
+	while i < 10:
+		planets.push_back(Planet.new(str(i), generate_planet_name(i)))
+		i += 1
 
 class Tile:
 	var id = ""
