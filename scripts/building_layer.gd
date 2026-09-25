@@ -11,7 +11,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		#psa don't use scales with these lmao
 		var tile_coord = %BuildingLayer.local_to_map(event.position)
-		%BuildingLayer.set_cell(tile_coord,0,Vector2i(0,0))
+		print(tile_coord)
+		%BuildingLayer.set_cell(tile_coord,0)
 		
 func _physics_process(delta: float) -> void:
 	
