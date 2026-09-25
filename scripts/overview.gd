@@ -15,8 +15,9 @@ func close_planet(container: SubViewportContainer, layer: CanvasLayer):
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.tween_property(container, "scale", Vector2.ONE * 0.0001, 0.3)
-	await tween.finished
 	tween.tween_callback(layer.queue_free.bind())
+	tween.tween_callback(container.queue_free.bind())
+	await tween.finished
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

@@ -26,6 +26,13 @@ class Planet:
 	var color = lerp(ROCK_COLOR, IRON_COLOR, iron / 100.0) if iron > titanium else lerp(ROCK_COLOR, TITANIUM_COLOR, titanium / 100.0)
 	var size = randi_range(30, 80)
 	var pos: Vector2 = Global.generate_planet_pos()
+	var resources = {
+		titanium = 0,
+		steel = 0,
+		electricity = 0,
+		robots = 0,
+		people = 10
+	}
 	var id = ""
 	func _init(_id: String):
 		id = _id

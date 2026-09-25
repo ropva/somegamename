@@ -1,12 +1,5 @@
 extends TileMapLayer
 
-@export var people = 0
-@export var robots = 0
-
-@export var steel = 0
-@export var titanium = 0
-@export var electricity = 0
-
 #Do we really have to update money and ui every tick
 var tick_timer = 0
 var tick_scaler = 0.5
@@ -20,6 +13,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		%BuildingLayer.set_cell(tile_coord,0,Vector2i(0,0))
 		
 func _physics_process(delta: float) -> void:
+	
+	var planet = Global.planets[Global.selected_planet]
 	#Do we really have to update money and ui every tick
 	tick_timer=tick_timer+delta
 	
@@ -36,13 +31,13 @@ func _physics_process(delta: float) -> void:
 			#
 			#
 			if(%BuildingLayer.get_cell_source_id(cell)==0):
-				steel=steel+1*tick_scaler
+				planet.resources.steel=planet.resources.steel+1*tick_scaler
 			elif(%BuildingLayer.get_cell_source_id(cell)==1):
-				electricity=electricity+1*tick_scaler
+				planet.resources.electricity=planet.resources.electricity+1*tick_scaler
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
-	%PopLabel.text = str(int(people))
-	%RobotLabel.text = str(int(robots))
-	%SteelLabel.text = str(int(titanium))
-	%TitaniumLabel.text = str(int(steel))
-	%ElectricityLabel.text = str(int(electricity))
+	%PopLabel.text = str(int(planet.resources.people))
+	%RobotLabel.text = str(int(planet.resources.robots))
+	%SteelLabel.text = str(int(planet.resources.titanium))
+	%TitaniumLabel.text = str(int(planet.resources.steel))
+	%ElectricityLabel.text = str(int(planet.resources.electricity))

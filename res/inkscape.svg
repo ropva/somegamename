@@ -27,8 +27,8 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2"
-     inkscape:cx="540.5"
-     inkscape:cy="166.25"
+     inkscape:cx="516"
+     inkscape:cy="197.25"
      inkscape:window-width="1920"
      inkscape:window-height="1046"
      inkscape:window-x="-11"
@@ -1550,7 +1550,7 @@
      inkscape:label="planet_base"
      transform="rotate(-18.456299,154.95712,39.929827)">
     <circle
-       style="fill:#ffffff;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+       style="fill:#ffffff;stroke:#767676;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill;fill-opacity:1;stroke-opacity:1;stroke-dasharray:none"
        id="path1"
        cx="139"
        cy="40"
