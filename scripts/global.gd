@@ -93,8 +93,8 @@ class Tile:
 		recipe = _recipe
 
 var tiles: Array[Tile] = [
-	Tile.new("solar_plant", "Solar plant", 3, "res://res/asset_solar_plant_0.5x.png", [10, 1, 3, 0]),
-	Tile.new("housing", "Housing", 1, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2]),
+	Tile.new("solar_plant", "Solar plant", 2, "res://res/asset_solar_plant_0.5x.png", [10, 1, 3, 0]),
+	Tile.new("housing", "Housing", 0, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2]),
 	Tile.new("open_pit_mine", "Open pit mine", 1, "res://res/asset_open_pit_mine_0.5x.png", [10, 1, 20, 2])
 ]
 

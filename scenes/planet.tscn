@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
 [ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scenes/camera_2d.gd" id="13_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://dr8y36bdnor1v" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
 
@@ -22,6 +23,12 @@ resource_name = "hotbar"
 [node name="Planet" type="Node2D" unique_id=825123736]
 script = ExtResource("1_ekhpw")
 
+[node name="BuildingLayer" type="TileMapLayer" parent="." unique_id=505039747]
+unique_name_in_owner = true
+scale = Vector2(0.099999994, 0.099999994)
+tile_set = ExtResource("2_11eka")
+script = ExtResource("3_ggt7d")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1695141060]
 layer = -1
 
@@ -33,12 +40,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-
-[node name="BuildingLayer" type="TileMapLayer" parent="." unique_id=505039747]
-unique_name_in_owner = true
-scale = Vector2(0.1, 0.1)
-tile_set = ExtResource("2_11eka")
-script = ExtResource("3_ggt7d")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1783903701]
 
@@ -206,14 +207,20 @@ theme_override_constants/separation = 10
 
 [node name="TileButton" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=1995383591]
 unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 200)
+visible = false
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
 theme = ExtResource("4_0k1rn")
 toggle_mode = true
+action_mode = 0
 button_group = SubResource("ButtonGroup_cbdsw")
 texture_normal = ExtResource("13_n1t4m")
 stretch_mode = 5
 script = ExtResource("14_kp5tw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1153926413]
+script = ExtResource("13_kp5tw")
 
 [connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Top Bar/Button" to="." method="_on_back_button_pressed"]
 [connection signal="mouse_entered" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]

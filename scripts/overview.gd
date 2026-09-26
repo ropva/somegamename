@@ -32,6 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(planet.container, "scale", Vector2.ONE, 0.3)
 		await tween.finished
 		visible = false
+		%PlanetTooltip.visible = false
 	
 	if event is InputEventMouseMotion:
 		var planetIndex = hovered_planet(event.position)
