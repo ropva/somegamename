@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 				planet.resources.steel=planet.resources.steel+1*tick_scaler*(planet.iron / 100.0)
 				planet.resources.titanium=planet.resources.titanium+1*tick_scaler*(planet.titanium / 100.0)
 			elif(tile.id == "solar_plant"):
-				planet.resources.electricity=planet.resources.electricity+1*tick_scaler
+				planet.resources.electricity=planet.resources.electricity+1*tick_scaler*(planet.solar / 100.0)
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
 	%PopLabel.text = str(int(planet.resources.people))

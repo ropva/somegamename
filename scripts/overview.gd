@@ -42,9 +42,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			%PlanetTooltip.position = event.position
 			%PlanetTooltipTitle.text = planet.name
 			if (planet.titanium > planet.iron):
-				%PlanetTooltipDesc.text = "Titanium: {0}%\nIron: {1}%".format([ planet.titanium, planet.iron])
+				%PlanetTooltipDesc.text = "Titanium: {0}%\nIron: {1}%\nSolar: {2}%".format([ planet.titanium, planet.iron, planet.solar])
 			else:
-				%PlanetTooltipDesc.text = "Iron: {0}%\nTitanium: {1}%".format([ planet.iron, planet.titanium])
+				%PlanetTooltipDesc.text = "Iron: {0}%\nTitanium: {1}%\nSolar: {2}%".format([ planet.iron, planet.titanium, planet.solar])
 				
 func _ready():
 	draw_planets()

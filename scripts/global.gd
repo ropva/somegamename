@@ -41,11 +41,12 @@ func generate_planet_pos():
 			return pos
 
 class Planet:
-	var iron = max(int(pow(randf_range(2, 10), 2)-10), 0)
+	var iron = max(int(pow(randf_range(1, 10), 2)-10), 0)
 	var titanium = randi_range(0, max(80-iron*1.7, 0))
 	var rock = 100 - iron - titanium
 	var color = lerp(ROCK_COLOR, IRON_COLOR, iron / 100.0) if iron > titanium else lerp(ROCK_COLOR, TITANIUM_COLOR, titanium / 100.0)
 	var size = randi_range(30, 80)
+	var solar = min(randi_range(0, 110), 100)
 	var pos: Vector2 = Global.generate_planet_pos()
 	var resources = {
 		titanium = 10,
