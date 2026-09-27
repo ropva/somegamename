@@ -2,6 +2,8 @@ extends Node2D
 
 var PlanetScene = load("res://scenes/planet.tscn")
 
+var temp: Array[Node] =[]
+
 func hovered_planet(screen_position: Vector2) -> int:
 	return Global.planets.find_custom(
 		func f(p: Global.Planet):
@@ -48,6 +50,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 func _ready():
 	draw_planets()
+	get_viewport().size_changed.connect(
+		func resize():
+			for node in temp:
+				node.queue_free()
+			temp = []
+			draw_planets()
+	) 
 
 func draw_planets():
 	var screen_size = get_viewport_rect().size
@@ -59,6 +68,7 @@ func draw_planets():
 		new_planet.scale = Vector2(p.size / new_planet.texture.get_size().x * 2, p.size / new_planet.texture.get_size().y * 2)
 		new_planet.position = p.pos*screen_size
 		add_child(new_planet)
+		temp.push_back(new_planet)
 		var planetScene: Node2D = PlanetScene.instantiate()
 		
 		planetScene.planetIndex = idx
@@ -79,7 +89,7 @@ func draw_planets():
 		layer.layer = 100
 		layer.add_child(container)
 		add_child(layer)
-		
+		temp.push_back(layer)
 		
 		planetScene.on_back.connect(
 			func on_exit():

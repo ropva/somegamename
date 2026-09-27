@@ -41,7 +41,7 @@ func generate_planet_pos():
 			return pos
 
 class Planet:
-	var iron = max(int(pow(randf_range(1, 10), 2)-10), 0)
+	var iron = max(int(pow(randf_range(3, 9), 2) + randf_range(-30, 15)), 0)
 	var titanium = randi_range(0, max(80-iron*1.7, 0))
 	var rock = 100 - iron - titanium
 	var color = lerp(ROCK_COLOR, IRON_COLOR, iron / 100.0) if iron > titanium else lerp(ROCK_COLOR, TITANIUM_COLOR, titanium / 100.0)
