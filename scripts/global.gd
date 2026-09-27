@@ -1,6 +1,6 @@
 extends Node
 
-var money = 0
+var money = 100
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -48,8 +48,8 @@ class Planet:
 	var size = randi_range(30, 80)
 	var pos: Vector2 = Global.generate_planet_pos()
 	var resources = {
-		titanium = 0,
-		steel = 0,
+		titanium = 10,
+		steel = 20,
 		electricity = 0,
 		robots = 0,
 		people = 10
@@ -73,29 +73,36 @@ func _ready():
 		if(not building_tile_set.get_source(src)==null):
 			tileSourceArray.resize(tileSourceArray.size()+1)
 			tileSourceArray[src]=building_tile_set.get_source(src).resource_name
-# INGREDIENTS
-# 0: titanium
-# 1: steel
-# 2: money
 
 
 class Tile:
 	var id: String
 	var name: String
+	var desc: String
 	var sprite: int
 	var sprite_path: String
-	var recipe: Array[int]
-	func _init(_id: String,_name: String, _sprite: int, _sprite_path: String, _recipe: Array[int]):
+	var recipe: Array
+	func _init(_id: String,_name: String,_desc: String, _sprite: int, _sprite_path: String, _recipe: Array):
 		id = _id
 		name = _name
+		desc = _desc
 		sprite = _sprite
 		sprite_path = _sprite_path
 		recipe = _recipe
 
 var tiles: Array[Tile] = [
-	Tile.new("solar_plant", "Solar plant", 2, "res://res/asset_solar_plant_0.5x.png", [10, 1, 3, 0]),
-	Tile.new("housing", "Housing", 0, "res://res/asset_housing_0.5x.png", [10, 1, 20, 2]),
-	Tile.new("open_pit_mine", "Open pit mine", 1, "res://res/asset_open_pit_mine_0.5x.png", [10, 1, 20, 2])
+	Tile.new("solar_plant", "Solar plant", 
+	"The most basic way of producing power.", 
+	2, "res://res/asset_solar_plant_0.5x.png", 
+	[10, "steel", 3, "titanium"]),
+	Tile.new("housing", "Housing", 
+	"Basically storage for humans.", 
+	0, "res://res/asset_housing_0.5x.png", 
+	[10, "steel", 20, "money"]),
+	Tile.new("open_pit_mine", "Open pit mine", 
+	"Basic mine. Generated resource is determined by planet properties",
+	 1, "res://res/asset_open_pit_mine_0.5x.png", 
+	[10, "steel"])
 ]
 
 	

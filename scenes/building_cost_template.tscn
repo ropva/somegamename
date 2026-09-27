@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mowp81ngx08e"]
+
+[ext_resource type="Script" uid="uid://bck3opltq0ywq" path="res://scripts/building_cost_template.gd" id="1_gemj1"]
+[ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="2_r62h4"]
+[ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="3_hycqw"]
+
+[node name="BuildingCostTemplate" type="HBoxContainer" unique_id=2021260901]
+unique_name_in_owner = true
+theme_override_constants/separation = 24
+script = ExtResource("1_gemj1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1782198833]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_r62h4")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=780434639]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_hycqw")
+text = "10"

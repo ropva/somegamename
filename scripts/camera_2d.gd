@@ -16,9 +16,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var new_zoom = clamp(zoom.x - zoom_step, min_zoom, max_zoom)
 			zoom_mouse(new_zoom)
 			zoom = Vector2(new_zoom, new_zoom)
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
+		elif event.button_index == MOUSE_BUTTON_MIDDLE:
 			is_panning = true
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE and not event.pressed:
 			is_panning = false
 	elif event is InputEventMouseMotion and is_panning:
 		offset -= event.relative / zoom
