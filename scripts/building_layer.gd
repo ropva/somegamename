@@ -10,7 +10,7 @@ var selected_tile: String = "housing"
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var tile_coord = local_to_map(to_local(event.position))		
+		var tile_coord = local_to_map(to_local(get_global_mouse_position()))
 		set_cell(tile_coord,Global.tileSourceArray.find(selected_tile), Vector2(0, 0))
 
 func _ready() -> void:
