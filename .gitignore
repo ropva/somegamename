@@ -3,4 +3,5 @@
 /android/
 *.tmp
 
-dist
+dist/win
+dist/linux
