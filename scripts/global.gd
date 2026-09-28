@@ -130,6 +130,10 @@ var tiles: Array[Tile] = [
 	Tile.new("open_pit_mine", "Open pit mine", 
 	"Basic mine. Generated resource is determined by planet properties",
 	 1, "res://res/asset_open_pit_mine_0.5x.png", 
+	[10, "steel"]),
+	Tile.new("battery_bank", "Battery Bank", 
+	"I think it stores energy idk I'm tired.",
+	 1, "res://res/asset_battery_bank_0.5x.png", 
 	[10, "steel"])
 ]
 
