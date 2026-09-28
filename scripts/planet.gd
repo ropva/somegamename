@@ -18,6 +18,12 @@ func _ready() -> void:
 	style.border_width_right = 16
 	
 	%Background.add_theme_stylebox_override("panel",style)
+	
+	%PlanetTitle.text = planet.name
+	if (planet.titanium > planet.iron):
+		%PlanetDesc.text = "Titanium: {0}%\nIron: {1}%\nSolar: {2}%".format([ planet.titanium, planet.iron, planet.solar])
+	else:
+		%PlanetDesc.text = "Iron: {0}%\nTitanium: {1}%\nSolar: {2}%".format([ planet.iron, planet.titanium, planet.solar])
 
 func _process(_delta: float) -> void:
 	pass

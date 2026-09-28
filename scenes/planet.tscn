@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
 [ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://cpbrjuj1yqicg" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
 [ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scripts/camera_2d.gd" id="13_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://dr8y36bdnor1v" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
@@ -172,6 +173,22 @@ layout_mode = 2
 texture = ExtResource("10_qa7os")
 expand_mode = 2
 
+[node name="VSeparator6" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1709060916]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+
+[node name="ScienceLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1767281784]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect7" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1580226439]
+layout_mode = 2
+texture = ExtResource("12_kp5tw")
+expand_mode = 2
+
 [node name="FlowContainer2" type="FlowContainer" parent="UI" unique_id=331889226]
 offset_right = 850.0
 offset_bottom = 85.0
@@ -183,48 +200,79 @@ theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 36
 
-[node name="Top Bar" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer" unique_id=2143976778]
+[node name="Left" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer" unique_id=2143976778]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Top Bar" unique_id=1852669520]
+[node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=1852669520]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
 text = "Back"
 
-[node name="Panel" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Top Bar" unique_id=1603678278]
+[node name="Panel2" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=230775232]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2/MarginContainer/Top Bar/Panel" unique_id=162079377]
+[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel2" unique_id=1248244289]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Top Bar/Panel/MarginContainer" unique_id=2063350585]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer" unique_id=1131222900]
 layout_mode = 2
 
-[node name="BuildingTitle" type="Label" parent="UI/FlowContainer2/MarginContainer/Top Bar/Panel/MarginContainer/VBoxContainer" unique_id=1215759860]
+[node name="PlanetTitle" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=838737756]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
+text = "Planet 8"
+
+[node name="PlanetDesc" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=243977982]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 16
+text = "30% Titanium
+11% Iron"
+
+[node name="Panel" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=1603678278]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel" unique_id=162079377]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer" unique_id=2063350585]
+layout_mode = 2
+
+[node name="BuildingTitle" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1215759860]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 32
 text = "Housing"
 
-[node name="BuildingDesc" type="Label" parent="UI/FlowContainer2/MarginContainer/Top Bar/Panel/MarginContainer/VBoxContainer" unique_id=680811786]
+[node name="BuildingDesc" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=680811786]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 16
 text = "Basically storage for humans."
 autowrap_mode = 2
 
-[node name="BuildingCosts" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Top Bar/Panel/MarginContainer/VBoxContainer" unique_id=1153789637]
+[node name="BuildingCosts" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1153789637]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -309,6 +357,6 @@ texture_normal = ExtResource("13_n1t4m")
 stretch_mode = 5
 script = ExtResource("14_kp5tw")
 
-[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Top Bar/Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/Button" to="." method="_on_back_button_pressed"]
 [connection signal="mouse_entered" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_exited"]

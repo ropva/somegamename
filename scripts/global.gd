@@ -1,6 +1,7 @@
 extends Node
 
 var money = 100
+var science = 0
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -9,7 +10,7 @@ var selected_planet: int = -1
 var planets_unlocked = 1
 
 # config
-const TOTAL_PLANETS = 50.0
+const TOTAL_PLANETS = 10.0
 const PLANET_SPACING = -0.01
 
 const IRON_COLOR = Color(0.82, 0.219, 0.0, 1.0)
@@ -92,7 +93,7 @@ func _ready():
 		
 		i += 1
 	
-	print(planets[best_planet].name)
+	selected_planet = best_planet
 	
 	var building_tile_set=load("res://res/building_tile_set.tres")
 	for src in building_tile_set.get_source_count()+1:

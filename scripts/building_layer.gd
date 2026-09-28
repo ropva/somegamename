@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 				planet.resources.electricity=planet.resources.electricity+1*tick_scaler*(planet.solar / 100.0)
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
+	%ScienceLabel.text = str(int(Global.science))
 	%PopLabel.text = str(int(planet.resources.people))
 	%RobotLabel.text = str(int(planet.resources.robots))
 	%SteelLabel.text = str(int(planet.resources.steel))

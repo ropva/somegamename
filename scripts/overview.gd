@@ -19,14 +19,10 @@ func close_planet(container: SubViewportContainer, layer: CanvasLayer):
 	tween.tween_callback(func(): layer.visible = false)
 	await tween.finished
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var planetIndex = hovered_planet(event.position)
-		if planetIndex == -1 or Global.selected_planet != -1:
-			return
-		var planet = Global.planets[planetIndex]
-		Global.selected_planet = planetIndex
-		
+func open_planet(index: int, do_tween = true):
+	var planet = Global.planets[index]
+	
+	if do_tween:
 		var tween := create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tween.tween_callback(func(): planet.layer.visible = true)
@@ -34,6 +30,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		await tween.finished
 		visible = false
 		%PlanetTooltip.visible = false
+	else:
+		planet.container.scale = Vector2.ONE
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var planetIndex = hovered_planet(event.position)
+		if planetIndex == -1 or Global.selected_planet != -1:
+			return
+		Global.selected_planet = planetIndex
+		open_planet(planetIndex)
 	
 	if event is InputEventMouseMotion:
 		var planetIndex = hovered_planet(event.position)
@@ -53,6 +59,8 @@ func _ready():
 		func resize():
 			update_planets()
 	) 
+	if Global.selected_planet != -1:
+		open_planet(Global.selected_planet, false)
 
 func update_planets():
 	var screen_size = get_viewport_rect().size
