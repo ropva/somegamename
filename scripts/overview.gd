@@ -2,13 +2,12 @@ extends Node2D
 
 var PlanetScene = load("res://scenes/planet.tscn")
 
-var temp: Array[Node] =[]
-
 func hovered_planet(screen_position: Vector2) -> int:
+	var screen_size = get_viewport_rect().size
 	return Global.planets.find_custom(
 		func f(p: Global.Planet):
-			var pos = p.pos * get_viewport_rect().size
-			return screen_position.distance_squared_to(pos) <= pow(p.size, 2)
+			var pos = p.pos * screen_size
+			return screen_position.distance_squared_to(pos) <= pow(p.size * max(screen_size.x, screen_size.y), 2)
 	)
 
 func close_planet(container: SubViewportContainer, layer: CanvasLayer): 
@@ -52,11 +51,21 @@ func _ready():
 	draw_planets()
 	get_viewport().size_changed.connect(
 		func resize():
-			for node in temp:
-				node.queue_free()
-			temp = []
-			draw_planets()
+			update_planets()
 	) 
+
+func update_planets():
+	var screen_size = get_viewport_rect().size
+	for p in Global.planets:
+		var mini: Sprite2D = p.mini
+		var container: SubViewportContainer = p.container
+		mini.scale = Vector2(
+			(p.size * max(screen_size.x, screen_size.y)) / mini.texture.get_size().x * 2, 
+			(p.size * max(screen_size.x, screen_size.y)) / mini.texture.get_size().y * 2
+		)
+		mini.position = p.pos*screen_size
+		
+		container.size = screen_size + Vector2(32,32)
 
 func draw_planets():
 	var screen_size = get_viewport_rect().size
@@ -65,16 +74,20 @@ func draw_planets():
 		var new_planet: Sprite2D = %Planet.duplicate()
 		new_planet.visible = true
 		new_planet.modulate = p.color
-		new_planet.scale = Vector2(p.size / new_planet.texture.get_size().x * 2, p.size / new_planet.texture.get_size().y * 2)
+		new_planet.scale = Vector2(
+			(p.size * max(screen_size.x, screen_size.y)) / new_planet.texture.get_size().x * 2, 
+			(p.size * max(screen_size.x, screen_size.y)) / new_planet.texture.get_size().y * 2
+		)
 		new_planet.position = p.pos*screen_size
 		add_child(new_planet)
-		temp.push_back(new_planet)
+		p.mini = new_planet
 		var planetScene: Node2D = PlanetScene.instantiate()
 		
 		planetScene.planetIndex = idx
 
 		var vp := SubViewport.new()
 		vp.add_child(planetScene)
+		
 
 		var container := SubViewportContainer.new()
 		container.stretch = true
@@ -89,7 +102,6 @@ func draw_planets():
 		layer.layer = 100
 		layer.add_child(container)
 		add_child(layer)
-		temp.push_back(layer)
 		
 		planetScene.on_back.connect(
 			func on_exit():

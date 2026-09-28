@@ -5,6 +5,12 @@ var money = 100
 var planets: Array[Planet]
 var selected_planet: int = -1
 
+# upgrades
+var planets_unlocked = 1
+
+# config
+const TOTAL_PLANETS = 50.0
+const PLANET_SPACING = -0.01
 
 const IRON_COLOR = Color(0.82, 0.219, 0.0, 1.0)
 const TITANIUM_COLOR=Color(0.0, 0.0, 0.0, 1.0)
@@ -32,20 +38,22 @@ func generate_planet_name(i):
 	return "%s %s" % [SYSTEM_NAME, planet_name]
 	
 func generate_planet_pos():
-	while true:
-		var pos = Vector2(randf_range(0.1, 0.9), randf_range(0.1, 0.9))
+	var i = 0
+	while i < TOTAL_PLANETS:
+		var pos = Vector2(randf(), randf())
 		if planets.all(
 			func planet_dist(e: Planet):
-				return e.pos.distance_squared_to(pos) > 0.015
+				return e.pos.distance_squared_to(pos) > e.size + PLANET_SPACING and pos.x > e.size + PLANET_SPACING and pos.x < 1- e.size - PLANET_SPACING and pos.y > e.size + PLANET_SPACING and pos.y < 1- e.size - PLANET_SPACING 
 		):
 			return pos
+		i += 1
+	return Vector2(0.5,0.5)
 
 class Planet:
-	var iron = max(int(pow(randf_range(3, 9), 2) + randf_range(-30, 15)), 0)
+	var iron = min(max(int(pow(randf_range(3, 10), 2) + randf_range(-40, 15)), 0), 100)
 	var titanium = randi_range(0, max(80-iron*1.7, 0))
-	var rock = 100 - iron - titanium
 	var color = lerp(ROCK_COLOR, IRON_COLOR, iron / 100.0) if iron > titanium else lerp(ROCK_COLOR, TITANIUM_COLOR, titanium / 100.0)
-	var size = randi_range(30, 80)
+	var size = randf_range(0.1/TOTAL_PLANETS+0.005, 0.5/TOTAL_PLANETS+0.01)
 	var solar = min(randi_range(0, 110), 100)
 	var pos: Vector2 = Global.generate_planet_pos()
 	var resources = {
@@ -55,6 +63,7 @@ class Planet:
 		robots = 0,
 		people = 10
 	}
+	var mini: Sprite2D
 	var layer: CanvasLayer
 	var container: SubViewportContainer
 	var id = ""
@@ -65,10 +74,26 @@ class Planet:
 
 func _ready():
 	var i: int = 0
-	while i < 10:
-		planets.push_back(Planet.new(str(i), generate_planet_name(i)))
-		i += 1
+	var best_planet = 0
+	var best_score = 0
+	print(planets.size())
+	
+	seed("TESTING".hash())
+	
+	
+	while i < TOTAL_PLANETS:
+		var new_planet = Planet.new(str(i), generate_planet_name(i))
+		planets.push_back(new_planet)
 		
+		var score = (100-abs(new_planet.iron - new_planet.titanium)) * (max(new_planet.solar,50)/4) * (max(new_planet.titanium + new_planet.iron,40)/2)
+		if score > best_score:
+			best_score = score
+			best_planet = i
+		
+		i += 1
+	
+	print(planets[best_planet].name)
+	
 	var building_tile_set=load("res://res/building_tile_set.tres")
 	for src in building_tile_set.get_source_count()+1:
 		if(not building_tile_set.get_source(src)==null):
