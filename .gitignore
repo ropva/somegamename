@@ -2,3 +2,8 @@
 .godot/
 /android/
 *.tmp
+
+dist/win
+dist/linux
+*.zip
+dist/**/*.import
