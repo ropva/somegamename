@@ -19,6 +19,7 @@ config/icon="res://res/icon.svg"
 [autoload]
 
 Global="*uid://d1wtkl3mrl5m0"
+SkillTree="*res://addons/skill_tree_editor/runtime/skill_tree_service.gd"
 
 [display]
 
@@ -29,7 +30,19 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/skill_tree_editor/plugin.cfg")
+
+[input]
+
+reset_skilltree_data={
+"deadzone": 0.0,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/skill_tree_editor/translations/skill_tree_translations.ru.translation", "res://addons/skill_tree_editor/translations/skill_tree_translations.en.translation")
 
 [physics]
 

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cw7sekrske0xs"]
+
+[ext_resource type="Theme" uid="uid://bdxvg1exu7p35" path="res://addons/skill_tree_editor/themes/skill_tree_theme.tres" id="1_3qee8"]
+
+[node name="CurrencyRow" type="HBoxContainer" unique_id=1213407265]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -14.0
+offset_right = 23.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme = ExtResource("1_3qee8")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=17075915]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Amount" type="RichTextLabel" parent="." unique_id=1794480406]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "11111"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShortName" type="RichTextLabel" parent="." unique_id=1329229433]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 32)
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,38 @@
+key,ru,en
+SKILLS,Навыки,Skills
+CLOSE_SKILL_TREE,Закрыть дерево навыков,Close skill tree
+SKILL_TREE_TITLE,Дерево навыков,Skill tree
+SKILL_TREE_DESCRIPTION,Открывает дерево навыков!,Unlocks the skill tree!
+SKILL_NEW_TITLE,Название навыка,Skill name
+SKILL_DESCRIPTION_PLACEHOLDER,Описание навыка,Skill description
+SKILL_CATEGORY_MAIN,Основная,Main
+SKILL_LEVEL,Уровень %d / %d,Level %d / %d
+SKILL_COST,Цена: %d %s,Cost: %d %s
+FREE,Бесплатно,Free
+SKILL_REQUIREMENTS,Требования: %s,Requirements: %s
+SKILL_REQUIRED,%s (ур. %d),%s (lvl. %d)
+SKILL_EFFECTS,Эффекты: %s,Effects: %s
+SKILL_AVAILABLE,Доступно,Available
+SKILL_LOCKED,Заблокировано,Locked
+SKILL_NOT_ENOUGH_CURRENCY,Недостаточно средств,Not enough funds
+SKILL_MAX_LEVEL,Максимальный уровень,Maximum level
+SKILL_MAX_LEVEL_SHORT,Макс. ур.,Max Level
+CURRENCY_REWARD,+%d %s,+%d %s
+NEW,Новое,New
+BUY,Купить,Buy
+ENABLE,Включить,Enable
+DISABLE,Выключить,Disable
+OPEN,Открыть,Open
+UPGRADE,Улучшить,Upgrade
+MAX_LEVEL,Максимальный уровень,Maximum level
+NOT_ENOUGH_FUNDS,Недостаточно средств,Not enough funds
+LOCKED,Заблокировано,Locked
+SETTINGS,Настройки,Settings
+RESET_PROGRESSION,Сбросить прокачку,Reset progression
+RESET_PROGRESSION_TITLE,Сбросить прокачку?,Reset progression?
+RESET_PROGRESSION_MESSAGE,Уровни навыков и улучшенные ими характеристики будут сброшены. Возврат: указанный процент от потраченных валют.,Skill levels and their upgraded stats will be reset. Refund: the configured percentage of spent currencies.
+RESET_NO_REFUND,Нет валют к возврату,No currency to refund
+CANCEL,Отмена,Cancel
+YOU_WILL_RECEIVE,Вам вернется:,You will receive:
+REFUND_PERCENT,Процент возврата,Refund percentage
+DEBUG_RESET,Отладочный сброс,Debug reset

@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://pic8hjf8vvg7"]
+
+[ext_resource type="Script" uid="uid://ci7qojfh5of24" path="res://addons/skill_tree_editor/runtime/skill_node.gd" id="1_node"]
+[ext_resource type="Theme" uid="uid://bdxvg1exu7p35" path="res://addons/skill_tree_editor/themes/skill_tree_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://lamcyp08a1qm" path="res://addons/skill_tree_editor/runtime/skill_tree_button.gd" id="3_button"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qj66n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_girr0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5pbq"]
+bg_color = Color(0.175, 0.21875, 0.35, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[node name="SkillNode" type="PanelContainer" unique_id=198470421]
+custom_minimum_size = Vector2(384, 384)
+propagate_maximum_size = false
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qj66n")
+script = ExtResource("1_node")
+
+[node name="ActionButton" type="Button" parent="." unique_id=95865382 node_paths=PackedStringArray("target_ui")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("3_button")
+target_ui = NodePath("..")
+
+[node name="HoverBarMarginContainer" type="MarginContainer" parent="ActionButton" unique_id=1530426705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HoverProgressBar" type="ProgressBar" parent="ActionButton/HoverBarMarginContainer" unique_id=2000000001]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_girr0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k5pbq")
+value = 50.0
+show_percentage = false
+
+[node name="BodyMarginContainer" type="MarginContainer" parent="ActionButton" unique_id=1663676367]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 24
+
+[node name="Body" type="VBoxContainer" parent="ActionButton/BodyMarginContainer" unique_id=984612310]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 17
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body" unique_id=953271517]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeTitle"
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "SKILL_NEW_TITLE"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionButton/BodyMarginContainer/Body" unique_id=1207592496]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="SmallIconRect" type="TextureRect" parent="ActionButton/BodyMarginContainer/Body/HBoxContainer" unique_id=2000000002]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionButton/BodyMarginContainer/Body/HBoxContainer" unique_id=1111211252]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="LevelLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body/HBoxContainer/HBoxContainer" unique_id=757810621]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeStats"
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "SKILL_LEVEL"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="CategoryLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body/HBoxContainer/HBoxContainer" unique_id=609982209]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeCategory"
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "SKILL_CATEGORY_MAIN"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BigIconRect" type="TextureRect" parent="ActionButton/BodyMarginContainer/Body" unique_id=580638365]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 19
+mouse_filter = 2
+mouse_behavior_recursive = 1
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EffectsValuesLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body" unique_id=1361571839]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 19
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeEffects"
+bbcode_enabled = true
+text = "SKILL_EFFECTS"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionScrollContainer" type="ScrollContainer" parent="ActionButton/BodyMarginContainer/Body" unique_id=245773990]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 19
+mouse_filter = 0
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body/DescriptionScrollContainer" unique_id=1403119156]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 19
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeDescription"
+bbcode_enabled = true
+text = "SKILL_DESCRIPTION_PLACEHOLDER"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequirementsLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body" unique_id=1862152375]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeRequirements"
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 2
+vertical_alignment = 1
+
+[node name="Cost" type="HBoxContainer" parent="ActionButton/BodyMarginContainer/Body" unique_id=1082733725]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 10
+
+[node name="StateLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body/Cost" unique_id=1862993765]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeState"
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "State"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CostLabel" type="RichTextLabel" parent="ActionButton/BodyMarginContainer/Body/Cost" unique_id=1401395440]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 19
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_type_variation = &"SkillNodeStats"
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Cost"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1

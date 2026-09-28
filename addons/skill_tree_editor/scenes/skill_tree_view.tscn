@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://23kmj5aavlgf"]
+
+[ext_resource type="Script" uid="uid://dnh4qs7dbav85" path="res://addons/skill_tree_editor/runtime/skill_tree_view.gd" id="1_tree"]
+[ext_resource type="Theme" uid="uid://bdxvg1exu7p35" path="res://addons/skill_tree_editor/themes/skill_tree_theme.tres" id="2_theme"]
+[ext_resource type="Shader" uid="uid://dmgam7nwe5cdl" path="res://addons/skill_tree_editor/shaders/bg_scrolling_grid.gdshader" id="3_1k0aj"]
+[ext_resource type="Script" uid="uid://lamcyp08a1qm" path="res://addons/skill_tree_editor/runtime/skill_tree_button.gd" id="5_button"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4jxb"]
+shader = ExtResource("3_1k0aj")
+shader_parameter/cell_size = 40.0
+shader_parameter/speed = Vector2(0.2, 0.2)
+shader_parameter/angle_degrees = 0.0
+shader_parameter/enable_lines = false
+shader_parameter/line_thickness = 0.05
+shader_parameter/grid_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/background_color = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/alternate_color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="SkillTreeView" type="Control" unique_id=134712611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_behavior_recursive = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_tree")
+
+[node name="BgRect" type="ColorRect" parent="." unique_id=2129094823]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_f4jxb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SkillTreeCorner" type="Control" parent="." unique_id=2000000005]
+unique_name_in_owner = true
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="CloseSkillTreeButton" type="Button" parent="." unique_id=2033958528]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 96.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(1, 0)
+text = "CLOSE_SKILL_TREE"
+script = ExtResource("5_button")
+
+[node name="ResetProgressionButton" type="Button" parent="." unique_id=2033958529]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 276.0
+offset_bottom = 96.0
+text = "RESET_PROGRESSION"
+script = ExtResource("5_button")
+
+[node name="CurrencyDisplay" type="HBoxContainer" parent="." unique_id=563784056]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+mouse_filter = 2
+alignment = 1

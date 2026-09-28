@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dnsr6ymcwhote"
+
+[deps]
+
+files=["res://addons/skill_tree_editor/translations/skill_tree_translations.ru.translation", "res://addons/skill_tree_editor/translations/skill_tree_translations.en.translation"]
+
+source_file="res://addons/skill_tree_editor/translations/skill_tree_translations.csv"
+dest_files=["res://addons/skill_tree_editor/translations/skill_tree_translations.ru.translation", "res://addons/skill_tree_editor/translations/skill_tree_translations.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
