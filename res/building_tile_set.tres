@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" format=3 uid="uid://4i5ciqcb1goq"]
 
-[ext_resource type="Texture2D" uid="uid://ltfmlbss1bvk" path="res://res/asset_housing_4x.png" id="1_yblt2"]
-[ext_resource type="Texture2D" uid="uid://cugaiskoqu30f" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
-[ext_resource type="Texture2D" uid="uid://cee8cw88qp51w" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
+[ext_resource type="Texture2D" uid="uid://5ynwnsbynblm" path="res://res/asset_housing_4x.png" id="1_yblt2"]
+[ext_resource type="Texture2D" uid="uid://byukf5c45uodn" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://c6ruxngbuwnf" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7os"]
 resource_name = "housing"

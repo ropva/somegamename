@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
 [ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
-[ext_resource type="Texture2D" uid="uid://cpbrjuj1yqicg" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://by22wmamvfuow" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
 [ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scripts/camera_2d.gd" id="13_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://dr8y36bdnor1v" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://bx4i31d1px8e3" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw1i6"]
