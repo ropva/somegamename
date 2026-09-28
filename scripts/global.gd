@@ -8,6 +8,7 @@ var selected_planet: int = -1
 
 # upgrades
 var planets_unlocked = 1
+var demolition_loss = 0.2
 
 # config
 const TOTAL_PLANETS = 10.0
@@ -95,9 +96,9 @@ func _ready():
 	
 	selected_planet = best_planet
 	
-	var building_tile_set=load("res://res/building_tile_set.tres")
+	var building_tile_set: TileSet=load("res://res/building_tile_set.tres")
 	for src in building_tile_set.get_source_count()+1:
-		if(not building_tile_set.get_source(src)==null):
+		if(building_tile_set.has_source(src)):
 			tileSourceArray.resize(tileSourceArray.size()+1)
 			tileSourceArray[src]=building_tile_set.get_source(src).resource_name
 

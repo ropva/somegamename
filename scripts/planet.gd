@@ -30,3 +30,7 @@ func _process(_delta: float) -> void:
 	
 func _on_back_button_pressed() -> void:
 	on_back.emit()
+
+
+func _on_tech_tree_button_pressed() -> void:
+	print("jkdjdj")

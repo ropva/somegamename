@@ -204,15 +204,27 @@ theme_override_constants/margin_bottom = 36
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=1852669520]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=898506047]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Left/HBoxContainer" unique_id=1852669520]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
-text = "Back"
+text = " Back "
+
+[node name="TechTreeButton" type="Button" parent="UI/FlowContainer2/MarginContainer/Left/HBoxContainer" unique_id=762985664]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 40
+text = " Tech Tree "
 
 [node name="Panel2" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=230775232]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
 
@@ -243,6 +255,7 @@ text = "30% Titanium
 
 [node name="Panel" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=1603678278]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
 
@@ -357,6 +370,7 @@ texture_normal = ExtResource("13_n1t4m")
 stretch_mode = 5
 script = ExtResource("14_kp5tw")
 
-[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/HBoxContainer/Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/HBoxContainer/TechTreeButton" to="." method="_on_tech_tree_button_pressed"]
 [connection signal="mouse_entered" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_exited"]

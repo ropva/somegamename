@@ -73,9 +73,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				var item = tile.recipe[i+1]
 				
 				if item == "money":
-					Global.money += amount
+					Global.money += amount - max(amount * Global.demolition_loss, 1)
 				else:
-					planet.resources[item] += amount
+					planet.resources[item] += amount - max(amount * Global.demolition_loss, 1)
 				i += 2
 			set_cell(tile_coord)
 
@@ -122,6 +122,7 @@ func _physics_process(delta: float) -> void:
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
 	%ElectricityLabel.text = str(int(planet.resources.electricity))
+
 func _on_tile_button_selected(id) -> void:
 	var tile: Global.Tile = Global.tiles[Global.tiles.find_custom(func find(t: Global.Tile): return t.id == id)]
 	var buttons: Array[Node] = %Hotbar.get_children()

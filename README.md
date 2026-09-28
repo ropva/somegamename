@@ -7,6 +7,7 @@ A resource management game where you have to balance resources and expand your c
     - Planet color is generated from the resource distribution
 - Configurable building system
     - Adding new buildings is very easy
+- Science system (WIP)
 
 ## Godot configuration
 - All scripts in /scrips/
