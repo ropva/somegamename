@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="YggdrasilGroup" format=3 uid="uid://bg3pwsxqq0moh"]
 
 [ext_resource type="Script" uid="uid://bt8qpikafu7xg" path="res://addons/yggdrasil/scripts/resources/yggdrasil_group.gd" id="1_gmjs5"]
-[ext_resource type="Resource" uid="uid://bhplb64vsaacm" path="res://yggdrasil_data/tech/main.tres" id="2_g3a56"]
+[ext_resource type="Resource" uid="uid://dowky6guiyyk" path="res://yggdrasil_data/tech/main.tres" id="2_g3a56"]
 
 [resource]
 script = ExtResource("1_gmjs5")

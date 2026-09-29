@@ -62,7 +62,7 @@ mouse_filter = 1
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1783903701]
 
-[node name="FlowContainer" type="FlowContainer" parent="UI" unique_id=1580624323]
+[node name="Resources" type="FlowContainer" parent="UI" unique_id=1580624323]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -70,182 +70,187 @@ anchor_bottom = 1.0
 offset_left = -1113.0
 grow_horizontal = 0
 grow_vertical = 2
+size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer" unique_id=974228274]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Resources" unique_id=974228274]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 36
 
-[node name="Top Bar" type="HBoxContainer" parent="UI/FlowContainer/MarginContainer" unique_id=1643685907]
+[node name="Top Bar" type="HBoxContainer" parent="UI/Resources/MarginContainer" unique_id=1643685907]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 10
 
-[node name="MoneyLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1656173612]
+[node name="MoneyLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1656173612]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=237672390]
+[node name="TextureRect" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=237672390]
 layout_mode = 2
 texture = ExtResource("5_qw1i6")
 expand_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1967387674]
+[node name="VSeparator" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1967387674]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="PopLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1734353335]
+[node name="PopLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1734353335]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect2" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=2049315845]
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=2049315845]
 layout_mode = 2
 texture = ExtResource("6_ekhpw")
 expand_mode = 2
 
-[node name="VSeparator2" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1986929248]
+[node name="RobotSeparator" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1986929248]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="RobotLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=617035796]
+[node name="RobotLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=617035796]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect3" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1046935528]
+[node name="RobotImage" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1046935528]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_11eka")
 expand_mode = 2
 
-[node name="VSeparator3" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=879898909]
+[node name="VSeparator3" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=879898909]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="SteelLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=289855563]
+[node name="SteelLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=289855563]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect4" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1835958676]
+[node name="TextureRect4" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1835958676]
 layout_mode = 2
 texture = ExtResource("8_n1t4m")
 expand_mode = 2
 
-[node name="VSeparator4" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=670817834]
+[node name="VSeparator4" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=670817834]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="TitaniumLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=28561981]
+[node name="TitaniumLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=28561981]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect5" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1148502600]
+[node name="TextureRect5" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1148502600]
 layout_mode = 2
 texture = ExtResource("9_kp5tw")
 expand_mode = 2
 
-[node name="VSeparator5" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=836320907]
+[node name="VSeparator5" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=836320907]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="ElectricityLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=870082437]
+[node name="ElectricityLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=870082437]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect6" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=276966344]
+[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=276966344]
 layout_mode = 2
 texture = ExtResource("10_qa7os")
 expand_mode = 2
 
-[node name="VSeparator6" type="VSeparator" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1709060916]
+[node name="VSeparator6" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1709060916]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
 
-[node name="ScienceLabel" type="Label" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1767281784]
+[node name="ScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1767281784]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect7" type="TextureRect" parent="UI/FlowContainer/MarginContainer/Top Bar" unique_id=1580226439]
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1580226439]
 layout_mode = 2
 texture = ExtResource("12_kp5tw")
 expand_mode = 2
 
-[node name="FlowContainer2" type="FlowContainer" parent="UI" unique_id=331889226]
+[node name="Top Left" type="FlowContainer" parent="UI" unique_id=331889226]
 offset_right = 850.0
 offset_bottom = 85.0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2" unique_id=387753797]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Top Left" unique_id=387753797]
 layout_mode = 2
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 36
 
-[node name="Left" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer" unique_id=2143976778]
+[node name="Left" type="VBoxContainer" parent="UI/Top Left/MarginContainer" unique_id=2143976778]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=898506047]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Top Left/MarginContainer/Left" unique_id=898506047]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Button" type="Button" parent="UI/FlowContainer2/MarginContainer/Left/HBoxContainer" unique_id=1852669520]
+[node name="Button" type="Button" parent="UI/Top Left/MarginContainer/Left/HBoxContainer" unique_id=1852669520]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
 text = " Back "
 
-[node name="TechTreeButton" type="Button" parent="UI/FlowContainer2/MarginContainer/Left/HBoxContainer" unique_id=762985664]
+[node name="TechTreeButton" type="Button" parent="UI/Top Left/MarginContainer/Left/HBoxContainer" unique_id=762985664]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
 text = " Tech Tree "
 
-[node name="Panel2" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=230775232]
+[node name="Panel2" type="PanelContainer" parent="UI/Top Left/MarginContainer/Left" unique_id=230775232]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel2" unique_id=1248244289]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Top Left/MarginContainer/Left/Panel2" unique_id=1248244289]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer" unique_id=1131222900]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel2/MarginContainer" unique_id=1131222900]
 layout_mode = 2
 
-[node name="PlanetTitle" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=838737756]
+[node name="PlanetTitle" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=838737756]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 32
 text = "Planet 8"
 
-[node name="PlanetDesc" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=243977982]
+[node name="PlanetDesc" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel2/MarginContainer/VBoxContainer" unique_id=243977982]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
@@ -253,30 +258,30 @@ theme_override_font_sizes/font_size = 16
 text = "30% Titanium
 11% Iron"
 
-[node name="Panel" type="PanelContainer" parent="UI/FlowContainer2/MarginContainer/Left" unique_id=1603678278]
+[node name="Panel" type="PanelContainer" parent="UI/Top Left/MarginContainer/Left" unique_id=1603678278]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1t4m")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel" unique_id=162079377]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Top Left/MarginContainer/Left/Panel" unique_id=162079377]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer" unique_id=2063350585]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer" unique_id=2063350585]
 layout_mode = 2
 
-[node name="BuildingTitle" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1215759860]
+[node name="BuildingTitle" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1215759860]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 32
 text = "Housing"
 
-[node name="BuildingDesc" type="Label" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=680811786]
+[node name="BuildingDesc" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=680811786]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -285,7 +290,7 @@ theme_override_font_sizes/font_size = 16
 text = "Basically storage for humans."
 autowrap_mode = 2
 
-[node name="BuildingCosts" type="VBoxContainer" parent="UI/FlowContainer2/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1153789637]
+[node name="BuildingCosts" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1153789637]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -328,7 +333,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Not enough steel"
 
-[node name="FlowContainer3" type="FlowContainer" parent="UI" unique_id=2111249864]
+[node name="Hotbar" type="FlowContainer" parent="UI" unique_id=2111249864]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -344,19 +349,19 @@ alignment = 2
 last_wrap_alignment = 3
 vertical = true
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FlowContainer3" unique_id=1318178449]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Hotbar" unique_id=1318178449]
 layout_mode = 2
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 96
 
-[node name="Hotbar" type="HBoxContainer" parent="UI/FlowContainer3/MarginContainer" unique_id=910243130]
+[node name="Hotbar" type="HBoxContainer" parent="UI/Hotbar/MarginContainer" unique_id=910243130]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="TileButton" type="TextureButton" parent="UI/FlowContainer3/MarginContainer/Hotbar" unique_id=1995383591]
+[node name="TileButton" type="TextureButton" parent="UI/Hotbar/MarginContainer/Hotbar" unique_id=1995383591]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -370,7 +375,7 @@ texture_normal = ExtResource("13_n1t4m")
 stretch_mode = 5
 script = ExtResource("14_kp5tw")
 
-[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/HBoxContainer/Button" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="UI/FlowContainer2/MarginContainer/Left/HBoxContainer/TechTreeButton" to="." method="_on_tech_tree_button_pressed"]
-[connection signal="mouse_entered" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" to="UI/FlowContainer3/MarginContainer/Hotbar/TileButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/TechTreeButton" to="." method="_on_tech_tree_button_pressed"]
+[connection signal="mouse_entered" from="UI/Hotbar/MarginContainer/Hotbar/TileButton" to="UI/Hotbar/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Hotbar/MarginContainer/Hotbar/TileButton" to="UI/Hotbar/MarginContainer/Hotbar/TileButton" method="_on_mouse_exited"]

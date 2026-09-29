@@ -83,6 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	Global.prop_update.connect(_on_tile_update.bind())
 	for tile in Global.tiles:
 		var new_button: TextureButton = %TileButton.duplicate()
 		new_button.visible = true
@@ -95,6 +96,7 @@ func _ready() -> void:
 	#idk what to do with the original one after this
 	%TileButton.queue_free()
 	_on_tile_button_selected("housing")
+	_on_tile_update()
 	
 func _on_tile_update():
 	var planet = Global.planets[planetIndex]
@@ -112,6 +114,9 @@ func _on_tile_update():
 			planet.storage.people += Global.HOUSING_BASE_CAPACITY
 		elif(tile.id == "battery_bank"):
 			planet.storage.electricity += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
+	%RobotLabel.visible = Global.robots_unlocked
+	%RobotSeparator.visible = Global.robots_unlocked
+	%RobotImage.visible = Global.robots_unlocked
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]

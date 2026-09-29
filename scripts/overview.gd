@@ -65,8 +65,26 @@ func _ready():
 		
 	var builder: YggdrasilBuilder = YggdrasilBuilder.new(Global.tech_tree)
 	builder.set_parent(%TechTreeContainer)
+	builder.node_created_callback(
+		func(n: BaseButton):
+			print(n.name)
+			n.pressed.connect(
+				func pressed():
+					if n.name == "Node_2":
+						Global.battery_capacity_mult = 1.25
+						Global.prop_update.emit()
+						pass
+					elif n.name == "Node_3":
+						Global.robots_unlocked = true
+						Global.prop_update.emit()
+						pass
+			)
+	)
+	builder.deallocation_check_callback(
+		func dealloc():
+			return false
+	)
 	_tree_view = builder.build()
-
 func update_planets():
 	var screen_size = get_viewport_rect().size
 	for p in Global.planets:
