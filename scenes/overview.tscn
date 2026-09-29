@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://io2ct38otw1j"]
 
 [ext_resource type="Script" uid="uid://x741v5g34ykm" path="res://scripts/overview.gd" id="1_eg1db"]
-[ext_resource type="Texture2D" uid="uid://wqy03jn1k402" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
+[ext_resource type="Texture2D" uid="uid://c7ej42h3w84qm" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="2_pfq4m"]
 
 [node name="Overview" type="Node2D" unique_id=1347622079]
@@ -35,3 +35,44 @@ text = "30% Titanium
 unique_name_in_owner = true
 visible = false
 texture = ExtResource("2_2b8kb")
+
+[node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
+unique_name_in_owner = true
+layer = 10000
+visible = false
+
+[node name="TechTreeContainer" type="ColorRect" parent="TechTree" unique_id=947533211]
+unique_name_in_owner = true
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="FlowContainer" type="FlowContainer" parent="TechTree" unique_id=810858813]
+z_index = 1000
+offset_right = 850.0
+offset_bottom = 132.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TechTree/FlowContainer" unique_id=120007711]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TechTree/FlowContainer/MarginContainer" unique_id=1103521650]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ExitButton" type="Button" parent="TechTree/FlowContainer/MarginContainer/HBoxContainer" unique_id=965904845]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_pfq4m")
+theme_override_font_sizes/font_size = 40
+text = " Back "
+
+[connection signal="pressed" from="TechTree/FlowContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

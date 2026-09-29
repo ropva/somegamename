@@ -1,27 +1,131 @@
 [gd_resource type="Resource" script_class="YggdrasilTree" format=3 uid="uid://bhplb64vsaacm"]
 
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
+[ext_resource type="Texture2D" uid="uid://dswuu0spxgvgb" path="res://res/asset_battery_1x.png" id="1_eomsr"]
 [ext_resource type="Texture2D" uid="uid://c7ej42h3w84qm" path="res://res/asset_planet_base_1x.png" id="1_honru"]
 [ext_resource type="Texture2D" uid="uid://da6gl1twvxug6" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
 [ext_resource type="Texture2D" uid="uid://dgmspsanlp8h7" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
 [ext_resource type="Texture2D" uid="uid://dkxa58d5yht2o" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
+[ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
+[ext_resource type="Script" uid="uid://cpev3ftbsi6ui" path="res://addons/yggdrasil/scripts/resources/yggdrasil_prefab.gd" id="8_h2abi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deswg"]
 atlas = ExtResource("1_honru")
 
+[sub_resource type="Resource" id="Resource_h2abi"]
+script = ExtResource("6_h2abi")
+
 [sub_resource type="Resource" id="Resource_3dpe4"]
 script = ExtResource("5_exutt")
+is_root = true
+reference_id = "b4d45d14-1843-45fb-bf21-7638fe1999b0"
 id = 1
-name = "Node_1"
+external_id = "start"
+name = "Start"
 type = 2
 icon = SubResource("AtlasTexture_deswg")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
+line_data = {
+2: SubResource("Resource_h2abi")
+}
+out_nodes = [2]
+in_nodes = []
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exutt"]
+atlas = ExtResource("1_eomsr")
+
+[sub_resource type="Resource" id="Resource_exutt"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_8mbeu"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_deswg"]
+script = ExtResource("5_exutt")
+reference_id = "a824908c-fbbc-445a-a4f4-8d63c9b89546"
+id = 2
+external_id = "new_battery_technology"
+name = "New battery technology"
+description = "Decrease battery building costs by 25%"
+type = 1
+icon = SubResource("AtlasTexture_exutt")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(128, 0)
+line_data = {
+3: SubResource("Resource_exutt"),
+4: SubResource("Resource_8mbeu")
+}
+out_nodes = [3, 4]
+in_nodes = [1]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_r7kue"]
+script = ExtResource("5_exutt")
+reference_id = "a824908c-fbbc-445a-a4f4-8d63c9b89546"
+id = 3
+external_id = "new_battery_technology"
+name = "New battery technology"
+description = "Decrease battery building costs by 25%"
+type = 1
+icon = SubResource("AtlasTexture_exutt")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(256, 0)
 line_data = {}
 out_nodes = []
-in_nodes = []
+in_nodes = [2]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_ooq6a"]
+script = ExtResource("5_exutt")
+reference_id = "a824908c-fbbc-445a-a4f4-8d63c9b89546"
+id = 4
+external_id = "new_battery_technology"
+name = "New battery technology"
+description = "Decrease battery building costs by 25%"
+type = 1
+icon = SubResource("AtlasTexture_exutt")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(256, 112)
+line_data = {}
+out_nodes = []
+in_nodes = [2]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_do6et"]
+script = ExtResource("8_h2abi")
+reference_id = "a824908c-fbbc-445a-a4f4-8d63c9b89546"
+id = "new_battery_technology"
+node_name = "New battery technology"
+description = "Decrease battery building costs by 25%"
+type = 1
+icon = SubResource("AtlasTexture_exutt")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_xfhs0"]
+script = ExtResource("8_h2abi")
+reference_id = "b4d45d14-1843-45fb-bf21-7638fe1999b0"
+node_name = "Start"
+type = 2
+icon = SubResource("AtlasTexture_deswg")
+border_normal = ExtResource("4_h2abi")
 attributes = {}
 max_allocations = 1
 
@@ -29,7 +133,8 @@ max_allocations = 1
 script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
-id_counter = 1
+revealed = false
+id_counter = 4
 icon_sizes = {
 0: Vector2(0, 0),
 1: Vector2(0, 0),
@@ -37,7 +142,7 @@ icon_sizes = {
 }
 icons = {
 0: null,
-1: null,
+1: ExtResource("1_eomsr"),
 2: ExtResource("1_honru")
 }
 node_size = {
@@ -45,7 +150,10 @@ node_size = {
 1: Vector2(48, 48),
 2: Vector2(64, 64)
 }
-nodes = [SubResource("Resource_3dpe4")]
+nodes = [SubResource("Resource_3dpe4"), SubResource("Resource_deswg"), SubResource("Resource_r7kue"), SubResource("Resource_ooq6a")]
 decorations = []
-prefabs = {}
+prefabs = {
+1: [SubResource("Resource_do6et")],
+2: [SubResource("Resource_xfhs0")]
+}
 attributes = {}

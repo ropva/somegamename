@@ -16,6 +16,7 @@ corner_detail = 5
 
 [node name="YggdrasilNodeTooltip" type="PanelContainer" unique_id=2015961809 node_paths=PackedStringArray("label")]
 visible = false
+z_index = 101
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2

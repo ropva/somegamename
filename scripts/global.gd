@@ -9,8 +9,11 @@ var selected_planet: int = -1
 # upgrades
 var planets_unlocked = 1
 var demolition_loss = 0.2
+var battery_capacity_mult = 1.0
 
 # config
+const BATTERY_BASE_CAPACITY = 4
+const HOUSING_BASE_CAPACITY = 16
 const TOTAL_PLANETS = 10.0
 const PLANET_SPACING = -0.01
 
@@ -33,6 +36,7 @@ var SYSTEM_NAME = "%d %s" % [num, system]
 
 var tileSourceArray = []
 
+var tech_tree: YggdrasilTree
 
 func generate_planet_name(i):
 	var planet_name = PLANET_IDS[i % PLANET_IDS.size()] + str(i)
@@ -59,8 +63,8 @@ class Planet:
 	var solar = min(randi_range(0, 110), 100)
 	var pos: Vector2 = Global.generate_planet_pos()
 	var resources = {
-		titanium = 10,
-		steel = 20,
+		titanium = 100,
+		steel = 200,
 		electricity = 0,
 		robots = 0,
 		people = 10
@@ -70,6 +74,14 @@ class Planet:
 	var container: SubViewportContainer
 	var id = ""
 	var name = ""
+	
+	var storage = {
+		titanium = -1,
+		steel = -1,
+		people = 0,
+		robots = -1,
+		electricity = 0,
+	}
 	func _init(n_id: String, n_name: String):
 		id = n_id
 		name = n_name
@@ -101,8 +113,7 @@ func _ready():
 		if(building_tile_set.has_source(src)):
 			tileSourceArray.resize(tileSourceArray.size()+1)
 			tileSourceArray[src]=building_tile_set.get_source(src).resource_name
-
-
+	tech_tree = YggdrasilLoader.load_tree("tech/main")
 class Tile:
 	var id: String
 	var name: String
@@ -132,9 +143,9 @@ var tiles: Array[Tile] = [
 	 1, "res://res/asset_open_pit_mine_0.5x.png", 
 	[10, "steel"]),
 	Tile.new("battery_bank", "Battery Bank", 
-	"I think it stores energy idk I'm tired.",
-	 1, "res://res/asset_battery_bank_0.5x.png", 
-	[10, "steel"])
+	"Stores energy (Base storage 5)",
+	 3, "res://res/asset_battery_bank_0.5x.png", 
+	[10, "steel", 10, "titanium"])
 ]
 
 	

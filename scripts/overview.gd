@@ -1,6 +1,7 @@
 extends Node2D
 
 var PlanetScene = load("res://scenes/planet.tscn")
+var _tree_view: YggdrasilTreeView
 
 func hovered_planet(screen_position: Vector2) -> int:
 	var screen_size = get_viewport_rect().size
@@ -61,6 +62,10 @@ func _ready():
 	) 
 	if Global.selected_planet != -1:
 		open_planet(Global.selected_planet, false)
+		
+	var builder: YggdrasilBuilder = YggdrasilBuilder.new(Global.tech_tree)
+	builder.set_parent(%TechTreeContainer)
+	_tree_view = builder.build()
 
 func update_planets():
 	var screen_size = get_viewport_rect().size
@@ -115,6 +120,7 @@ func draw_planets():
 			func on_exit():
 				close_planet(container, layer)
 		)
+		planetScene.on_tech_tree.connect(open_tech_tree.bind())
 		p.container = container
 		p.layer = layer
 		idx+=1
@@ -122,3 +128,12 @@ func draw_planets():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+	
+func open_tech_tree():
+	%TechTree.visible = true
+func close_tech_tree():
+	%TechTree.visible = false
+
+
+func _on_exit_button_pressed() -> void:
+	close_tech_tree()

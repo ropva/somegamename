@@ -63,6 +63,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		
 		set_cell(tile_coord,Global.tileSourceArray.find(selected_tile), Vector2(0, 0))
+		_on_tile_update()
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		var tileIndex = Global.tiles.find_custom(func find(t: Global.Tile): return t.sprite == get_cell_source_id(tile_coord))
 		if tileIndex != -1: 
@@ -78,6 +79,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					planet.resources[item] += amount - max(amount * Global.demolition_loss, 1)
 				i += 2
 			set_cell(tile_coord)
+			_on_tile_update()
 
 
 func _ready() -> void:
@@ -94,6 +96,22 @@ func _ready() -> void:
 	%TileButton.queue_free()
 	_on_tile_button_selected("housing")
 	
+func _on_tile_update():
+	var planet = Global.planets[planetIndex]
+	planet.storage.electricity = 0
+	planet.storage.people = 0
+	var cells = get_used_cells()
+	for cell in cells:
+		print(get_cell_source_id(cell))
+		# this relies on declarations in global.gd matching the actual TileSet
+		var tileIndex = Global.tiles.find_custom(func find(t: Global.Tile): return t.sprite == get_cell_source_id(cell))
+		if tileIndex == -1: continue
+		var tile: Global.Tile = Global.tiles[tileIndex]
+		print(tile.id)
+		if(tile.id == "housing"):
+			planet.storage.people += Global.HOUSING_BASE_CAPACITY
+		elif(tile.id == "battery_bank"):
+			planet.storage.electricity += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]
@@ -110,18 +128,26 @@ func _physics_process(delta: float) -> void:
 			if tileIndex == -1: continue
 			var tile: Global.Tile = Global.tiles[tileIndex]
 			if(tile.id == "open_pit_mine"):
-				planet.resources.steel=planet.resources.steel+1*tick_scaler*(planet.iron / 100.0)
-				planet.resources.titanium=planet.resources.titanium+1*tick_scaler*(planet.titanium / 100.0)
+				planet.resources.steel=clamp_resource(planet.resources.steel+1*tick_scaler*(planet.iron / 100.0), planet.storage.steel)
+				planet.resources.titanium=clamp_resource(planet.resources.titanium+1*tick_scaler*(planet.titanium / 100.0), planet.storage.titanium)
 			elif(tile.id == "solar_plant"):
-				planet.resources.electricity=planet.resources.electricity+1*tick_scaler*(planet.solar / 100.0)
+				planet.resources.electricity=clamp_resource(planet.resources.electricity+1*tick_scaler*(planet.solar / 100.0), planet.storage.electricity)
+			elif (tile.id == "housing"):
+				planet.resources.people=clamp_resource(planet.resources.people+0.2*tick_scaler, planet.storage.people)
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
 	%ScienceLabel.text = str(int(Global.science))
-	%PopLabel.text = str(int(planet.resources.people))
+	%PopLabel.text = "%s/%s" % [str(int(planet.resources.people)), str(int(planet.storage.people))]
 	%RobotLabel.text = str(int(planet.resources.robots))
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
-	%ElectricityLabel.text = str(int(planet.resources.electricity))
+	%ElectricityLabel.text = "%s/%s" % [str(int(planet.resources.electricity)), str(int(planet.storage.electricity))]
+
+func clamp_resource(amount, max):
+	if max == -1:
+		return amount
+	else:
+		return min(amount, max)
 
 func _on_tile_button_selected(id) -> void:
 	var tile: Global.Tile = Global.tiles[Global.tiles.find_custom(func find(t: Global.Tile): return t.id == id)]
