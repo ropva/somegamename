@@ -77,6 +77,10 @@ func _ready():
 						Global.robots_unlocked = true
 						Global.prop_update.emit()
 						pass
+					elif n.name == "Node_4":
+						Global.demolition_loss = 0.1
+						Global.prop_update.emit()
+						pass
 			)
 	)
 	builder.deallocation_check_callback(

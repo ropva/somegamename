@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cak38vn7nr62q"
-path="res://.godot/imported/asset_icon_human_job_0.5x.png-f227cf6cb4f6ce5c94fd32d9c480b5e4.ctex"
+uid="uid://i1r4v2e3358p"
+path="res://.godot/imported/asset_excavator_0.5x.png-7646dd4c440bb80185576238bd6ce48d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/asset_icon_human_job_0.5x.png"
-dest_files=["res://.godot/imported/asset_icon_human_job_0.5x.png-f227cf6cb4f6ce5c94fd32d9c480b5e4.ctex"]
+source_file="res://res/asset_excavator_0.5x.png"
+dest_files=["res://.godot/imported/asset_excavator_0.5x.png-7646dd4c440bb80185576238bd6ce48d.ctex"]
 
 [params]
 

@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="YggdrasilTree" format=3 uid="uid://dowky6guiyyk"]
 
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
-[ext_resource type="Texture2D" uid="uid://bgp4lotuwmaja" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
-[ext_resource type="Texture2D" uid="uid://8if6jhoyrjkn" path="res://res/asset_robot_1x.png" id="1_h2abi"]
-[ext_resource type="Texture2D" uid="uid://dikoo7d40awss" path="res://res/asset_planet_base_1x.png" id="1_honru"]
-[ext_resource type="Texture2D" uid="uid://bcb8an2hed677" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
-[ext_resource type="Texture2D" uid="uid://dtsrq2knnv3v" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
-[ext_resource type="Texture2D" uid="uid://wr6elnfyt33e" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
+[ext_resource type="Texture2D" uid="uid://i1r4v2e3358p" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
+[ext_resource type="Texture2D" uid="uid://7jf41d0cvog" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
+[ext_resource type="Texture2D" uid="uid://csva06pajt78d" path="res://res/asset_robot_1x.png" id="1_h2abi"]
+[ext_resource type="Texture2D" uid="uid://dpip4yk1hl2p6" path="res://res/asset_planet_base_1x.png" id="1_honru"]
+[ext_resource type="Texture2D" uid="uid://bwtpjemhtjihw" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
+[ext_resource type="Texture2D" uid="uid://r50r3nyr735g" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
+[ext_resource type="Texture2D" uid="uid://y2c0t2vrwr74" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
 [ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
 
@@ -14,6 +15,9 @@
 atlas = ExtResource("1_honru")
 
 [sub_resource type="Resource" id="Resource_h2abi"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_r7kue"]
 script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_exutt"]
@@ -28,9 +32,10 @@ border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
 line_data = {
-2: SubResource("Resource_h2abi")
+2: SubResource("Resource_h2abi"),
+4: SubResource("Resource_r7kue")
 }
-out_nodes = [2]
+out_nodes = [2, 4]
 in_nodes = []
 attributes = {}
 max_allocations = 1
@@ -44,7 +49,7 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_3dpe4"]
 script = ExtResource("5_exutt")
 id = 2
-external_id = "battery_tech"
+external_id = "Battery Tech"
 name = "Battery Tech"
 description = "Batteries are 25% better"
 type = 1
@@ -67,7 +72,7 @@ atlas = ExtResource("1_h2abi")
 [sub_resource type="Resource" id="Resource_8mbeu"]
 script = ExtResource("5_exutt")
 id = 3
-external_id = "robots"
+external_id = "Robots"
 name = "Robots"
 description = "Robots don't need any sleep"
 type = 1
@@ -82,12 +87,33 @@ in_nodes = [2]
 attributes = {}
 max_allocations = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooq6a"]
+atlas = ExtResource("1_deswg")
+
+[sub_resource type="Resource" id="Resource_do6et"]
+script = ExtResource("5_exutt")
+id = 4
+external_id = "Demolition efficiency"
+name = "Demolition efficiency"
+description = "Recover 80%→90% of resources when demolishing buildings"
+type = 1
+icon = SubResource("AtlasTexture_ooq6a")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(0, -128)
+line_data = {}
+out_nodes = []
+in_nodes = [1]
+attributes = {}
+max_allocations = 1
+
 [resource]
 script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
 revealed = false
-id_counter = 3
+id_counter = 4
 icon_sizes = {
 0: Vector2(0, 0),
 1: Vector2(0, 0),
@@ -95,7 +121,7 @@ icon_sizes = {
 }
 icons = {
 0: null,
-1: ExtResource("1_h2abi"),
+1: ExtResource("1_deswg"),
 2: ExtResource("1_honru")
 }
 node_size = {
@@ -103,7 +129,7 @@ node_size = {
 1: Vector2(48, 48),
 2: Vector2(64, 64)
 }
-nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu")]
+nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et")]
 decorations = []
 prefabs = {}
 attributes = {}
