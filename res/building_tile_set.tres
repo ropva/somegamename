@@ -1,29 +1,29 @@
 [gd_resource type="TileSet" format=3 uid="uid://4i5ciqcb1goq"]
 
-[ext_resource type="Texture2D" uid="uid://5ynwnsbynblm" path="res://res/asset_housing_4x.png" id="1_yblt2"]
-[ext_resource type="Texture2D" uid="uid://byukf5c45uodn" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
-[ext_resource type="Texture2D" uid="uid://c6ruxngbuwnf" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
-[ext_resource type="Texture2D" uid="uid://b0av4hecssr6x" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://vum5rdk81ohi" path="res://res/asset_housing_4x.png" id="1_yblt2"]
+[ext_resource type="Texture2D" uid="uid://doxw6pwc4hps8" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://0y80e18l04mx" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
+[ext_resource type="Texture2D" uid="uid://bh6l6ij0bha06" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7os"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjhfv"]
 resource_name = "housing"
 texture = ExtResource("1_yblt2")
 texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkmej"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ck4fa"]
 resource_name = "open_pit_mine"
 texture = ExtResource("2_bnhxx")
 texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yblt2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dr8jo"]
 resource_name = "solar_plant"
 texture = ExtResource("3_qjhfv")
 texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjhfv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnhxx"]
 resource_name = "battery_bank"
 texture = ExtResource("4_bnhxx")
 texture_region_size = Vector2i(1091, 1260)
@@ -32,7 +32,7 @@ texture_region_size = Vector2i(1091, 1260)
 [resource]
 tile_shape = 3
 tile_size = Vector2i(1191, 1360)
-sources/0 = SubResource("TileSetAtlasSource_qa7os")
-sources/1 = SubResource("TileSetAtlasSource_qkmej")
-sources/2 = SubResource("TileSetAtlasSource_yblt2")
-sources/3 = SubResource("TileSetAtlasSource_qjhfv")
+sources/2 = SubResource("TileSetAtlasSource_dr8jo")
+sources/3 = SubResource("TileSetAtlasSource_bnhxx")
+sources/0 = SubResource("TileSetAtlasSource_qjhfv")
+sources/1 = SubResource("TileSetAtlasSource_ck4fa")

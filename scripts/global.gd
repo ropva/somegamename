@@ -37,8 +37,6 @@ var num = randi_range(1, 150)
 var system = start + mid + end
 var SYSTEM_NAME = "%d %s" % [num, system]
 
-var tileSourceArray = []
-
 var tech_tree: YggdrasilTree
 
 func generate_planet_name(i):
@@ -72,7 +70,7 @@ class Planet:
 		robots = 0,
 		people = 10
 	}
-	var mini: Sprite2D
+	var mini_node: Sprite2D
 	var layer: CanvasLayer
 	var container: SubViewportContainer
 	var id = ""
@@ -93,7 +91,6 @@ func _ready():
 	var i: int = 0
 	var best_planet = 0
 	var best_score = 0
-	print(planets.size())
 	
 	seed("TESTING".hash())
 	
@@ -111,11 +108,6 @@ func _ready():
 	
 	selected_planet = best_planet
 	
-	var building_tile_set: TileSet=load("res://res/building_tile_set.tres")
-	for src in building_tile_set.get_source_count()+1:
-		if(building_tile_set.has_source(src)):
-			tileSourceArray.resize(tileSourceArray.size()+1)
-			tileSourceArray[src]=building_tile_set.get_source(src).resource_name
 	tech_tree = YggdrasilLoader.load_tree("tech/main")
 class Tile:
 	var id: String
@@ -150,7 +142,7 @@ var tiles: Array[Tile] = [
 	Tile.new("open_pit_mine", "Open pit mine", 
 	"Basic mine. Generated resource is determined by planet properties",
 	 1, "res://res/asset_open_pit_mine_0.5x.png", 
-	[10, "steel"], [], 6, false),
+	[10, "steel"], [1, "electricity"], 6, false),
 	Tile.new("battery_bank", "Battery Bank", 
 	"Stores energy (Base storage 5)",
 	 3, "res://res/asset_battery_bank_0.5x.png", 

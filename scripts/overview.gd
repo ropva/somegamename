@@ -67,7 +67,6 @@ func _ready():
 	builder.set_parent(%TechTreeContainer)
 	builder.node_created_callback(
 		func(n: BaseButton):
-			print(n.name)
 			n.pressed.connect(
 				func pressed():
 					if n.name == "Node_2":
@@ -88,13 +87,13 @@ func _ready():
 func update_planets():
 	var screen_size = get_viewport_rect().size
 	for p in Global.planets:
-		var mini: Sprite2D = p.mini
+		var mini_node: Sprite2D = p.mini_node
 		var container: SubViewportContainer = p.container
-		mini.scale = Vector2(
-			(p.size * max(screen_size.x, screen_size.y)) / mini.texture.get_size().x * 2, 
-			(p.size * max(screen_size.x, screen_size.y)) / mini.texture.get_size().y * 2
+		mini_node.scale = Vector2(
+			(p.size * max(screen_size.x, screen_size.y)) / mini_node.texture.get_size().x * 2, 
+			(p.size * max(screen_size.x, screen_size.y)) / mini_node.texture.get_size().y * 2
 		)
-		mini.position = p.pos*screen_size
+		mini_node.position = p.pos*screen_size
 		
 		container.size = screen_size + Vector2(32,32)
 
@@ -111,7 +110,7 @@ func draw_planets():
 		)
 		new_planet.position = p.pos*screen_size
 		add_child(new_planet)
-		p.mini = new_planet
+		p.mini_node = new_planet
 		var planetScene: Node2D = PlanetScene.instantiate()
 		
 		planetScene.planetIndex = idx
