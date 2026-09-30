@@ -114,9 +114,7 @@ func _on_tile_update():
 			planet.storage.people += Global.HOUSING_BASE_CAPACITY
 		elif(tile.id == "battery_bank"):
 			planet.storage.electricity += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
-	%RobotLabel.visible = Global.robots_unlocked
-	%RobotSeparator.visible = Global.robots_unlocked
-	%RobotImage.visible = Global.robots_unlocked
+	%Robots.visible = Global.robots_unlocked
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]
@@ -142,11 +140,15 @@ func _physics_process(delta: float) -> void:
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
 	%ScienceLabel.text = str(int(Global.science))
-	%PopLabel.text = "%s/%s" % [str(int(planet.resources.people)), str(int(planet.storage.people))]
-	%RobotLabel.text = str(int(planet.resources.robots))
+	%PopLabel.text = str(int(planet.resources.people))
+	%PopJobsLabel.text = str(int(0))
+	%FreeHousingLabel.text = str(int(planet.storage.people))
+	%RobotsLabel.text = str(int(planet.resources.robots))
+	%RobotsJobsLabel.text = str(int(0))
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
-	%ElectricityLabel.text = "%s/%s" % [str(int(planet.resources.electricity)), str(int(planet.storage.electricity))]
+	%ElectricityLabel.text = str(int(planet.resources.electricity))
+	%ElectricityStorageLabel.text = str(int(planet.storage.electricity))
 
 func clamp_resource(amount, max):
 	if max == -1:

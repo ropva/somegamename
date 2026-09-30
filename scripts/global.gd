@@ -142,7 +142,7 @@ var tiles: Array[Tile] = [
 	Tile.new("solar_plant", "Solar plant", 
 	"The most basic way of producing power.", 
 	2, "res://res/asset_solar_plant_0.5x.png", 
-	[10, "steel", 3, "titanium"], [], 2, false),
+	[10, "steel", 30, "titanium"], [], 2, false),
 	Tile.new("housing", "Housing", 
 	"Basically storage for humans.", 
 	0, "res://res/asset_housing_0.5x.png", 
@@ -154,7 +154,7 @@ var tiles: Array[Tile] = [
 	Tile.new("battery_bank", "Battery Bank", 
 	"Stores energy (Base storage 5)",
 	 3, "res://res/asset_battery_bank_0.5x.png", 
-	[10, "steel", 10, "titanium"], [], 1, false)
+	[3, "steel", 10, "titanium"], [], 1, false)
 ]
 
 	

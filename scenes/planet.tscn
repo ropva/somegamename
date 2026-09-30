@@ -4,19 +4,20 @@
 [ext_resource type="TileSet" uid="uid://4i5ciqcb1goq" path="res://res/building_tile_set.tres" id="2_11eka"]
 [ext_resource type="Script" uid="uid://6h8apho2x2ul" path="res://scripts/building_layer.gd" id="3_ggt7d"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
-[ext_resource type="Texture2D" uid="uid://bf2fnhiff4fqr" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
-[ext_resource type="Texture2D" uid="uid://cxibhjg5u0ts2" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
-[ext_resource type="Texture2D" uid="uid://b8xriokyv2iri" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
-[ext_resource type="Texture2D" uid="uid://ccmtft47el5ab" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
-[ext_resource type="Texture2D" uid="uid://wpqixphgt7y1" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://cax68p7g8r1fs" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
-[ext_resource type="Texture2D" uid="uid://by22wmamvfuow" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://bhoy76fuyl7by" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
+[ext_resource type="Texture2D" uid="uid://by4swpse4cota" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
+[ext_resource type="Texture2D" uid="uid://drel0lexy4rhb" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://bq7v871myx2cg" path="res://res/asset_icon_human_job_0.5x.png" id="7_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://caytmu45e6ucq" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://k7pcacp85smm" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://cb38i1gebtwry" path="res://res/asset_icon_house_0.5x.png" id="9_xa7tn"]
+[ext_resource type="Texture2D" uid="uid://b0kp6ghp381um" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://crvo378wa1xiv" path="res://res/asset_icon_robot_job_0.5x.png" id="10_qkmej"]
+[ext_resource type="Texture2D" uid="uid://y12m2yjqu16e" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
 [ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scripts/camera_2d.gd" id="13_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://bx4i31d1px8e3" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://ctgmgm6dh3hl2" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw1i6"]
-bg_color = Color(0, 0, 0, 0)
+[ext_resource type="Texture2D" uid="uid://b3ct7qhmgb3yx" path="res://res/asset_icon_energy_storage_0.5x.png" id="14_y5i4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1t4m"]
 bg_color = Color(0, 0, 0, 0.6666667)
@@ -83,113 +84,188 @@ theme_override_constants/margin_bottom = 36
 [node name="Top Bar" type="HBoxContainer" parent="UI/Resources/MarginContainer" unique_id=1643685907]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/separation = 10
+theme_override_constants/separation = 24
 
-[node name="MoneyLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1656173612]
+[node name="Money" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=2117095305]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MoneyLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Money" unique_id=1656173612]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=237672390]
+[node name="TextureRect" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Money" unique_id=237672390]
 layout_mode = 2
 texture = ExtResource("5_qw1i6")
 expand_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1967387674]
+[node name="People" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=272234448]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+theme_override_constants/separation = 12
 
-[node name="PopLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1734353335]
+[node name="Pop" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/People" unique_id=1494503342]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="PopLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/People/Pop" unique_id=2051916214]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=2049315845]
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/People/Pop" unique_id=1261525167]
 layout_mode = 2
 texture = ExtResource("6_ekhpw")
 expand_mode = 2
 
-[node name="RobotSeparator" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1986929248]
-unique_name_in_owner = true
+[node name="PopJobs" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/People" unique_id=1769702511]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+size_flags_horizontal = 8
 
-[node name="RobotLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=617035796]
+[node name="PopJobsLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/People/PopJobs" unique_id=1734353335]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="RobotImage" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1046935528]
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/People/PopJobs" unique_id=2049315845]
+layout_mode = 2
+texture = ExtResource("7_kp5tw")
+expand_mode = 2
+
+[node name="FreeHousing" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/People" unique_id=1977903003]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="FreeHousingLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/People/FreeHousing" unique_id=1374954694]
 unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/People/FreeHousing" unique_id=287436943]
+layout_mode = 2
+texture = ExtResource("9_xa7tn")
+expand_mode = 2
+
+[node name="Robots" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=824449815]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Robot" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Robots" unique_id=2019759958]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="RobotsLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Robots/Robot" unique_id=16617536]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Robots/Robot" unique_id=1042684732]
 layout_mode = 2
 texture = ExtResource("7_11eka")
 expand_mode = 2
 
-[node name="VSeparator3" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=879898909]
+[node name="RobotJobs" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Robots" unique_id=1876008751]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+size_flags_horizontal = 8
 
-[node name="SteelLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=289855563]
+[node name="RobotsJobsLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Robots/RobotJobs" unique_id=451192681]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect4" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1835958676]
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Robots/RobotJobs" unique_id=1625398422]
+layout_mode = 2
+texture = ExtResource("10_qkmej")
+expand_mode = 2
+
+[node name="Metal" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=432373908]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Steel" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Metal" unique_id=1178128535]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="SteelLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Metal/Steel" unique_id=289855563]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Metal/Steel" unique_id=1835958676]
 layout_mode = 2
 texture = ExtResource("8_n1t4m")
 expand_mode = 2
 
-[node name="VSeparator4" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=670817834]
+[node name="Titanium" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Metal" unique_id=100327218]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
-[node name="TitaniumLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=28561981]
+[node name="TitaniumLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Metal/Titanium" unique_id=28561981]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect5" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1148502600]
+[node name="TextureRect5" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Metal/Titanium" unique_id=1148502600]
 layout_mode = 2
 texture = ExtResource("9_kp5tw")
 expand_mode = 2
 
-[node name="VSeparator5" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=836320907]
+[node name="Electricity" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1330047634]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+theme_override_constants/separation = 12
 
-[node name="ElectricityLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=870082437]
+[node name="Electricity" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Electricity" unique_id=1716028451]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ElectricityLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Electricity/Electricity" unique_id=870082437]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=276966344]
+[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Electricity/Electricity" unique_id=276966344]
 layout_mode = 2
 texture = ExtResource("10_qa7os")
 expand_mode = 2
 
-[node name="VSeparator6" type="VSeparator" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1709060916]
+[node name="ElectricityStorage" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Electricity" unique_id=1327832846]
 layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxFlat_qw1i6")
+size_flags_vertical = 0
 
-[node name="ScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1767281784]
+[node name="ElectricityStorageLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Electricity/ElectricityStorage" unique_id=145055067]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1580226439]
+[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Electricity/ElectricityStorage" unique_id=1454128477]
+layout_mode = 2
+texture = ExtResource("14_y5i4l")
+expand_mode = 2
+
+[node name="Science" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1826905140]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1767281784]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1580226439]
 layout_mode = 2
 texture = ExtResource("12_kp5tw")
 expand_mode = 2
