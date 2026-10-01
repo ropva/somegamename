@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="YggdrasilTree" format=3 uid="uid://dowky6guiyyk"]
 
+[ext_resource type="Texture2D" uid="uid://b3lxjwuscd6vo" path="res://res/asset_science_lab_blue_0.5x.png" id="1_3dpe4"]
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
-[ext_resource type="Texture2D" uid="uid://i1r4v2e3358p" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
-[ext_resource type="Texture2D" uid="uid://7jf41d0cvog" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
-[ext_resource type="Texture2D" uid="uid://csva06pajt78d" path="res://res/asset_robot_1x.png" id="1_h2abi"]
-[ext_resource type="Texture2D" uid="uid://dpip4yk1hl2p6" path="res://res/asset_planet_base_1x.png" id="1_honru"]
-[ext_resource type="Texture2D" uid="uid://bwtpjemhtjihw" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
-[ext_resource type="Texture2D" uid="uid://r50r3nyr735g" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
-[ext_resource type="Texture2D" uid="uid://y2c0t2vrwr74" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
+[ext_resource type="Texture2D" uid="uid://cgcmptfydti4o" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
+[ext_resource type="Texture2D" uid="uid://dfopod162dplu" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
+[ext_resource type="Texture2D" uid="uid://7nhxjp4lgnhv" path="res://res/asset_robot_1x.png" id="1_h2abi"]
+[ext_resource type="Texture2D" uid="uid://bs6ay0evqnhgj" path="res://res/asset_planet_base_1x.png" id="1_honru"]
+[ext_resource type="Texture2D" uid="uid://d1qxjrbi1muyi" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
+[ext_resource type="Texture2D" uid="uid://clgom2btp0iqh" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
+[ext_resource type="Texture2D" uid="uid://mro28sbugs8u" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
 [ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
+[ext_resource type="Texture2D" uid="uid://cfmue8mj3gbp2" path="res://res/asset_science_lab_red_0.5x.png" id="11_8mbeu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eomsr"]
 atlas = ExtResource("1_honru")
@@ -46,6 +48,9 @@ atlas = ExtResource("1_exutt")
 [sub_resource type="Resource" id="Resource_deswg"]
 script = ExtResource("6_h2abi")
 
+[sub_resource type="Resource" id="Resource_ooq6a"]
+script = ExtResource("6_h2abi")
+
 [sub_resource type="Resource" id="Resource_3dpe4"]
 script = ExtResource("5_exutt")
 id = 2
@@ -59,9 +64,10 @@ border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
 position = Vector2(192, 0)
 line_data = {
-3: SubResource("Resource_deswg")
+3: SubResource("Resource_deswg"),
+5: SubResource("Resource_ooq6a")
 }
-out_nodes = [3]
+out_nodes = [3, 5]
 in_nodes = [1]
 attributes = {}
 max_allocations = 1
@@ -80,7 +86,7 @@ icon = SubResource("AtlasTexture_exutt")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(320, -128)
+position = Vector2(384, 0)
 line_data = {}
 out_nodes = []
 in_nodes = [2]
@@ -89,6 +95,9 @@ max_allocations = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ooq6a"]
 atlas = ExtResource("1_deswg")
+
+[sub_resource type="Resource" id="Resource_xfhs0"]
+script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_do6et"]
 script = ExtResource("5_exutt")
@@ -101,10 +110,58 @@ icon = SubResource("AtlasTexture_ooq6a")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(0, -128)
+position = Vector2(0, -192)
+line_data = {
+5: SubResource("Resource_xfhs0")
+}
+out_nodes = [5]
+in_nodes = [1]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kira1"]
+atlas = ExtResource("11_8mbeu")
+
+[sub_resource type="Resource" id="Resource_8q5ad"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_ho1np"]
+script = ExtResource("5_exutt")
+id = 5
+external_id = "red_science"
+name = "Red Science"
+description = "A new age!"
+type = 1
+icon = SubResource("AtlasTexture_kira1")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, -192)
+line_data = {
+6: SubResource("Resource_8q5ad")
+}
+out_nodes = [6]
+in_nodes = [4, 2]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mbeu"]
+atlas = ExtResource("1_3dpe4")
+
+[sub_resource type="Resource" id="Resource_2xvug"]
+script = ExtResource("5_exutt")
+id = 6
+external_id = "peak_technology"
+name = "PEAK TECHNOLOGY"
+type = 1
+icon = SubResource("AtlasTexture_8mbeu")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, -384)
 line_data = {}
 out_nodes = []
-in_nodes = [1]
+in_nodes = [5]
 attributes = {}
 max_allocations = 1
 
@@ -112,8 +169,7 @@ max_allocations = 1
 script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
-revealed = false
-id_counter = 4
+id_counter = 6
 icon_sizes = {
 0: Vector2(0, 0),
 1: Vector2(0, 0),
@@ -121,7 +177,7 @@ icon_sizes = {
 }
 icons = {
 0: null,
-1: ExtResource("1_deswg"),
+1: ExtResource("1_3dpe4"),
 2: ExtResource("1_honru")
 }
 node_size = {
@@ -129,7 +185,7 @@ node_size = {
 1: Vector2(48, 48),
 2: Vector2(64, 64)
 }
-nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et")]
+nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ho1np"), SubResource("Resource_2xvug")]
 decorations = []
 prefabs = {}
 attributes = {}

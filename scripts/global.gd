@@ -3,7 +3,9 @@ extends Node
 signal prop_update
 
 var money = 100
-var science = 0
+var green_science = 0
+var red_science = 0
+var blue_science = 0
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -130,6 +132,15 @@ class Tile:
 		workers = _workers
 		human_only = _human_only
 
+var RED_LAB_TILE = Tile.new("science_lab_red", "Red Science Lab", 
+	"Makes red science",
+	 13, "res://res/asset_science_lab_red_0.5x.png", 
+	[20, "steel", 50, "titanium"], [50, "electricity"], 10, true)
+var BLUE_LAB_TILE = Tile.new("science_lab_blue", "Blue Science Lab", 
+	"Makes blue science",
+	 11, "res://res/asset_science_lab_blue_0.5x.png", 
+	[20, "steel", 50, "titanium"], [100, "electricity"], 10, true)
+
 var tiles: Array[Tile] = [
 	Tile.new("solar_plant", "Solar plant", 
 	"The most basic way of producing power.", 
@@ -146,7 +157,11 @@ var tiles: Array[Tile] = [
 	Tile.new("battery_bank", "Battery Bank", 
 	"Stores energy (Base storage 5)",
 	 3, "res://res/asset_battery_bank_0.5x.png", 
-	[3, "steel", 10, "titanium"], [], 1, false)
+	[3, "steel", 10, "titanium"], [], 1, false),
+	Tile.new("science_lab_green", "Green Science Lab", 
+	"Makes green science",
+	 12, "res://res/asset_science_lab_green_0.5x.png", 
+	[5, "steel", 10, "titanium"], [10, "electricity"], 10, true)
 ]
 
 	

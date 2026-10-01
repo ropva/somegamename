@@ -4,20 +4,22 @@
 [ext_resource type="TileSet" uid="uid://4i5ciqcb1goq" path="res://res/building_tile_set.tres" id="2_11eka"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="4_0k1rn"]
 [ext_resource type="TileSet" uid="uid://dhkvd20c8gnat" path="res://res/overlay_tile_set.tres" id="4_xa7tn"]
-[ext_resource type="Texture2D" uid="uid://c7or3cn2v48l4" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
-[ext_resource type="Texture2D" uid="uid://bsghi77jr0e5n" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
-[ext_resource type="Texture2D" uid="uid://ncx4e5cyhmbp" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
-[ext_resource type="Texture2D" uid="uid://cak38vn7nr62q" path="res://res/asset_icon_human_job_0.5x.png" id="7_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://bnsc4phn1hd5x" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
-[ext_resource type="Texture2D" uid="uid://6ramgc1vyg3v" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://dol5qktacrj08" path="res://res/asset_icon_house_0.5x.png" id="9_xa7tn"]
-[ext_resource type="Texture2D" uid="uid://b8pxmk37vndkv" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
-[ext_resource type="Texture2D" uid="uid://cypyk4ht38dpk" path="res://res/asset_icon_robot_job_0.5x.png" id="10_qkmej"]
-[ext_resource type="Texture2D" uid="uid://cw834calj225w" path="res://res/asset_icon_science_0.5x.png" id="12_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://dedjx5vco6r6h" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
+[ext_resource type="Texture2D" uid="uid://c5g4wge56okee" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
+[ext_resource type="Texture2D" uid="uid://dgvj5a5webuug" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://duwyv1mpw2cjx" path="res://res/asset_icon_human_job_0.5x.png" id="7_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://vi6ubqv6x2in" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://cihdjdimjpb3x" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://ulyl818cw7fw" path="res://res/asset_icon_house_0.5x.png" id="9_xa7tn"]
+[ext_resource type="Texture2D" uid="uid://cq00kdqe4gear" path="res://res/asset_icon_energy_0.5x.png" id="10_qa7os"]
+[ext_resource type="Texture2D" uid="uid://bfmgw4m7nvfdt" path="res://res/asset_icon_robot_job_0.5x.png" id="10_qkmej"]
 [ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scripts/camera_2d.gd" id="13_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://boev0y1kbsew8" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
+[ext_resource type="Texture2D" uid="uid://b6osd0hubg1h1" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
-[ext_resource type="Texture2D" uid="uid://dabo3gu5ibs01" path="res://res/asset_icon_energy_storage_0.5x.png" id="14_y5i4l"]
+[ext_resource type="Texture2D" uid="uid://ce1ec3b6cpi7o" path="res://res/asset_icon_energy_storage_0.5x.png" id="14_y5i4l"]
+[ext_resource type="Texture2D" uid="uid://bq71adde258jr" path="res://res/asset_icon_science_green_0.5x.png" id="16_c8igh"]
+[ext_resource type="Texture2D" uid="uid://cqdkvyrio4evt" path="res://res/asset_icon_science_red_0.5x.png" id="17_egja1"]
+[ext_resource type="Texture2D" uid="uid://4fbedlcslqfs" path="res://res/asset_icon_science_blue_0.5x.png" id="18_uxcj0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1t4m"]
 bg_color = Color(0, 0, 0, 0.6666667)
@@ -260,19 +262,55 @@ layout_mode = 2
 texture = ExtResource("14_y5i4l")
 expand_mode = 2
 
-[node name="Science" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1826905140]
+[node name="Science" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1462333187]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GreenScience3" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=339223077]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1767281784]
+[node name="GreenScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/GreenScience3" unique_id=1242012153]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1580226439]
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/GreenScience3" unique_id=1750211163]
 layout_mode = 2
-texture = ExtResource("12_kp5tw")
+texture = ExtResource("16_c8igh")
+expand_mode = 2
+
+[node name="RedScience" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1826905140]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="RedScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/RedScience" unique_id=1767281784]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/RedScience" unique_id=1580226439]
+layout_mode = 2
+texture = ExtResource("17_egja1")
+expand_mode = 2
+
+[node name="BlueScience" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=667232786]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="BlueScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/BlueScience" unique_id=2014135692]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/BlueScience" unique_id=1760815967]
+layout_mode = 2
+texture = ExtResource("18_uxcj0")
 expand_mode = 2
 
 [node name="Top Left" type="FlowContainer" parent="UI" unique_id=331889226]

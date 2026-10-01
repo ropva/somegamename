@@ -1,9 +1,12 @@
 [gd_resource type="TileSet" format=3 uid="uid://4i5ciqcb1goq"]
 
-[ext_resource type="Texture2D" uid="uid://vum5rdk81ohi" path="res://res/asset_housing_4x.png" id="1_yblt2"]
-[ext_resource type="Texture2D" uid="uid://doxw6pwc4hps8" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
-[ext_resource type="Texture2D" uid="uid://0y80e18l04mx" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
-[ext_resource type="Texture2D" uid="uid://bh6l6ij0bha06" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://bn638rcaqq6dx" path="res://res/asset_housing_4x.png" id="1_yblt2"]
+[ext_resource type="Texture2D" uid="uid://ct8uyvwphxlsb" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://dkvlcpyjq1acm" path="res://res/asset_science_lab_blue_4x.png" id="3_dr8jo"]
+[ext_resource type="Texture2D" uid="uid://bfwmedv6m2dr2" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
+[ext_resource type="Texture2D" uid="uid://c8qrrsc3t40p8" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://d1g0lss67flqy" path="res://res/asset_science_lab_green_4x.png" id="4_u6nmr"]
+[ext_resource type="Texture2D" uid="uid://ckcyayc26n8os" path="res://res/asset_science_lab_red_4x.png" id="5_majk4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjhfv"]
 resource_name = "housing"
@@ -14,6 +17,24 @@ texture_region_size = Vector2i(1091, 1260)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ck4fa"]
 resource_name = "open_pit_mine"
 texture = ExtResource("2_bnhxx")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mr7to"]
+resource_name = "science_lab_blue"
+texture = ExtResource("3_dr8jo")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n6yk7"]
+resource_name = "science_lab_green"
+texture = ExtResource("4_u6nmr")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8d3fs"]
+resource_name = "science_lab_red"
+texture = ExtResource("5_majk4")
 texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
@@ -36,3 +57,6 @@ sources/2 = SubResource("TileSetAtlasSource_dr8jo")
 sources/3 = SubResource("TileSetAtlasSource_bnhxx")
 sources/0 = SubResource("TileSetAtlasSource_qjhfv")
 sources/1 = SubResource("TileSetAtlasSource_ck4fa")
+sources/11 = SubResource("TileSetAtlasSource_mr7to")
+sources/12 = SubResource("TileSetAtlasSource_n6yk7")
+sources/13 = SubResource("TileSetAtlasSource_8d3fs")

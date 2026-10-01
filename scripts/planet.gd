@@ -35,17 +35,7 @@ func _ready() -> void:
 		%PlanetDesc.text = "Iron: {0}%\nTitanium: {1}%\nSolar: {2}%".format([ planet.iron, planet.titanium, planet.solar])
 	
 	Global.prop_update.connect(_on_tile_update.bind())
-	for tile in Global.tiles:
-		var new_button: TextureButton = %TileButton.duplicate()
-		new_button.visible = true
-		new_button.texture_normal = load(tile.sprite_path)
-		new_button.name=tile.id
-		%Hotbar.add_child(new_button)
-		new_button.pressed.connect(
-			func button_pressed(): _on_tile_button_selected(tile.id)
-		)
-	#idk what to do with the original one after this
-	%TileButton.queue_free()
+
 	_on_tile_button_selected("housing")
 	_on_tile_update()
 
@@ -154,7 +144,23 @@ func _on_tile_update():
 		elif(tile.id == "battery_bank"):
 			planet.storage.electricity += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
 
+	for child in %Hotbar.get_children():
+		if child.visible: 
+			child.queue_free()
+	for tile in Global.tiles:
+		var new_button: TextureButton = %TileButton.duplicate()
+		new_button.visible = true
+		new_button.texture_normal = load(tile.sprite_path)
+		new_button.name=tile.id
+		%Hotbar.add_child(new_button)
+		new_button.pressed.connect(
+			func button_pressed(): _on_tile_button_selected(tile.id)
+		)
+	
 	%Robots.visible = Global.robots_unlocked
+	%RedScience.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
+	%BlueScience.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
+	
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]
@@ -196,7 +202,9 @@ func _physics_process(delta: float) -> void:
 				handle_resource("electricity", planet.solar / 100.0)
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
-	%ScienceLabel.text = str(int(Global.science))
+	%GreenScienceLabel.text = str(int(Global.green_science))
+	%RedScienceLabel.text = str(int(Global.red_science))
+	%BlueScienceLabel.text = str(int(Global.blue_science))
 	%PopLabel.text = str(int(planet.resources.people))
 	%PopJobsLabel.text = str(int(0))
 	%FreeHousingLabel.text = str(int(planet.storage.people))

@@ -81,6 +81,16 @@ func _ready():
 						Global.demolition_loss = 0.1
 						Global.prop_update.emit()
 						pass
+					elif n.name == "Node_5":
+						Global.tiles.push_back(Global.RED_LAB_TILE)
+						Global.prop_update.emit()
+						pass
+					elif n.name == "Node_6":
+						Global.tiles.push_back(Global.BLUE_LAB_TILE)
+						Global.prop_update.emit()
+						pass
+					else:
+						print(n.name)
 			)
 	)
 	builder.deallocation_check_callback(
