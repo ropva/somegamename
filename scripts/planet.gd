@@ -2,6 +2,8 @@ extends Node2D
 
 signal on_back
 signal on_tech_tree
+signal on_store
+signal on_toast
 
 @export var planetIndex: int = -1
 
@@ -39,21 +41,6 @@ func _ready() -> void:
 	_on_tile_button_selected("housing")
 	_on_tile_update()
 
-func toast(message: String, time = 3.0):
-	%ToastMessage.text = message
-	var new_toast = %Toast.duplicate()
-	%Toast.get_parent().add_child(new_toast)
-	var tween = new_toast.create_tween()
-	new_toast.offset_transform_position_ratio = Vector2(0, -1)
-	tween.set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(new_toast, "offset_transform_position_ratio", Vector2(0, 0), 0.5)
-	tween.tween_property(new_toast, "offset_transform_position_ratio", Vector2(0, -1), 0.5)
-	tween.tween_callback(new_toast.queue_free.bind())
-	await tween.step_finished
-	tween.pause()
-	await get_tree().create_timer(time).timeout
-	tween.play()
-
 func _unhandled_input(event: InputEvent) -> void:
 	var tile_coord = %BuildingLayer.local_to_map(%BuildingLayer.to_local(get_global_mouse_position()))
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -61,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var tile = Global.tiles[tileIndex]
 		
 		if %BuildingLayer.get_cell_source_id(tile_coord) != -1:
-			toast("Tile occupied")
+			on_toast.emit("Tile occupied")
 			return
 		
 		var enoughItems = true
@@ -72,7 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var amount = tile.recipe[i]
 			var item = tile.recipe[i+1]
 			if (get_item_var(item) < amount):
-				toast("Not enough %s" % [item])
+				on_toast.emit("Not enough %s" % [item])
 				enoughItems = false
 			i += 2
 		if not enoughItems: return
@@ -104,21 +91,21 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func get_item_var(item):
 	var planet = Global.planets[planetIndex]
-	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
+	if item == "money" or item == "science_green" or item == "science_red" or item == "science_blue":
 		return Global[item]
 	else:
 		return planet.resources[item]
 
 func get_item_storage(item):
 	var planet = Global.planets[planetIndex]
-	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
+	if item == "money" or item == "science_green" or item == "science_red" or item == "science_blue":
 		return -1
 	else:
 		return planet.storage[item]
 
 func set_item_var(item, value):
 	var planet = Global.planets[planetIndex]
-	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
+	if item == "money" or item == "science_green" or item == "science_red" or item == "science_blue":
 		Global[item] = value
 	else:
 		planet.resources[item] = value
@@ -136,7 +123,7 @@ func _on_tile_update():
 		if(tile.id == "housing"):
 			planet.storage.people += Global.HOUSING_BASE_CAPACITY
 		elif(tile.id == "battery_bank"):
-			planet.storage.electricity += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
+			planet.storage.energy += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
 
 	for child in %Hotbar.get_children():
 		if child.visible: 
@@ -152,8 +139,8 @@ func _on_tile_update():
 		)
 	
 	%Robots.visible = Global.robots_unlocked
-	%RedScience.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
-	%BlueScience.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
+	%ScienceRed.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
+	%ScienceBlue.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
 	
 func _physics_process(delta: float) -> void:
 	
@@ -187,24 +174,16 @@ func _physics_process(delta: float) -> void:
 				i += 2
 			if not consumption_successful: continue
 			# production
-			if(tile.id == "housing"):
-				handle_resource("people", 0.2)
-			elif(tile.id == "open_pit_mine"):
-				handle_resource("steel", planet.iron / 100.0)
-				handle_resource("titanium", planet.titanium / 100.0)
-			elif(tile.id == "solar_plant"):
-				handle_resource("electricity", planet.solar / 100.0)
-			elif(tile.id == "science_lab_green"):
-				handle_resource("green_science", 1)
-			elif(tile.id == "science_lab_red"):
-				handle_resource("red_science", 1)
-			elif(tile.id == "science_lab_blue"):
-				handle_resource("blue_science", 1)
+			while i < tile.produces.size():
+				var amount = tile.produces[i]
+				var item = tile.produces[i+1]
+				handle_resource(item, amount * tick_scaler * get_building_production_multiplier(tile.id, item))
+				i += 2
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
-	%GreenScienceLabel.text = str(int(Global.green_science))
-	%RedScienceLabel.text = str(int(Global.red_science))
-	%BlueScienceLabel.text = str(int(Global.blue_science))
+	%GreenScienceLabel.text = str(int(Global.science_green))
+	%RedScienceLabel.text = str(int(Global.science_red))
+	%BlueScienceLabel.text = str(int(Global.science_blue))
 	%PopLabel.text = str(int(planet.resources.people))
 	%PopJobsLabel.text = str(int(0))
 	%FreeHousingLabel.text = str(int(planet.storage.people))
@@ -212,8 +191,8 @@ func _physics_process(delta: float) -> void:
 	%RobotsJobsLabel.text = str(int(0))
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
-	%ElectricityLabel.text = str(int(planet.resources.electricity))
-	%ElectricityStorageLabel.text = str(int(planet.storage.electricity))
+	%ElectricityLabel.text = str(int(planet.resources.energy))
+	%ElectricityStorageLabel.text = str(int(planet.storage.energy))
 
 func handle_resource(item: String, amount: float):
 	set_item_var(item, clamp_resource(get_item_var(item) + amount * tick_scaler, get_item_storage(item)))
@@ -239,6 +218,10 @@ func _on_tile_button_selected(id) -> void:
 	%BuildingTitle.text = tile.name
 	%BuildingDesc.text = tile.desc
 	
+	%BuildingJobsContainer.visible = tile.workers != 0
+	%BuildingRobot.visible = !tile.human_only
+	%BuildingWorkers.text = str(tile.workers)
+	
 	for child in %BuildingCosts.get_children():
 		child.queue_free()
 	
@@ -251,12 +234,61 @@ func _on_tile_button_selected(id) -> void:
 		new_cost_row.amount = amount
 		%BuildingCosts.add_child(new_cost_row)
 		i += 2
+	
+	%BuildingRecipeContainer.visible = tile.consumes.size() > 0 or tile.produces.size() > 0
+	
+	for child in %BuildingConsumes.get_children():
+		child.queue_free()
+	
+	i = 0
+	while i < tile.consumes.size():
+		var amount = tile.consumes[i]
+		var item = tile.consumes[i+1]
+		var new_cost_row = BUILDING_COST_TEMPLATE.instantiate()
+		new_cost_row.item = item
+		new_cost_row.amount = amount
+		%BuildingConsumes.add_child(new_cost_row)
+		i += 2
+	
+	
+	for child in %BuildingProduces.get_children():
+		child.queue_free()
+	
+	i = 0
+	while i < tile.produces.size():
+		var amount = tile.produces[i]
+		var item = tile.produces[i+1]
+		var new_cost_row = BUILDING_COST_TEMPLATE.instantiate()
+		new_cost_row.item = item
+		new_cost_row.amount = amount * get_building_production_multiplier(tile.id, item)
+		%BuildingProduces.add_child(new_cost_row)
+		i += 2
+	
 	selected_tile=id
 
+func get_building_production_multiplier(building: String, item: String):
+	var global_mult = Global.production_multiplier[building]
+	var planet = Global.planets[planetIndex]
+	if(building == "housing"):
+		return global_mult * 0.2
+	elif(building == "open_pit_mine"):
+		if item == "titanium":
+			return global_mult * planet.titanium / 100.0
+		else:
+			return global_mult * planet.iron / 100.0
+	elif(building == "solar_plant"):
+		return global_mult * planet.solar / 100.0
+	else:
+		return global_mult
 	
 func _on_back_button_pressed() -> void:
+	on_back.emit()
 	on_back.emit()
 
 
 func _on_tech_tree_button_pressed() -> void:
 	on_tech_tree.emit()
+
+
+func _on_store_button_pressed() -> void:
+	on_store.emit()

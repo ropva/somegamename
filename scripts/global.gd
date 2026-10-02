@@ -3,9 +3,9 @@ extends Node
 signal prop_update
 
 var money = 100
-var green_science = 0
-var red_science = 0
-var blue_science = 0
+var science_green = 0
+var science_red = 0
+var science_blue = 0
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -15,6 +15,15 @@ var planets_unlocked = 1
 var demolition_loss = 0.2
 var battery_capacity_mult = 1.0
 var robots_unlocked = false
+var production_multiplier = {
+	solar_plant = 1,
+	electronics_plant = 1,
+	robot_plant = 1,
+	open_pit_mine = 10,
+	science_lab_green = 1,
+	science_lab_red = 1,
+	science_lab_blue = 1,
+}
 
 # config
 const BATTERY_BASE_CAPACITY = 4
@@ -68,7 +77,8 @@ class Planet:
 	var resources = {
 		titanium = 100,
 		steel = 200,
-		electricity = 0,
+		energy = 0,
+		electronics = 0,
 		robots = 0,
 		people = 10
 	}
@@ -83,7 +93,7 @@ class Planet:
 		steel = -1,
 		people = 0,
 		robots = -1,
-		electricity = 0,
+		energy = 0,
 	}
 	func _init(n_id: String, n_name: String):
 		id = n_id
@@ -119,9 +129,14 @@ class Tile:
 	var sprite_path: String
 	var recipe: Array
 	var consumes: Array
+	var produces: Array
 	var workers: int
 	var human_only: bool
-	func _init(_id: String,_name: String,_desc: String, _sprite: int, _sprite_path: String, _recipe: Array, _consumes: Array, _workers: int, _human_only: bool):
+	func _init(_id: String,_name: String,
+	_desc: String, _sprite: int,
+	 _sprite_path: String, _recipe: Array, 
+	_consumes: Array, _produces: Array, 
+	_workers: int, _human_only: bool):
 		id = _id
 		name = _name
 		desc = _desc
@@ -129,39 +144,66 @@ class Tile:
 		sprite_path = _sprite_path
 		recipe = _recipe
 		consumes = _consumes
+		produces = _produces
 		workers = _workers
 		human_only = _human_only
 
 var RED_LAB_TILE = Tile.new("science_lab_red", "Red Science Lab", 
 	"Makes red science",
 	 13, "res://res/asset_science_lab_red_0.5x.png", 
-	[20, "steel", 50, "titanium"], [50, "electricity"], 10, true)
+	[20, "steel", 50, "titanium"], 
+	[50, "energy"], [1, "science_red"]
+	, 10, true)
 var BLUE_LAB_TILE = Tile.new("science_lab_blue", "Blue Science Lab", 
 	"Makes blue science",
 	 11, "res://res/asset_science_lab_blue_0.5x.png", 
-	[20, "steel", 50, "titanium"], [100, "electricity"], 10, true)
+	[20, "steel", 50, "titanium"], 
+	[100, "energy"], [1, "science_blue"],
+	10, true)
+var ROBOT_PLANT = Tile.new("robot_plant", "Robot Plant", 
+	"Don't forget the opinion suppressing chip!",
+	 11, "res://res/asset_robot_plant_0.5x.png", 
+	[200, "steel", 50, "titanium", 100, "electronics"], 
+	[50, "energy", 10, "electronics"], [1, "robots"],
+	10, true)
+var ELECTRONICS_PLANT = Tile.new("electronics_plant", "Electronics Factory", 
+	"thing",
+	 11, "res://res/asset_electronics_plant_0.5x.png", 
+	[200, "steel", 50, "titanium"], 
+	[20, "energy", 5, "steel", 3, "titanium"], [3, "electronics"],
+	10, true)
 
 var tiles: Array[Tile] = [
 	Tile.new("solar_plant", "Solar plant", 
 	"The most basic way of producing power.", 
 	2, "res://res/asset_solar_plant_0.5x.png", 
-	[10, "steel", 30, "titanium"], [], 2, false),
+	[10, "steel", 30, "titanium"], 
+	[], [2, "energy"],
+	2, false),
 	Tile.new("housing", "Housing", 
 	"Basically storage for humans.", 
 	0, "res://res/asset_housing_0.5x.png", 
-	[10, "steel", 20, "money"], [], 0, false),
+	[10, "steel", 20, "money"], 
+	[], [],
+	0, false),
 	Tile.new("open_pit_mine", "Open pit mine", 
 	"Basic mine. Generated resource is determined by planet properties",
 	 1, "res://res/asset_open_pit_mine_0.5x.png", 
-	[10, "steel"], [1, "electricity"], 6, false),
+	[10, "steel"], 
+	[1, "energy"], [1, "steel", 1, "titanium"], 
+	6, false),
 	Tile.new("battery_bank", "Battery Bank", 
 	"Stores energy (Base storage 5)",
 	 3, "res://res/asset_battery_bank_0.5x.png", 
-	[3, "steel", 10, "titanium"], [], 1, false),
+	[3, "steel", 10, "titanium"], 
+	[], [],
+	1, false),
 	Tile.new("science_lab_green", "Green Science Lab", 
 	"Makes green science",
 	 12, "res://res/asset_science_lab_green_0.5x.png", 
-	[5, "steel", 10, "titanium"], [10, "electricity"], 10, true)
+	[5, "steel", 10, "titanium"], 
+	[10, "energy"], [1, "science_green"],
+	10, true)
 ]
 
 	

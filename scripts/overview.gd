@@ -11,6 +11,21 @@ func hovered_planet(screen_position: Vector2) -> int:
 			return screen_position.distance_squared_to(pos) <= pow(p.size * max(screen_size.x, screen_size.y), 2)
 	)
 
+func toast(message: String, time = 3.0):
+	%ToastMessage.text = message
+	var new_toast = %Toast.duplicate()
+	%Toast.get_parent().add_child(new_toast)
+	var tween = new_toast.create_tween()
+	new_toast.offset_transform_position_ratio = Vector2(0, -1)
+	tween.set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(new_toast, "offset_transform_position_ratio", Vector2(0, 0), 0.5)
+	tween.tween_property(new_toast, "offset_transform_position_ratio", Vector2(0, -1), 0.5)
+	tween.tween_callback(new_toast.queue_free.bind())
+	await tween.step_finished
+	tween.pause()
+	await get_tree().create_timer(time).timeout
+	tween.play()
+
 func close_planet(container: SubViewportContainer, layer: CanvasLayer): 
 	Global.selected_planet = -1
 	visible = true
@@ -60,45 +75,64 @@ func _ready():
 		func resize():
 			update_planets()
 	) 
+	
+	Global.prop_update.connect(_on_global_update.bind())
+	_on_global_update()
+	
 	if Global.selected_planet != -1:
 		open_planet(Global.selected_planet, false)
 		
 	var builder: YggdrasilBuilder = YggdrasilBuilder.new(Global.tech_tree)
 	builder.set_parent(%TechTreeContainer)
-	builder.node_created_callback(
-		func(n: BaseButton):
-			n.pressed.connect(
-				func pressed():
-					if n.name == "Node_2":
-						Global.battery_capacity_mult = 1.25
-						Global.prop_update.emit()
-						pass
-					elif n.name == "Node_3":
-						Global.robots_unlocked = true
-						Global.prop_update.emit()
-						pass
-					elif n.name == "Node_4":
-						Global.demolition_loss = 0.1
-						Global.prop_update.emit()
-						pass
-					elif n.name == "Node_5":
-						Global.tiles.push_back(Global.RED_LAB_TILE)
-						Global.prop_update.emit()
-						pass
-					elif n.name == "Node_6":
-						Global.tiles.push_back(Global.BLUE_LAB_TILE)
-						Global.prop_update.emit()
-						pass
-					else:
-						print(n.name)
-			)
+
+	# These kinda have to be hardcoded
+	builder.node_allocated_callback(
+		func allocated(n):
+			if n.name == "Node_2":
+				# Improved battery
+				Global.battery_capacity_mult = 1.25
+				Global.prop_update.emit()
+			elif n.name == "Node_3":
+				# Robot unlock
+				Global.robots_unlocked = true
+				Global.tiles.push_back(Global.BLUE_LAB_TILE)
+				Global.prop_update.emit()
+			elif n.name == "Node_4":
+				# Better demolition
+				Global.demolition_loss = 0.1
+				Global.prop_update.emit()
+			elif n.name == "Node_5":
+				# Red science
+				Global.tiles.push_back(Global.RED_LAB_TILE)
+				Global.prop_update.emit()
+			elif n.name == "Node_6":
+				# Blue science
+				Global.tiles.push_back(Global.BLUE_LAB_TILE)
+				Global.prop_update.emit()
+			elif n.name == "Node_1":
+				# Root node, nothing to do
+				pass
+			else:
+				print(n.name, ": No function defined")
 	)
-	# WHY NO WORK
 	builder.allocation_check_callback(
 		func alloc(n: YggdrasilNodeButton):
-			print(n.name)
-			print(n.attributes)
-			print("uidudud")
+			var science_green = n.attributes.cost_green[0]
+			var science_red = n.attributes.cost_red[0]
+			var science_blue = n.attributes.cost_blue[0]
+			
+			if Global.science_green < science_green:
+				toast("Not enough green science")
+				print("hdhdh")
+			elif Global.science_red < science_red:
+				toast("Not enough red science")
+			elif Global.science_blue < science_blue:
+				toast("Not enough blue science")
+			else: 
+				Global.science_green -= science_green
+				Global.science_red -= science_red
+				Global.science_blue -= science_blue
+				return true
 			return false
 	)
 	builder.deallocation_check_callback(
@@ -160,19 +194,37 @@ func draw_planets():
 				close_planet(container, layer)
 		)
 		planetScene.on_tech_tree.connect(open_tech_tree.bind())
+		planetScene.on_store.connect(open_store.bind())
+		planetScene.on_toast.connect(toast.bind())
 		p.container = container
 		p.layer = layer
 		idx+=1
+		
+func _on_global_update():
+	%ScienceRed.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
+	%ScienceBlue.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	
+	# update ui
+	%MoneyLabel.text = str(int(Global.money))
+	%GreenScienceLabel.text = str(int(Global.science_green))
+	%RedScienceLabel.text = str(int(Global.science_red))
+	%BlueScienceLabel.text = str(int(Global.science_blue))
 	
 func open_tech_tree():
 	%TechTree.visible = true
 func close_tech_tree():
 	%TechTree.visible = false
 
+func open_store():
+	%Store.visible = true
+func close_store():
+	%Store.visible = false
 
 func _on_exit_button_pressed() -> void:
 	close_tech_tree()
+
+
+func _on_exit_store_button_pressed() -> void:
+	close_store()

@@ -161,7 +161,8 @@ func format_tooltip():
 		if matches.size() != attribute.value_count:
 			push_error("Attribute (id=%s) effect string has mismatched number (found=%d, expected=%d) of placeholders (char=#) for attribute values." % [attribute.id, matches.size(), attribute.value_count])
 			continue
-		
+		if (not attributes[attr_id]) or attributes[attr_id].all(func all(e): return e == 0):
+			continue
 		str += "[color=#8a8aff]%s[/color]\n" % format_attribute_effect(regex, attribute, attr_id)
 
 	if not description.is_empty():

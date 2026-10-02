@@ -155,7 +155,7 @@ func _can_preallocate(node: YggdrasilNodeButton) -> bool:
 	return false
 
 func _can_allocate(node: YggdrasilNodeButton) -> bool:
-	if allocation_check and not allocation_check.call():
+	if allocation_check and not allocation_check.call(node):
 		return false
 
 	if node.allocated:

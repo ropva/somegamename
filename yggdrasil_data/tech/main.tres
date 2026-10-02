@@ -11,23 +11,37 @@
 [ext_resource type="Texture2D" uid="uid://clgom2btp0iqh" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
 [ext_resource type="Texture2D" uid="uid://mro28sbugs8u" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
-[ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
 [ext_resource type="Texture2D" uid="uid://cfmue8mj3gbp2" path="res://res/asset_science_lab_red_0.5x.png" id="11_8mbeu"]
 
 [sub_resource type="Resource" id="Resource_kira1"]
 script = ExtResource("1_8mbeu")
 id = "cost"
-name = "cost"
-effect = "1"
+name = "not_in_use"
+effect = "Cost: #"
+
+[sub_resource type="Resource" id="Resource_4hnjp"]
+script = ExtResource("1_8mbeu")
+id = "cost_blue"
+name = "cost_blue"
+effect = "Cost: # Blue science"
+value_count = 1
+
+[sub_resource type="Resource" id="Resource_3dpe4"]
+script = ExtResource("1_8mbeu")
+id = "cost_green"
+name = "cost_green"
+effect = "Cost: # Green science"
+value_count = 1
+
+[sub_resource type="Resource" id="Resource_u57n0"]
+script = ExtResource("1_8mbeu")
+id = "cost_red"
+name = "cost_red"
+effect = "Cost: # Red science"
+value_count = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eomsr"]
 atlas = ExtResource("1_honru")
-
-[sub_resource type="Resource" id="Resource_h2abi"]
-script = ExtResource("6_h2abi")
-
-[sub_resource type="Resource" id="Resource_r7kue"]
-script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_exutt"]
 script = ExtResource("5_exutt")
@@ -40,43 +54,14 @@ icon = SubResource("AtlasTexture_eomsr")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-line_data = {
-2: SubResource("Resource_h2abi"),
-4: SubResource("Resource_r7kue")
-}
-out_nodes = [2, 4]
+line_data = {}
+out_nodes = []
 in_nodes = []
-attributes = {}
-max_allocations = 1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_deswg"]
-atlas = ExtResource("1_exutt")
-
-[sub_resource type="Resource" id="Resource_deswg"]
-script = ExtResource("6_h2abi")
-
-[sub_resource type="Resource" id="Resource_ooq6a"]
-script = ExtResource("6_h2abi")
-
-[sub_resource type="Resource" id="Resource_3dpe4"]
-script = ExtResource("5_exutt")
-id = 2
-external_id = "Battery Tech"
-name = "Battery Tech"
-description = "Batteries are 25% better"
-type = 1
-icon = SubResource("AtlasTexture_deswg")
-border_normal = ExtResource("4_h2abi")
-border_intermediate = ExtResource("3_eomsr")
-border_active = ExtResource("2_5pb7c")
-position = Vector2(192, 0)
-line_data = {
-3: SubResource("Resource_deswg"),
-5: SubResource("Resource_ooq6a")
+attributes = {
+"cost_blue": [0],
+"cost_green": [0],
+"cost_red": [0]
 }
-out_nodes = [3, 5]
-in_nodes = [1]
-attributes = {}
 max_allocations = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exutt"]
@@ -93,18 +78,19 @@ icon = SubResource("AtlasTexture_exutt")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(384, 0)
+position = Vector2(384, -192)
 line_data = {}
 out_nodes = []
-in_nodes = [2]
-attributes = {}
+in_nodes = []
+attributes = {
+"cost_blue": [0],
+"cost_green": [1000],
+"cost_red": [100]
+}
 max_allocations = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ooq6a"]
 atlas = ExtResource("1_deswg")
-
-[sub_resource type="Resource" id="Resource_xfhs0"]
-script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_do6et"]
 script = ExtResource("5_exutt")
@@ -118,24 +104,23 @@ border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
 position = Vector2(0, -192)
-line_data = {
-5: SubResource("Resource_xfhs0")
+line_data = {}
+out_nodes = []
+in_nodes = []
+attributes = {
+"cost_blue": [0],
+"cost_green": [50, 0, 0, 0],
+"cost_red": [0]
 }
-out_nodes = [5]
-in_nodes = [1]
-attributes = {}
 max_allocations = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kira1"]
 atlas = ExtResource("11_8mbeu")
 
-[sub_resource type="Resource" id="Resource_8q5ad"]
-script = ExtResource("6_h2abi")
-
 [sub_resource type="Resource" id="Resource_ho1np"]
 script = ExtResource("5_exutt")
 id = 5
-external_id = "red_science"
+external_id = "Red Science"
 name = "Red Science"
 description = "A new age!"
 type = 1
@@ -144,12 +129,14 @@ border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
 position = Vector2(192, -192)
-line_data = {
-6: SubResource("Resource_8q5ad")
+line_data = {}
+out_nodes = []
+in_nodes = []
+attributes = {
+"cost_blue": [0],
+"cost_green": [500],
+"cost_red": [0]
 }
-out_nodes = [6]
-in_nodes = [4, 2]
-attributes = {}
 max_allocations = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mbeu"]
@@ -158,8 +145,9 @@ atlas = ExtResource("1_3dpe4")
 [sub_resource type="Resource" id="Resource_2xvug"]
 script = ExtResource("5_exutt")
 id = 6
-external_id = "peak_technology"
+external_id = "PEAK TECHNOLOGY"
 name = "PEAK TECHNOLOGY"
+description = "a"
 type = 1
 icon = SubResource("AtlasTexture_8mbeu")
 border_normal = ExtResource("4_h2abi")
@@ -168,14 +156,44 @@ border_active = ExtResource("2_5pb7c")
 position = Vector2(192, -384)
 line_data = {}
 out_nodes = []
-in_nodes = [5]
-attributes = {}
+in_nodes = []
+attributes = {
+"cost_blue": [0],
+"cost_green": [1000],
+"cost_red": [1000]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deswg"]
+atlas = ExtResource("1_exutt")
+
+[sub_resource type="Resource" id="Resource_ouiow"]
+script = ExtResource("5_exutt")
+id = 2
+external_id = "Battery Tech"
+name = "Battery Tech"
+description = "Batteries are 25% better"
+type = 1
+icon = SubResource("AtlasTexture_deswg")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, 0)
+line_data = {}
+out_nodes = []
+in_nodes = []
+attributes = {
+"cost_blue": [0],
+"cost_green": [100],
+"cost_red": [0]
+}
 max_allocations = 1
 
 [resource]
 script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
+preallocation = false
 id_counter = 6
 icon_sizes = {
 0: Vector2(0, 0),
@@ -192,9 +210,12 @@ node_size = {
 1: Vector2(48, 48),
 2: Vector2(64, 64)
 }
-nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ho1np"), SubResource("Resource_2xvug")]
+nodes = [SubResource("Resource_exutt"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ho1np"), SubResource("Resource_2xvug"), SubResource("Resource_ouiow")]
 decorations = []
 prefabs = {}
 attributes = {
-"cost": SubResource("Resource_kira1")
+"cost": SubResource("Resource_kira1"),
+"cost_blue": SubResource("Resource_4hnjp"),
+"cost_green": SubResource("Resource_3dpe4"),
+"cost_red": SubResource("Resource_u57n0")
 }

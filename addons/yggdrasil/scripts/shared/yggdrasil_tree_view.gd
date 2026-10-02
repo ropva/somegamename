@@ -168,7 +168,6 @@ func _on_node_allocated(node: YggdrasilNodeButton):
 	if _tooltip and _tooltip.visible:
 		_tooltip.reset_size()
 		_tooltip.inspect(node)
-
 	node_allocated.emit(node)
 
 func _on_node_deallocated(node: YggdrasilNodeButton):

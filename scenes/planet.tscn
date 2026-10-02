@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bq71adde258jr" path="res://res/asset_icon_science_green_0.5x.png" id="16_c8igh"]
 [ext_resource type="Texture2D" uid="uid://cqdkvyrio4evt" path="res://res/asset_icon_science_red_0.5x.png" id="17_egja1"]
 [ext_resource type="Texture2D" uid="uid://4fbedlcslqfs" path="res://res/asset_icon_science_blue_0.5x.png" id="18_uxcj0"]
+[ext_resource type="Texture2D" uid="uid://dfoa8p8cim8ef" path="res://res/asset_icon_human_job_1x.png" id="19_uxcj0"]
+[ext_resource type="Texture2D" uid="uid://d2nkj8nmxrdf6" path="res://res/asset_icon_robot_job_1x.png" id="20_m4of0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1t4m"]
 bg_color = Color(0, 0, 0, 0.6666667)
@@ -32,6 +34,8 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxcj0"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_cbdsw"]
 resource_name = "hotbar"
@@ -228,36 +232,36 @@ layout_mode = 2
 texture = ExtResource("9_kp5tw")
 expand_mode = 2
 
-[node name="Electricity" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1330047634]
+[node name="Energy" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1330047634]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Electricity" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Electricity" unique_id=1716028451]
+[node name="Energy" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Energy" unique_id=1716028451]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ElectricityLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Electricity/Electricity" unique_id=870082437]
+[node name="ElectricityLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Energy/Energy" unique_id=870082437]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Electricity/Electricity" unique_id=276966344]
+[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Energy/Energy" unique_id=276966344]
 layout_mode = 2
 texture = ExtResource("10_qa7os")
 expand_mode = 2
 
-[node name="ElectricityStorage" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Electricity" unique_id=1327832846]
+[node name="ElectricityStorage" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Energy" unique_id=1327832846]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ElectricityStorageLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Electricity/ElectricityStorage" unique_id=145055067]
+[node name="ElectricityStorageLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Energy/ElectricityStorage" unique_id=145055067]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Electricity/ElectricityStorage" unique_id=1454128477]
+[node name="TextureRect6" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Energy/ElectricityStorage" unique_id=1454128477]
 layout_mode = 2
 texture = ExtResource("14_y5i4l")
 expand_mode = 2
@@ -281,34 +285,34 @@ layout_mode = 2
 texture = ExtResource("16_c8igh")
 expand_mode = 2
 
-[node name="RedScience" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1826905140]
+[node name="ScienceRed" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=1826905140]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="RedScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/RedScience" unique_id=1767281784]
+[node name="RedScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/ScienceRed" unique_id=1767281784]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/RedScience" unique_id=1580226439]
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/ScienceRed" unique_id=1580226439]
 layout_mode = 2
 texture = ExtResource("17_egja1")
 expand_mode = 2
 
-[node name="BlueScience" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=667232786]
+[node name="ScienceBlue" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Science" unique_id=667232786]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="BlueScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/BlueScience" unique_id=2014135692]
+[node name="BlueScienceLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Science/ScienceBlue" unique_id=2014135692]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
 text = "100"
 
-[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/BlueScience" unique_id=1760815967]
+[node name="TextureRect7" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Science/ScienceBlue" unique_id=1760815967]
 layout_mode = 2
 texture = ExtResource("18_uxcj0")
 expand_mode = 2
@@ -345,6 +349,13 @@ size_flags_horizontal = 0
 theme = ExtResource("4_0k1rn")
 theme_override_font_sizes/font_size = 40
 text = " Tech Tree "
+
+[node name="StoreButton" type="Button" parent="UI/Top Left/MarginContainer/Left/HBoxContainer" unique_id=227666820]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 40
+text = " Store "
 
 [node name="Panel2" type="PanelContainer" parent="UI/Top Left/MarginContainer/Left" unique_id=230775232]
 layout_mode = 2
@@ -405,11 +416,84 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("4_0k1rn")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 text = "Basically storage for humans."
 autowrap_mode = 2
 
 [node name="BuildingCosts" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1153789637]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BuildingJobsContainer" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1232265244]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer" unique_id=1766920722]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uxcj0")
+
+[node name="Label" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer" unique_id=741484213]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 24
+text = "Workers"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer" unique_id=590900532]
+layout_mode = 2
+
+[node name="BuildingHuman" type="TextureRect" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer/HBoxContainer" unique_id=117767227]
+layout_mode = 2
+texture = ExtResource("19_uxcj0")
+expand_mode = 2
+
+[node name="BuildingRobot" type="TextureRect" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer/HBoxContainer" unique_id=653420006]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("20_m4of0")
+expand_mode = 2
+
+[node name="BuildingWorkers" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingJobsContainer/HBoxContainer" unique_id=431472416]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 24
+text = "10"
+autowrap_mode = 2
+
+[node name="BuildingRecipeContainer" type="VBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer" unique_id=1955668002]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer" unique_id=8808175]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uxcj0")
+
+[node name="Label2" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer" unique_id=443561931]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 24
+text = "Recipe"
+autowrap_mode = 2
+
+[node name="BuildingRecipe" type="HBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer" unique_id=158095950]
+layout_mode = 2
+
+[node name="BuildingConsumes" type="HBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer/BuildingRecipe" unique_id=766036812]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer/BuildingRecipe" unique_id=122165752]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "→"
+
+[node name="BuildingProduces" type="HBoxContainer" parent="UI/Top Left/MarginContainer/Left/Panel/MarginContainer/VBoxContainer/BuildingRecipeContainer/BuildingRecipe" unique_id=1461398734]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -496,5 +580,6 @@ script = ExtResource("14_kp5tw")
 
 [connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/TechTreeButton" to="." method="_on_tech_tree_button_pressed"]
+[connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="mouse_entered" from="UI/Hotbar/MarginContainer/Hotbar/TileButton" to="UI/Hotbar/MarginContainer/Hotbar/TileButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Hotbar/MarginContainer/Hotbar/TileButton" to="UI/Hotbar/MarginContainer/Hotbar/TileButton" method="_on_mouse_exited"]
