@@ -104,28 +104,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func get_item_var(item):
 	var planet = Global.planets[planetIndex]
-	if item == "money":
-		return Global.money
-	elif item == "science":
-		return Global.science
+	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
+		return Global[item]
 	else:
 		return planet.resources[item]
 
 func get_item_storage(item):
 	var planet = Global.planets[planetIndex]
-	if item == "money":
-		return -1
-	elif item == "science":
+	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
 		return -1
 	else:
 		return planet.storage[item]
 
 func set_item_var(item, value):
 	var planet = Global.planets[planetIndex]
-	if item == "money":
-		Global.money = value
-	elif item == "science":
-		Global.science = value
+	if item == "money" or item == "green_science" or item == "red_science" or item == "blue_science":
+		Global[item] = value
 	else:
 		planet.resources[item] = value
 	
@@ -200,6 +194,12 @@ func _physics_process(delta: float) -> void:
 				handle_resource("titanium", planet.titanium / 100.0)
 			elif(tile.id == "solar_plant"):
 				handle_resource("electricity", planet.solar / 100.0)
+			elif(tile.id == "science_lab_green"):
+				handle_resource("green_science", 1)
+			elif(tile.id == "science_lab_red"):
+				handle_resource("red_science", 1)
+			elif(tile.id == "science_lab_blue"):
+				handle_resource("blue_science", 1)
 	# update ui
 	%MoneyLabel.text = str(int(Global.money))
 	%GreenScienceLabel.text = str(int(Global.green_science))

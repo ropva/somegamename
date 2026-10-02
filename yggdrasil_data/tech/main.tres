@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="YggdrasilTree" format=3 uid="uid://dowky6guiyyk"]
 
 [ext_resource type="Texture2D" uid="uid://b3lxjwuscd6vo" path="res://res/asset_science_lab_blue_0.5x.png" id="1_3dpe4"]
+[ext_resource type="Script" uid="uid://cri0khs3wypbm" path="res://addons/yggdrasil/scripts/resources/yggdrasil_attribute.gd" id="1_8mbeu"]
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
 [ext_resource type="Texture2D" uid="uid://cgcmptfydti4o" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
 [ext_resource type="Texture2D" uid="uid://dfopod162dplu" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
@@ -12,6 +13,12 @@
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
 [ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
 [ext_resource type="Texture2D" uid="uid://cfmue8mj3gbp2" path="res://res/asset_science_lab_red_0.5x.png" id="11_8mbeu"]
+
+[sub_resource type="Resource" id="Resource_kira1"]
+script = ExtResource("1_8mbeu")
+id = "cost"
+name = "cost"
+effect = "1"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eomsr"]
 atlas = ExtResource("1_honru")
@@ -188,4 +195,6 @@ node_size = {
 nodes = [SubResource("Resource_exutt"), SubResource("Resource_3dpe4"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ho1np"), SubResource("Resource_2xvug")]
 decorations = []
 prefabs = {}
-attributes = {}
+attributes = {
+"cost": SubResource("Resource_kira1")
+}

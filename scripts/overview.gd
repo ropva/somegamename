@@ -93,6 +93,14 @@ func _ready():
 						print(n.name)
 			)
 	)
+	# WHY NO WORK
+	builder.allocation_check_callback(
+		func alloc(n: YggdrasilNodeButton):
+			print(n.name)
+			print(n.attributes)
+			print("uidudud")
+			return false
+	)
 	builder.deallocation_check_callback(
 		func dealloc():
 			return false
