@@ -88,21 +88,6 @@ func _ready():
 	# These kinda have to be hardcoded
 	builder.node_allocated_callback(
 		func allocated(n):
-			var science_green = n.attributes.cost_green[0]
-			var science_red = n.attributes.cost_red[0]
-			var science_blue = n.attributes.cost_blue[0]
-			
-			if Global.science_green < science_green:
-				toast("Not enough green science")
-			elif Global.science_red < science_red:
-				toast("Not enough red science")
-			elif Global.science_blue < science_blue:
-				toast("Not enough blue science")
-			else: 
-				Global.science_green -= science_green
-				Global.science_red -= science_red
-				Global.science_blue -= science_blue
-				
 			if n.name == "Node_2":
 				# Improved battery
 				Global.battery_capacity_mult = 1.25
@@ -140,6 +125,12 @@ func _ready():
 			elif n.name == "Node_7":
 				# Blue science
 				Global.tiles.push_back(Global.RED_LAB_TILE)
+			elif n.name == "Node_30":
+				Global.production_multiplier.solar_plant = 1.1
+			elif n.name == "Node_29":
+				Global.production_multiplier.solar_plant = 1.15
+			elif n.name == "Node_31":
+				Global.production_multiplier.solar_plant = 1.25
 			elif n.name == "Node_1":
 				# Root node, nothing to do
 				pass
@@ -149,7 +140,22 @@ func _ready():
 	)
 	builder.allocation_check_callback(
 		func alloc(n: YggdrasilNodeButton):
-			return true
+			var science_green = n.attributes.cost_green[0]
+			var science_red = n.attributes.cost_red[0]
+			var science_blue = n.attributes.cost_blue[0]
+			
+			if Global.science_green < science_green:
+				toast("Not enough green science")
+			elif Global.science_red < science_red:
+				toast("Not enough red science")
+			elif Global.science_blue < science_blue:
+				toast("Not enough blue science")
+			else: 
+				Global.science_green -= science_green
+				Global.science_red -= science_red
+				Global.science_blue -= science_blue
+				return true
+			return false
 	)
 	builder.deallocation_check_callback(
 		func dealloc():
