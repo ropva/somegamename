@@ -2,30 +2,30 @@
 
 [ext_resource type="Script" uid="uid://cri0khs3wypbm" path="res://addons/yggdrasil/scripts/resources/yggdrasil_attribute.gd" id="1_8mbeu"]
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
-[ext_resource type="Texture2D" uid="uid://i1r4v2e3358p" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
-[ext_resource type="Texture2D" uid="uid://7jf41d0cvog" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
-[ext_resource type="Texture2D" uid="uid://csva06pajt78d" path="res://res/asset_robot_1x.png" id="1_h2abi"]
-[ext_resource type="Texture2D" uid="uid://dfda6fyilyk7n" path="res://res/asset_planet_base_1x.png" id="1_honru"]
-[ext_resource type="Texture2D" uid="uid://baq3tqpuvdn07" path="res://res/asset_open_pit_mine_0.5x.png" id="2_2xvug"]
-[ext_resource type="Texture2D" uid="uid://bktil11muerbp" path="res://res/asset_wind_farm_4x.png" id="2_4hnjp"]
-[ext_resource type="Texture2D" uid="uid://da6gl1twvxug6" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
-[ext_resource type="Texture2D" uid="uid://cqdr2vcnc3urg" path="res://res/asset_electronics_1x.png" id="2_8mbeu"]
-[ext_resource type="Texture2D" uid="uid://dgvrwuvqu5pp5" path="res://res/asset_electronics_plant_1x.png" id="2_r7kue"]
-[ext_resource type="Texture2D" uid="uid://b74vsagdjccux" path="res://res/asset_housing_1x.png" id="3_3oxt1"]
-[ext_resource type="Texture2D" uid="uid://csbl78yc3d0rd" path="res://res/asset_science_lab_red_1x.png" id="3_8mbeu"]
-[ext_resource type="Texture2D" uid="uid://cx5fg047fqhem" path="res://res/asset_solar_plant_1x.png" id="3_ded0j"]
-[ext_resource type="Texture2D" uid="uid://gad7pvgj6kim" path="res://res/asset_science_lab_blue_0.5x.png" id="3_do6et"]
-[ext_resource type="Texture2D" uid="uid://dgmspsanlp8h7" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
-[ext_resource type="Texture2D" uid="uid://020gqobwi1o1" path="res://res/asset_battery_1x.png" id="3_ouiow"]
-[ext_resource type="Texture2D" uid="uid://dkxa58d5yht2o" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
+[ext_resource type="Texture2D" uid="uid://belcq80o4t684" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
+[ext_resource type="Texture2D" uid="uid://dm3mlm2xtmpvw" path="res://res/asset_battery_0.5x.png" id="1_exutt"]
+[ext_resource type="Texture2D" uid="uid://dbo25dx48tex0" path="res://res/asset_robot_1x.png" id="1_h2abi"]
+[ext_resource type="Texture2D" uid="uid://cxi81qltr0nks" path="res://res/asset_planet_base_1x.png" id="1_honru"]
+[ext_resource type="Texture2D" uid="uid://bn7cct7mdn7je" path="res://res/asset_open_pit_mine_0.5x.png" id="2_2xvug"]
+[ext_resource type="Texture2D" uid="uid://bea4fv5cs16hp" path="res://res/asset_wind_farm_4x.png" id="2_4hnjp"]
+[ext_resource type="Texture2D" uid="uid://bgxhegccy17li" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
+[ext_resource type="Texture2D" uid="uid://cr5ccj4p35qk" path="res://res/asset_electronics_1x.png" id="2_8mbeu"]
+[ext_resource type="Texture2D" uid="uid://biv5a0la4oip5" path="res://res/asset_electronics_plant_1x.png" id="2_r7kue"]
+[ext_resource type="Texture2D" uid="uid://ct2d57ib36xln" path="res://res/asset_housing_1x.png" id="3_3oxt1"]
+[ext_resource type="Texture2D" uid="uid://dwnepmrypahit" path="res://res/asset_science_lab_red_1x.png" id="3_8mbeu"]
+[ext_resource type="Texture2D" uid="uid://bjecvy3nvpfvf" path="res://res/asset_solar_plant_1x.png" id="3_ded0j"]
+[ext_resource type="Texture2D" uid="uid://oetb1epb1uu5" path="res://res/asset_science_lab_blue_0.5x.png" id="3_do6et"]
+[ext_resource type="Texture2D" uid="uid://dfq7cxf0jqom5" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
+[ext_resource type="Texture2D" uid="uid://cghbu82rkuwk7" path="res://res/asset_battery_1x.png" id="3_ouiow"]
+[ext_resource type="Texture2D" uid="uid://sx4knoldyj1n" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
 [ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
 [ext_resource type="Script" uid="uid://cpev3ftbsi6ui" path="res://addons/yggdrasil/scripts/resources/yggdrasil_prefab.gd" id="8_h2abi"]
-[ext_resource type="Texture2D" uid="uid://ctamuvqep1dpe" path="res://res/asset_border_active_4x.png" id="16_ouiow"]
-[ext_resource type="Texture2D" uid="uid://qk3g141yhd2b" path="res://res/asset_border_intermediate_4x.png" id="17_2xvug"]
-[ext_resource type="Texture2D" uid="uid://bhiihukbkec1t" path="res://res/asset_border_normal_4x.png" id="18_u57n0"]
+[ext_resource type="Texture2D" uid="uid://bilosj0jri0jq" path="res://res/asset_border_active_4x.png" id="16_ouiow"]
+[ext_resource type="Texture2D" uid="uid://cxvcd76dnf4na" path="res://res/asset_border_intermediate_4x.png" id="17_2xvug"]
+[ext_resource type="Texture2D" uid="uid://grutmguw6hyw" path="res://res/asset_border_normal_4x.png" id="18_u57n0"]
 [ext_resource type="Texture2D" uid="uid://do1occ54m41fj" path="res://addons/yggdrasil/blank_icon.png" id="19_2xvug"]
-[ext_resource type="Texture2D" uid="uid://dimi1ok8xny3s" path="res://res/asset_geothermal_plant_1x.png" id="22_ded0j"]
+[ext_resource type="Texture2D" uid="uid://cf83ol68ax5l6" path="res://res/asset_geothermal_plant_1x.png" id="22_ded0j"]
 
 [sub_resource type="Resource" id="Resource_kira1"]
 script = ExtResource("1_8mbeu")
@@ -818,7 +818,7 @@ max_allocations = 1
 [sub_resource type="Resource" id="Resource_7ll7e"]
 script = ExtResource("5_exutt")
 id = 34
-external_id = "node_34"
+external_id = "Node_34"
 name = "Node_34"
 type = 1
 border_normal = ExtResource("4_h2abi")
@@ -952,6 +952,7 @@ script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
 preallocation = false
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
 id_counter = 38
 icon_sizes = {
 0: Vector2(0, 0),

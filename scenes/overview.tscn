@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://io2ct38otw1j"]
 
 [ext_resource type="Script" uid="uid://x741v5g34ykm" path="res://scripts/overview.gd" id="1_eg1db"]
-[ext_resource type="Texture2D" uid="uid://dfda6fyilyk7n" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
+[ext_resource type="Texture2D" uid="uid://cxi81qltr0nks" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="2_pfq4m"]
-[ext_resource type="Texture2D" uid="uid://b8f8arymx85qv" path="res://res/asset_icon_money_0.5x.png" id="3_wsv40"]
-[ext_resource type="Texture2D" uid="uid://eut3ol2d5hgw" path="res://res/asset_icon_science_green_0.5x.png" id="4_poc3d"]
-[ext_resource type="Texture2D" uid="uid://ckdnw1xljbdk4" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
-[ext_resource type="Texture2D" uid="uid://0cilny4qmry2" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
+[ext_resource type="Texture2D" uid="uid://dgs0oyl51sx5q" path="res://res/asset_icon_money_0.5x.png" id="3_wsv40"]
+[ext_resource type="Texture2D" uid="uid://d1xd48j2t6vaa" path="res://res/asset_icon_science_green_0.5x.png" id="4_poc3d"]
+[ext_resource type="Texture2D" uid="uid://5rg6j5hx2tm0" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
+[ext_resource type="Texture2D" uid="uid://c6tvp3yttvvv2" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6mht"]
-bg_color = Color(0.17445329, 0.34846568, 0.46884447, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja1hi"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 256
+border_width_top = 256
+border_width_right = 256
+border_width_bottom = 256
+border_color = Color(3.308989e-08, 0.058315136, 0.15306148, 1)
+corner_radius_top_left = 288
+corner_radius_top_right = 288
+corner_radius_bottom_right = 288
+corner_radius_bottom_left = 288
+corner_detail = 20
+expand_margin_left = 230.0
+expand_margin_top = 160.0
+expand_margin_right = 230.0
+expand_margin_bottom = 230.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsv40"]
+bg_color = Color(0, 0.11885359, 0.26421797, 1)
 
 [node name="Overview" type="Node2D" unique_id=1347622079]
 script = ExtResource("1_eg1db")
@@ -43,21 +60,132 @@ unique_name_in_owner = true
 visible = false
 texture = ExtResource("2_2b8kb")
 
-[node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
+[node name="Store" type="CanvasLayer" parent="." unique_id=1568244394]
 unique_name_in_owner = true
-layer = 102
+layer = 10000
 visible = false
 
-[node name="TechTreeContainer" type="ColorRect" parent="TechTree" unique_id=947533211]
+[node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
+z_index = 1001
+offset_right = 850.0
+offset_bottom = 132.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/FlowContainer" unique_id=811975574]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/FlowContainer/MarginContainer" unique_id=284815166]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ExitStoreButton" type="Button" parent="Store/FlowContainer/MarginContainer/HBoxContainer" unique_id=277116222]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+theme = ExtResource("2_pfq4m")
+theme_override_font_sizes/font_size = 40
+text = " Back "
+
+[node name="Resources" type="FlowContainer" parent="Store" unique_id=671101401]
+z_index = 1001
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1113.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/Resources" unique_id=1736017559]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Top Bar" type="HBoxContainer" parent="Store/Resources/MarginContainer" unique_id=1488025457]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 24
+
+[node name="Money" type="HBoxContainer" parent="Store/Resources/MarginContainer/Top Bar" unique_id=1702181569]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MoneyLabel" type="Label" parent="Store/Resources/MarginContainer/Top Bar/Money" unique_id=191544026]
 unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_pfq4m")
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="Store/Resources/MarginContainer/Top Bar/Money" unique_id=656411160]
+layout_mode = 2
+texture = ExtResource("3_wsv40")
+expand_mode = 2
+
+[node name="Panel2" type="Panel" parent="Store" unique_id=1824072755]
+z_index = 1000
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ja1hi")
+
+[node name="Panel3" type="Panel" parent="Store" unique_id=1205133751]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wsv40")
+
+[node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
+unique_name_in_owner = true
+layer = 102
+visible = false
+
+[node name="Panel2" type="Panel" parent="TechTree" unique_id=1160831412]
+z_index = 1000
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ja1hi")
+
+[node name="Panel" type="Panel" parent="TechTree" unique_id=1959226201]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wsv40")
+
+[node name="TechTreeContainer" type="Control" parent="TechTree" unique_id=1130710824]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 1
-color = Color(0, 0, 0, 1)
 
 [node name="FlowContainer" type="FlowContainer" parent="TechTree" unique_id=810858813]
 z_index = 1000
@@ -78,20 +206,19 @@ theme_override_constants/separation = 24
 [node name="ExitButton" type="Button" parent="TechTree/FlowContainer/MarginContainer/HBoxContainer" unique_id=965904845]
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 1
 theme = ExtResource("2_pfq4m")
 theme_override_font_sizes/font_size = 40
 text = " Back "
 
 [node name="Resources" type="FlowContainer" parent="TechTree" unique_id=2137569960]
-anchors_preset = 11
+z_index = 1001
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -1113.0
 grow_horizontal = 0
-grow_vertical = 2
 size_flags_horizontal = 3
-mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TechTree/Resources" unique_id=1116300265]
 layout_mode = 2
@@ -117,6 +244,7 @@ size_flags_vertical = 0
 [node name="GreenScienceLabel" type="Label" parent="TechTree/Resources/MarginContainer/Top Bar/Science/ScienceGreen" unique_id=1364045334]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_pfq4m")
 text = "100"
 
@@ -133,6 +261,7 @@ size_flags_vertical = 0
 [node name="RedScienceLabel" type="Label" parent="TechTree/Resources/MarginContainer/Top Bar/Science/ScienceRed" unique_id=385707727]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_pfq4m")
 text = "100"
 
@@ -149,6 +278,7 @@ size_flags_vertical = 0
 [node name="BlueScienceLabel" type="Label" parent="TechTree/Resources/MarginContainer/Top Bar/Science/ScienceBlue" unique_id=1466408939]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_pfq4m")
 text = "100"
 
@@ -156,83 +286,6 @@ text = "100"
 layout_mode = 2
 texture = ExtResource("6_aoocy")
 expand_mode = 2
-
-[node name="Store" type="CanvasLayer" parent="TechTree" unique_id=1568244394]
-unique_name_in_owner = true
-layer = 10000
-visible = false
-
-[node name="FlowContainer" type="FlowContainer" parent="TechTree/Store" unique_id=682094278]
-z_index = 1000
-offset_right = 850.0
-offset_bottom = 132.0
-
-[node name="MarginContainer" type="MarginContainer" parent="TechTree/Store/FlowContainer" unique_id=811975574]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TechTree/Store/FlowContainer/MarginContainer" unique_id=284815166]
-layout_mode = 2
-theme_override_constants/separation = 24
-
-[node name="ExitStoreButton" type="Button" parent="TechTree/Store/FlowContainer/MarginContainer/HBoxContainer" unique_id=277116222]
-layout_mode = 2
-size_flags_horizontal = 0
-mouse_filter = 1
-theme = ExtResource("2_pfq4m")
-theme_override_font_sizes/font_size = 40
-text = " Back "
-
-[node name="Resources" type="FlowContainer" parent="TechTree/Store" unique_id=671101401]
-z_index = 2
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1113.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="TechTree/Store/Resources" unique_id=1736017559]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Top Bar" type="HBoxContainer" parent="TechTree/Store/Resources/MarginContainer" unique_id=1488025457]
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/separation = 24
-
-[node name="Money" type="HBoxContainer" parent="TechTree/Store/Resources/MarginContainer/Top Bar" unique_id=1702181569]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="MoneyLabel" type="Label" parent="TechTree/Store/Resources/MarginContainer/Top Bar/Money" unique_id=191544026]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("2_pfq4m")
-text = "100"
-
-[node name="TextureRect" type="TextureRect" parent="TechTree/Store/Resources/MarginContainer/Top Bar/Money" unique_id=656411160]
-layout_mode = 2
-texture = ExtResource("3_wsv40")
-expand_mode = 2
-
-[node name="Panel" type="Panel" parent="TechTree/Store" unique_id=722548194]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_b6mht")
 
 [node name="Toaster" type="CanvasLayer" parent="." unique_id=914012592]
 layer = 103
@@ -276,5 +329,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Not enough steel"
 
+[connection signal="pressed" from="Store/FlowContainer/MarginContainer/HBoxContainer/ExitStoreButton" to="." method="_on_exit_store_button_pressed"]
 [connection signal="pressed" from="TechTree/FlowContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="TechTree/Store/FlowContainer/MarginContainer/HBoxContainer/ExitStoreButton" to="." method="_on_exit_store_button_pressed"]

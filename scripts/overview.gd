@@ -8,7 +8,7 @@ func hovered_planet(screen_position: Vector2) -> int:
 	return Global.planets.find_custom(
 		func f(p: Global.Planet):
 			var pos = p.pos * screen_size
-			return screen_position.distance_squared_to(pos) <= pow(p.size * max(screen_size.x, screen_size.y), 2)
+			return p.mini_node.visible and screen_position.distance_squared_to(pos) <= pow(p.size * max(screen_size.x, screen_size.y), 2)
 	)
 
 func toast(message: String, time = 3.0):
@@ -75,6 +75,7 @@ func _ready():
 		func resize():
 			update_planets()
 	) 
+	update_planets()
 	
 	Global.prop_update.connect(_on_global_update.bind())
 	_on_global_update()
@@ -164,6 +165,7 @@ func _ready():
 	_tree_view = builder.build()
 func update_planets():
 	var screen_size = get_viewport_rect().size
+	var i = 0
 	for p in Global.planets:
 		var mini_node: Sprite2D = p.mini_node
 		var container: SubViewportContainer = p.container
@@ -174,6 +176,8 @@ func update_planets():
 		mini_node.position = p.pos*screen_size
 		
 		container.size = screen_size + Vector2(32,32)
+		mini_node.visible = i < Global.planets_unlocked
+		i += 1
 
 func draw_planets():
 	var screen_size = get_viewport_rect().size
@@ -235,13 +239,34 @@ func _physics_process(delta: float) -> void:
 	%BlueScienceLabel.text = str(int(Global.science_blue))
 	
 func open_tech_tree():
+	var screen_size = get_viewport_rect().size
+	%TechTree.transform = Transform2D(0, screen_size * Vector2(0,-1))
 	%TechTree.visible = true
+	var tween = %TechTree.create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(%TechTree as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,0)), 1.0)
+	
 func close_tech_tree():
+	var screen_size = get_viewport_rect().size
+	var tween = %TechTree.create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(%TechTree as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,-1)), 0.3)
+	await tween.finished
 	%TechTree.visible = false
 
 func open_store():
+	var screen_size = get_viewport_rect().size
+	%Store.transform = Transform2D(0, screen_size * Vector2(0,-1))
 	%Store.visible = true
+	var tween = %Store.create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(%Store as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,0)), 1.0)
 func close_store():
+	var screen_size = get_viewport_rect().size
+	var tween = %Store.create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(%Store as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,-1)), 0.3)
+	await tween.finished
 	%Store.visible = false
 
 func _on_exit_button_pressed() -> void:

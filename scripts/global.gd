@@ -121,8 +121,11 @@ func _ready():
 			best_planet = i
 		
 		i += 1
+	print(best_planet, best_score)
+		
+	planets.push_front(planets.pop_at(best_planet))
 	
-	selected_planet = best_planet
+	selected_planet = 0
 	
 	planets[selected_planet].resources.titanium = 100
 	planets[selected_planet].resources.steel = 200
