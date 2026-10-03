@@ -265,18 +265,27 @@ func _refresh_node_state(node: YggdrasilNodeButton):
 			node.set_state(Yggdrasil.AllocationState.ACTIVE)
 		return
 
-	var neighbors = node.out_nodes + node.in_nodes
-	for neighbor_id in neighbors:
-		var neighbor_node: YggdrasilNodeButton = get_node(neighbor_id)
-		if neighbor_node.allocated and not neighbor_node.refund:
-			node.set_state(Yggdrasil.AllocationState.INTERMEDIATE)
-			return
-		if neighbor_node.preallocated:
-			node.set_state(Yggdrasil.AllocationState.PREALLOCATED_INTERMEDIATE)
-			return
+	if(can_progress(node)):
+		var neighbors = node.out_nodes + node.in_nodes
+		for neighbor_id in neighbors:
+			var neighbor_node: YggdrasilNodeButton = get_node(neighbor_id)
+			if neighbor_node.allocated and not neighbor_node.refund:
+				node.set_state(Yggdrasil.AllocationState.INTERMEDIATE)
+				return
+			if neighbor_node.preallocated:
+				node.set_state(Yggdrasil.AllocationState.PREALLOCATED_INTERMEDIATE)
+				return
 
 	node.set_state(Yggdrasil.AllocationState.NORMAL)
-
+	
+func can_progress(node: YggdrasilNodeButton):
+	var input_nodes = node.in_nodes
+	for input_node_id in input_nodes:
+		var input_node: YggdrasilNodeButton = get_node(input_node_id)
+		if(not input_node.allocated):
+			return false
+	return true
+		
 func get_node(node_id: int) -> YggdrasilNodeButton:
 	return _nodes.get(node_id, null)
 
