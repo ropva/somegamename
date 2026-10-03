@@ -174,6 +174,7 @@ func _physics_process(delta: float) -> void:
 				i += 2
 			if not consumption_successful: continue
 			# production
+			i = 0
 			while i < tile.produces.size():
 				var amount = tile.produces[i]
 				var item = tile.produces[i+1]
