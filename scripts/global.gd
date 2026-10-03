@@ -3,18 +3,20 @@ extends Node
 signal prop_update
 
 var money = 100
-var science_green = 0
-var science_red = 0
-var science_blue = 0
+var science_green = 10000
+var science_red = 10000
+var science_blue = 10000
 
 var planets: Array[Planet]
 var selected_planet: int = -1
 
 # upgrades
 var planets_unlocked = 1
-var demolition_loss = 0.2
+var demolition_loss = -1
 var battery_capacity_mult = 1.0
 var robots_unlocked = false
+var electronics_unlocked = false
+
 var production_multiplier = {
 	solar_plant = 1,
 	electronics_plant = 1,
@@ -119,6 +121,10 @@ func _ready():
 		i += 1
 	
 	selected_planet = best_planet
+	
+	planets[selected_planet].resources.titanium = 100
+	planets[selected_planet].resources.steel = 200
+	planets[selected_planet].resources.people = 10
 	
 	tech_tree = YggdrasilLoader.load_tree("tech/main")
 class Tile:

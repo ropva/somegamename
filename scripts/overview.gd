@@ -91,29 +91,46 @@ func _ready():
 			if n.name == "Node_2":
 				# Improved battery
 				Global.battery_capacity_mult = 1.25
-				Global.prop_update.emit()
 			elif n.name == "Node_3":
 				# Robot unlock
 				Global.robots_unlocked = true
-				Global.tiles.push_back(Global.BLUE_LAB_TILE)
-				Global.prop_update.emit()
+				Global.tiles.push_back(Global.ROBOT_PLANT)
 			elif n.name == "Node_4":
+				# Demolition
+				Global.demolition_loss = 1.0
+			elif n.name == "Node_11":
+				# Better demolition
+				Global.demolition_loss = 0.5
+			elif n.name == "Node_12":
+				# Better demolition
+				Global.demolition_loss = 0.25
+			elif n.name == "Node_13":
 				# Better demolition
 				Global.demolition_loss = 0.1
-				Global.prop_update.emit()
-			elif n.name == "Node_5":
+			elif n.name == "Node_14":
+				# Better demolition
+				Global.demolition_loss = 0.0
+			elif n.name == "Node_8":
 				# Red science
-				Global.tiles.push_back(Global.RED_LAB_TILE)
-				Global.prop_update.emit()
-			elif n.name == "Node_6":
+				Global.electronics_unlocked = true
+			elif n.name == "Node_9":
+				# Red science
+				Global.tiles.push_back(Global.ELECTRONICS_PLANT)
+			elif n.name == "Node_15":
+				# Red science
+				Global.production_multiplier.electronics_plant = 2
+			elif n.name == "Node_11":
 				# Blue science
 				Global.tiles.push_back(Global.BLUE_LAB_TILE)
-				Global.prop_update.emit()
+			elif n.name == "Node_7":
+				# Blue science
+				Global.tiles.push_back(Global.RED_LAB_TILE)
 			elif n.name == "Node_1":
 				# Root node, nothing to do
 				pass
 			else:
 				print(n.name, ": No function defined")
+			Global.prop_update.emit()
 	)
 	builder.allocation_check_callback(
 		func alloc(n: YggdrasilNodeButton):
@@ -123,7 +140,6 @@ func _ready():
 			
 			if Global.science_green < science_green:
 				toast("Not enough green science")
-				print("hdhdh")
 			elif Global.science_red < science_red:
 				toast("Not enough red science")
 			elif Global.science_blue < science_blue:

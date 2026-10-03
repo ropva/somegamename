@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="YggdrasilTree" format=3 uid="uid://dowky6guiyyk"]
 
-[ext_resource type="Texture2D" uid="uid://b3lxjwuscd6vo" path="res://res/asset_science_lab_blue_0.5x.png" id="1_3dpe4"]
 [ext_resource type="Script" uid="uid://cri0khs3wypbm" path="res://addons/yggdrasil/scripts/resources/yggdrasil_attribute.gd" id="1_8mbeu"]
 [ext_resource type="Script" uid="uid://e7tfsgtpbob6" path="res://addons/yggdrasil/scripts/resources/yggdrasil_tree.gd" id="1_ajawj"]
 [ext_resource type="Texture2D" uid="uid://cgcmptfydti4o" path="res://res/asset_excavator_0.5x.png" id="1_deswg"]
@@ -8,10 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://7nhxjp4lgnhv" path="res://res/asset_robot_1x.png" id="1_h2abi"]
 [ext_resource type="Texture2D" uid="uid://bs6ay0evqnhgj" path="res://res/asset_planet_base_1x.png" id="1_honru"]
 [ext_resource type="Texture2D" uid="uid://d1qxjrbi1muyi" path="res://res/asset_border_active_1x.png" id="2_5pb7c"]
+[ext_resource type="Texture2D" uid="uid://b4tt483rj4u62" path="res://res/asset_electronics_1x.png" id="2_8mbeu"]
+[ext_resource type="Texture2D" uid="uid://d2i8wrp5t6ua0" path="res://res/asset_electronics_plant_1x.png" id="2_r7kue"]
+[ext_resource type="Texture2D" uid="uid://cq0buxjrwmt2m" path="res://res/asset_science_lab_red_1x.png" id="3_8mbeu"]
+[ext_resource type="Texture2D" uid="uid://b3lxjwuscd6vo" path="res://res/asset_science_lab_blue_0.5x.png" id="3_do6et"]
 [ext_resource type="Texture2D" uid="uid://clgom2btp0iqh" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
 [ext_resource type="Texture2D" uid="uid://mro28sbugs8u" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
-[ext_resource type="Texture2D" uid="uid://cfmue8mj3gbp2" path="res://res/asset_science_lab_red_0.5x.png" id="11_8mbeu"]
+[ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
+[ext_resource type="Script" uid="uid://cpev3ftbsi6ui" path="res://addons/yggdrasil/scripts/resources/yggdrasil_prefab.gd" id="8_h2abi"]
 
 [sub_resource type="Resource" id="Resource_kira1"]
 script = ExtResource("1_8mbeu")
@@ -43,19 +47,33 @@ value_count = 1
 [sub_resource type="AtlasTexture" id="AtlasTexture_eomsr"]
 atlas = ExtResource("1_honru")
 
+[sub_resource type="Resource" id="Resource_r7kue"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_ooq6a"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_8q5ad"]
+script = ExtResource("6_h2abi")
+
 [sub_resource type="Resource" id="Resource_exutt"]
 script = ExtResource("5_exutt")
 is_root = true
 id = 1
-external_id = "root"
-name = "root"
+external_id = "Root"
+name = "Root"
 type = 2
 icon = SubResource("AtlasTexture_eomsr")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-line_data = {}
-out_nodes = []
+position = Vector2(-128, 0)
+line_data = {
+2: SubResource("Resource_r7kue"),
+4: SubResource("Resource_ooq6a"),
+8: SubResource("Resource_8q5ad")
+}
+out_nodes = [2, 4, 8]
 in_nodes = []
 attributes = {
 "cost_blue": [0],
@@ -78,10 +96,10 @@ icon = SubResource("AtlasTexture_exutt")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(384, -192)
+position = Vector2(832, -320)
 line_data = {}
 out_nodes = []
-in_nodes = []
+in_nodes = [7]
 attributes = {
 "cost_blue": [0],
 "cost_green": [1000],
@@ -92,21 +110,26 @@ max_allocations = 1
 [sub_resource type="AtlasTexture" id="AtlasTexture_ooq6a"]
 atlas = ExtResource("1_deswg")
 
+[sub_resource type="Resource" id="Resource_6kmld"]
+script = ExtResource("6_h2abi")
+
 [sub_resource type="Resource" id="Resource_do6et"]
 script = ExtResource("5_exutt")
 id = 4
-external_id = "Demolition efficiency"
-name = "Demolition efficiency"
-description = "Recover 80%→90% of resources when demolishing buildings"
+external_id = "Demolition"
+name = "Demolition"
+description = "Wait you couldn't demolish buildings before this?"
 type = 1
 icon = SubResource("AtlasTexture_ooq6a")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(0, -192)
-line_data = {}
-out_nodes = []
-in_nodes = []
+position = Vector2(-128, -320)
+line_data = {
+11: SubResource("Resource_6kmld")
+}
+out_nodes = [11]
+in_nodes = [1]
 attributes = {
 "cost_blue": [0],
 "cost_green": [50, 0, 0, 0],
@@ -114,58 +137,11 @@ attributes = {
 }
 max_allocations = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kira1"]
-atlas = ExtResource("11_8mbeu")
-
-[sub_resource type="Resource" id="Resource_ho1np"]
-script = ExtResource("5_exutt")
-id = 5
-external_id = "Red Science"
-name = "Red Science"
-description = "A new age!"
-type = 1
-icon = SubResource("AtlasTexture_kira1")
-border_normal = ExtResource("4_h2abi")
-border_intermediate = ExtResource("3_eomsr")
-border_active = ExtResource("2_5pb7c")
-position = Vector2(192, -192)
-line_data = {}
-out_nodes = []
-in_nodes = []
-attributes = {
-"cost_blue": [0],
-"cost_green": [500],
-"cost_red": [0]
-}
-max_allocations = 1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mbeu"]
-atlas = ExtResource("1_3dpe4")
-
-[sub_resource type="Resource" id="Resource_2xvug"]
-script = ExtResource("5_exutt")
-id = 6
-external_id = "PEAK TECHNOLOGY"
-name = "PEAK TECHNOLOGY"
-description = "a"
-type = 1
-icon = SubResource("AtlasTexture_8mbeu")
-border_normal = ExtResource("4_h2abi")
-border_intermediate = ExtResource("3_eomsr")
-border_active = ExtResource("2_5pb7c")
-position = Vector2(192, -384)
-line_data = {}
-out_nodes = []
-in_nodes = []
-attributes = {
-"cost_blue": [0],
-"cost_green": [1000],
-"cost_red": [1000]
-}
-max_allocations = 1
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_deswg"]
 atlas = ExtResource("1_exutt")
+
+[sub_resource type="Resource" id="Resource_ho1np"]
+script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_ouiow"]
 script = ExtResource("5_exutt")
@@ -178,10 +154,12 @@ icon = SubResource("AtlasTexture_deswg")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(192, 0)
-line_data = {}
-out_nodes = []
-in_nodes = []
+position = Vector2(512, 0)
+line_data = {
+7: SubResource("Resource_ho1np")
+}
+out_nodes = [7]
+in_nodes = [8]
 attributes = {
 "cost_blue": [0],
 "cost_green": [100],
@@ -189,30 +167,283 @@ attributes = {
 }
 max_allocations = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_do6et"]
+atlas = ExtResource("3_8mbeu")
+
+[sub_resource type="Resource" id="Resource_2xvug"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_04pvq"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_xfhs0"]
+script = ExtResource("5_exutt")
+id = 7
+external_id = "Node_7"
+name = "Node_7"
+type = 2
+icon = SubResource("AtlasTexture_do6et")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(832, 0)
+line_data = {
+3: SubResource("Resource_2xvug"),
+16: SubResource("Resource_04pvq")
+}
+out_nodes = [3, 16]
+in_nodes = [2]
+attributes = {
+"cost_blue": [0],
+"cost_green": [1000],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u57n0"]
+atlas = ExtResource("2_8mbeu")
+
+[sub_resource type="Resource" id="Resource_3oxt1"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_fes4a"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_ded0j"]
+script = ExtResource("5_exutt")
+id = 8
+external_id = "Electronics technology"
+name = "Electronics technology"
+description = "Making rocks think for you.
+Manufacturing requires a bit more reseach"
+type = 1
+icon = SubResource("AtlasTexture_u57n0")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, 0)
+line_data = {
+2: SubResource("Resource_fes4a"),
+9: SubResource("Resource_3oxt1")
+}
+out_nodes = [9, 2]
+in_nodes = [1]
+attributes = {
+"cost_blue": [0],
+"cost_green": [10],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kmld"]
+atlas = ExtResource("2_r7kue")
+
+[sub_resource type="Resource" id="Resource_0hxfa"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_1qr1y"]
+script = ExtResource("5_exutt")
+id = 9
+external_id = "Electronics manufacturing"
+name = "Electronics manufacturing"
+description = "Finally"
+type = 1
+icon = SubResource("AtlasTexture_6kmld")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, 320)
+line_data = {
+15: SubResource("Resource_0hxfa")
+}
+out_nodes = [15]
+in_nodes = [8]
+attributes = {
+"cost_blue": [0],
+"cost_green": [500],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qr1y"]
+atlas = ExtResource("1_deswg")
+
+[sub_resource type="Resource" id="Resource_r6b4r"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_sne0t"]
+script = ExtResource("5_exutt")
+id = 11
+external_id = "Demolition efficiency 1"
+name = "Demolition efficiency 1"
+description = "Recover 50% of resources when demolishing"
+icon = SubResource("AtlasTexture_1qr1y")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(-128, -512)
+line_data = {
+12: SubResource("Resource_r6b4r")
+}
+out_nodes = [12]
+in_nodes = [4]
+attributes = {
+"cost_blue": [0],
+"cost_green": [100],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_nefrb"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_x6pt5"]
+script = ExtResource("5_exutt")
+id = 12
+external_id = "Demolition efficiency 2"
+name = "Demolition efficiency 2"
+description = "Recover 75% of resources when demolishing"
+icon = SubResource("AtlasTexture_1qr1y")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(-128, -640)
+line_data = {
+13: SubResource("Resource_nefrb")
+}
+out_nodes = [13]
+in_nodes = [11]
+attributes = {
+"cost_blue": [0],
+"cost_green": [100],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_jllnv"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_0kb1k"]
+script = ExtResource("5_exutt")
+id = 13
+external_id = "Demolition efficiency 3"
+name = "Demolition efficiency 3"
+description = "Recover 90% of resources when demolishing"
+icon = SubResource("AtlasTexture_1qr1y")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(-128, -768)
+line_data = {
+14: SubResource("Resource_jllnv")
+}
+out_nodes = [14]
+in_nodes = [12]
+attributes = {
+"cost_blue": [100],
+"cost_green": [0],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_wvwur"]
+script = ExtResource("5_exutt")
+id = 14
+external_id = "Demolition efficiency 4"
+name = "Demolition efficiency 4"
+description = "Recover 100% of resources when demolishing"
+icon = SubResource("AtlasTexture_1qr1y")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(-128, -896)
+line_data = {}
+out_nodes = []
+in_nodes = [13]
+attributes = {
+"cost_blue": [0],
+"cost_green": [0],
+"cost_red": [100]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fes4a"]
+atlas = ExtResource("2_r7kue")
+
+[sub_resource type="Resource" id="Resource_563sl"]
+script = ExtResource("5_exutt")
+id = 15
+external_id = "More efficient electronics manufacturing"
+name = "More efficient electronics manufacturing"
+description = "2x more electronics!!"
+icon = SubResource("AtlasTexture_fes4a")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(192, 512)
+line_data = {}
+out_nodes = []
+in_nodes = [9]
+attributes = {
+"cost_blue": [0],
+"cost_green": [200],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_888jp"]
+atlas = ExtResource("3_do6et")
+
+[sub_resource type="Resource" id="Resource_ftbt0"]
+script = ExtResource("5_exutt")
+id = 16
+name = "Node_16"
+type = 2
+icon = SubResource("AtlasTexture_888jp")
+border_normal = ExtResource("4_h2abi")
+border_intermediate = ExtResource("3_eomsr")
+border_active = ExtResource("2_5pb7c")
+position = Vector2(1152, 0)
+line_data = {}
+out_nodes = []
+in_nodes = [7]
+attributes = {}
+max_allocations = 1
+
+[sub_resource type="Resource" id="Resource_40gie"]
+script = ExtResource("8_h2abi")
+node_name = "Node_11"
+icon = SubResource("AtlasTexture_1qr1y")
+border_normal = ExtResource("4_h2abi")
+attributes = {}
+max_allocations = 1
+
 [resource]
 script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
 preallocation = false
-id_counter = 6
+id_counter = 16
 icon_sizes = {
 0: Vector2(0, 0),
 1: Vector2(0, 0),
 2: Vector2(0, 0)
 }
 icons = {
-0: null,
-1: ExtResource("1_3dpe4"),
-2: ExtResource("1_honru")
+0: ExtResource("2_r7kue"),
+1: ExtResource("2_r7kue"),
+2: ExtResource("3_do6et")
 }
 node_size = {
-0: Vector2(27, 27),
-1: Vector2(48, 48),
-2: Vector2(64, 64)
+0: Vector2(64, 64),
+1: Vector2(96, 96),
+2: Vector2(128, 128)
 }
-nodes = [SubResource("Resource_exutt"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ho1np"), SubResource("Resource_2xvug"), SubResource("Resource_ouiow")]
+nodes = [SubResource("Resource_exutt"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ouiow"), SubResource("Resource_xfhs0"), SubResource("Resource_ded0j"), SubResource("Resource_1qr1y"), SubResource("Resource_sne0t"), SubResource("Resource_x6pt5"), SubResource("Resource_0kb1k"), SubResource("Resource_wvwur"), SubResource("Resource_563sl"), SubResource("Resource_ftbt0")]
 decorations = []
-prefabs = {}
+prefabs = {
+0: [SubResource("Resource_40gie")]
+}
 attributes = {
 "cost": SubResource("Resource_kira1"),
 "cost_blue": SubResource("Resource_4hnjp"),
