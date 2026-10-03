@@ -1,12 +1,14 @@
 [gd_resource type="TileSet" format=3 uid="uid://4i5ciqcb1goq"]
 
-[ext_resource type="Texture2D" uid="uid://bn638rcaqq6dx" path="res://res/asset_housing_4x.png" id="1_yblt2"]
-[ext_resource type="Texture2D" uid="uid://ct8uyvwphxlsb" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
-[ext_resource type="Texture2D" uid="uid://dkvlcpyjq1acm" path="res://res/asset_science_lab_blue_4x.png" id="3_dr8jo"]
-[ext_resource type="Texture2D" uid="uid://bfwmedv6m2dr2" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
-[ext_resource type="Texture2D" uid="uid://c8qrrsc3t40p8" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
-[ext_resource type="Texture2D" uid="uid://d1g0lss67flqy" path="res://res/asset_science_lab_green_4x.png" id="4_u6nmr"]
-[ext_resource type="Texture2D" uid="uid://ckcyayc26n8os" path="res://res/asset_science_lab_red_4x.png" id="5_majk4"]
+[ext_resource type="Texture2D" uid="uid://vum5rdk81ohi" path="res://res/asset_housing_4x.png" id="1_yblt2"]
+[ext_resource type="Texture2D" uid="uid://pthl5xdleffq" path="res://res/asset_open_pit_mine_4x.png" id="2_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://ba1j1p4s3ipqn" path="res://res/asset_science_lab_blue_4x.png" id="3_dr8jo"]
+[ext_resource type="Texture2D" uid="uid://dbx36qm6jvr0m" path="res://res/asset_solar_plant_4x.png" id="3_qjhfv"]
+[ext_resource type="Texture2D" uid="uid://0xdtua6n0h02" path="res://res/asset_battery_bank_4x.png" id="4_bnhxx"]
+[ext_resource type="Texture2D" uid="uid://48imi4xtqgde" path="res://res/asset_science_lab_green_4x.png" id="4_u6nmr"]
+[ext_resource type="Texture2D" uid="uid://ct7ndeqvp7st1" path="res://res/asset_science_lab_red_4x.png" id="5_majk4"]
+[ext_resource type="Texture2D" uid="uid://bktil11muerbp" path="res://res/asset_wind_farm_4x.png" id="8_majk4"]
+[ext_resource type="Texture2D" uid="uid://dh4f4lhlrbxcg" path="res://res/asset_geothermal_plant_4x.png" id="9_mr7to"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjhfv"]
 resource_name = "housing"
@@ -50,6 +52,16 @@ texture = ExtResource("4_bnhxx")
 texture_region_size = Vector2i(1091, 1260)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmnrk"]
+texture = ExtResource("8_majk4")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5qrx"]
+texture = ExtResource("9_mr7to")
+texture_region_size = Vector2i(1091, 1260)
+0:0/0 = 0
+
 [resource]
 tile_shape = 3
 tile_size = Vector2i(1191, 1360)
@@ -60,3 +72,5 @@ sources/1 = SubResource("TileSetAtlasSource_ck4fa")
 sources/11 = SubResource("TileSetAtlasSource_mr7to")
 sources/12 = SubResource("TileSetAtlasSource_n6yk7")
 sources/13 = SubResource("TileSetAtlasSource_8d3fs")
+sources/4 = SubResource("TileSetAtlasSource_bmnrk")
+sources/5 = SubResource("TileSetAtlasSource_n5qrx")

@@ -25,6 +25,8 @@ var production_multiplier = {
 	science_lab_green = 1,
 	science_lab_red = 1,
 	science_lab_blue = 1,
+	wind_farm = 1,
+	geothermal_plant = 1,
 }
 
 # config
@@ -183,6 +185,18 @@ var tiles: Array[Tile] = [
 	Tile.new("solar_plant", "Solar plant", 
 	"The most basic way of producing power.", 
 	2, "res://res/asset_solar_plant_0.5x.png", 
+	[10, "steel", 30, "titanium"], 
+	[], [2, "energy"],
+	2, false),
+	Tile.new("wind_farm", "Wind Farm", 
+	"The most basic way of producing power.", 
+	4, "res://res/asset_wind_farm_0.5x.png", 
+	[10, "steel", 30, "titanium"], 
+	[], [2, "energy"],
+	2, false),
+	Tile.new("geothermal_plant", "Geothermal Plant", 
+	"The most basic way of producing power.", 
+	5, "res://res/asset_geothermal_plant_0.5x.png", 
 	[10, "steel", 30, "titanium"], 
 	[], [2, "energy"],
 	2, false),

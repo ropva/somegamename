@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://io2ct38otw1j"]
 
 [ext_resource type="Script" uid="uid://x741v5g34ykm" path="res://scripts/overview.gd" id="1_eg1db"]
-[ext_resource type="Texture2D" uid="uid://bs6ay0evqnhgj" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
+[ext_resource type="Texture2D" uid="uid://dfda6fyilyk7n" path="res://res/asset_planet_base_1x.png" id="2_2b8kb"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="2_pfq4m"]
-[ext_resource type="Texture2D" uid="uid://dedjx5vco6r6h" path="res://res/asset_icon_money_0.5x.png" id="3_wsv40"]
-[ext_resource type="Texture2D" uid="uid://bq71adde258jr" path="res://res/asset_icon_science_green_0.5x.png" id="4_poc3d"]
-[ext_resource type="Texture2D" uid="uid://cqdkvyrio4evt" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
-[ext_resource type="Texture2D" uid="uid://4fbedlcslqfs" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
+[ext_resource type="Texture2D" uid="uid://b8f8arymx85qv" path="res://res/asset_icon_money_0.5x.png" id="3_wsv40"]
+[ext_resource type="Texture2D" uid="uid://eut3ol2d5hgw" path="res://res/asset_icon_science_green_0.5x.png" id="4_poc3d"]
+[ext_resource type="Texture2D" uid="uid://ckdnw1xljbdk4" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
+[ext_resource type="Texture2D" uid="uid://0cilny4qmry2" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6mht"]
 bg_color = Color(0.17445329, 0.34846568, 0.46884447, 1)
