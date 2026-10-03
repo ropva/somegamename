@@ -12,10 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://cq0buxjrwmt2m" path="res://res/asset_science_lab_red_1x.png" id="3_8mbeu"]
 [ext_resource type="Texture2D" uid="uid://b3lxjwuscd6vo" path="res://res/asset_science_lab_blue_0.5x.png" id="3_do6et"]
 [ext_resource type="Texture2D" uid="uid://clgom2btp0iqh" path="res://res/asset_border_intermediate_1x.png" id="3_eomsr"]
+[ext_resource type="Texture2D" uid="uid://bgdo5wbiho0te" path="res://res/icon.svg" id="3_ho1np"]
 [ext_resource type="Texture2D" uid="uid://mro28sbugs8u" path="res://res/asset_border_normal_1x.png" id="4_h2abi"]
 [ext_resource type="Script" uid="uid://dsrk0byl742tb" path="res://addons/yggdrasil/scripts/resources/yggdrasil_node.gd" id="5_exutt"]
 [ext_resource type="Script" uid="uid://bmmquesqyed6p" path="res://addons/yggdrasil/scripts/shared/yggdrasil_line_data.gd" id="6_h2abi"]
 [ext_resource type="Script" uid="uid://cpev3ftbsi6ui" path="res://addons/yggdrasil/scripts/resources/yggdrasil_prefab.gd" id="8_h2abi"]
+[ext_resource type="Texture2D" uid="uid://18twi55idrxh" path="res://res/asset_border_active_4x.png" id="16_ouiow"]
+[ext_resource type="Texture2D" uid="uid://hpg342cqawsw" path="res://res/asset_border_intermediate_4x.png" id="17_2xvug"]
+[ext_resource type="Texture2D" uid="uid://dcso16mthacks" path="res://res/asset_border_normal_4x.png" id="18_u57n0"]
 
 [sub_resource type="Resource" id="Resource_kira1"]
 script = ExtResource("1_8mbeu")
@@ -67,7 +71,6 @@ icon = SubResource("AtlasTexture_eomsr")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, 0)
 line_data = {
 2: SubResource("Resource_r7kue"),
 4: SubResource("Resource_ooq6a"),
@@ -96,13 +99,13 @@ icon = SubResource("AtlasTexture_exutt")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(832, -320)
+position = Vector2(960, -320)
 line_data = {}
 out_nodes = []
 in_nodes = [7]
 attributes = {
 "cost_blue": [0],
-"cost_green": [1000],
+"cost_green": [0],
 "cost_red": [100]
 }
 max_allocations = 1
@@ -111,6 +114,9 @@ max_allocations = 1
 atlas = ExtResource("1_deswg")
 
 [sub_resource type="Resource" id="Resource_6kmld"]
+script = ExtResource("6_h2abi")
+
+[sub_resource type="Resource" id="Resource_0ofnk"]
 script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_do6et"]
@@ -123,12 +129,13 @@ type = 1
 icon = SubResource("AtlasTexture_ooq6a")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
-border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, -320)
+border_active = ExtResource("16_ouiow")
+position = Vector2(0, -320)
 line_data = {
-11: SubResource("Resource_6kmld")
+11: SubResource("Resource_6kmld"),
+17: SubResource("Resource_0ofnk")
 }
-out_nodes = [11]
+out_nodes = [11, 17]
 in_nodes = [1]
 attributes = {
 "cost_blue": [0],
@@ -154,7 +161,7 @@ icon = SubResource("AtlasTexture_deswg")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(512, 0)
+position = Vector2(640, 0)
 line_data = {
 7: SubResource("Resource_ho1np")
 }
@@ -186,7 +193,7 @@ icon = SubResource("AtlasTexture_do6et")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(832, 0)
+position = Vector2(960, 0)
 line_data = {
 3: SubResource("Resource_2xvug"),
 16: SubResource("Resource_04pvq")
@@ -203,10 +210,13 @@ max_allocations = 1
 [sub_resource type="AtlasTexture" id="AtlasTexture_u57n0"]
 atlas = ExtResource("2_8mbeu")
 
+[sub_resource type="Resource" id="Resource_fes4a"]
+script = ExtResource("6_h2abi")
+
 [sub_resource type="Resource" id="Resource_3oxt1"]
 script = ExtResource("6_h2abi")
 
-[sub_resource type="Resource" id="Resource_fes4a"]
+[sub_resource type="Resource" id="Resource_vdyb5"]
 script = ExtResource("6_h2abi")
 
 [sub_resource type="Resource" id="Resource_ded0j"]
@@ -221,12 +231,13 @@ icon = SubResource("AtlasTexture_u57n0")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(192, 0)
+position = Vector2(320, 0)
 line_data = {
 2: SubResource("Resource_fes4a"),
-9: SubResource("Resource_3oxt1")
+9: SubResource("Resource_3oxt1"),
+17: SubResource("Resource_vdyb5")
 }
-out_nodes = [9, 2]
+out_nodes = [9, 2, 17]
 in_nodes = [1]
 attributes = {
 "cost_blue": [0],
@@ -252,7 +263,7 @@ icon = SubResource("AtlasTexture_6kmld")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(192, 320)
+position = Vector2(320, 320)
 line_data = {
 15: SubResource("Resource_0hxfa")
 }
@@ -281,7 +292,7 @@ icon = SubResource("AtlasTexture_1qr1y")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, -512)
+position = Vector2(0, -480)
 line_data = {
 12: SubResource("Resource_r6b4r")
 }
@@ -307,7 +318,7 @@ icon = SubResource("AtlasTexture_1qr1y")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, -640)
+position = Vector2(0, -640)
 line_data = {
 13: SubResource("Resource_nefrb")
 }
@@ -333,7 +344,7 @@ icon = SubResource("AtlasTexture_1qr1y")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, -768)
+position = Vector2(0, -800)
 line_data = {
 14: SubResource("Resource_jllnv")
 }
@@ -356,7 +367,7 @@ icon = SubResource("AtlasTexture_1qr1y")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(-128, -896)
+position = Vector2(0, -960)
 line_data = {}
 out_nodes = []
 in_nodes = [13]
@@ -380,7 +391,7 @@ icon = SubResource("AtlasTexture_fes4a")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(192, 512)
+position = Vector2(320, 480)
 line_data = {}
 out_nodes = []
 in_nodes = [9]
@@ -397,17 +408,45 @@ atlas = ExtResource("3_do6et")
 [sub_resource type="Resource" id="Resource_ftbt0"]
 script = ExtResource("5_exutt")
 id = 16
+external_id = "Node_16"
 name = "Node_16"
 type = 2
 icon = SubResource("AtlasTexture_888jp")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
 border_active = ExtResource("2_5pb7c")
-position = Vector2(1152, 0)
+position = Vector2(1280, 0)
 line_data = {}
 out_nodes = []
 in_nodes = [7]
-attributes = {}
+attributes = {
+"cost_blue": [0],
+"cost_green": [0],
+"cost_red": [0]
+}
+max_allocations = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hnjp"]
+atlas = ExtResource("3_ho1np")
+
+[sub_resource type="Resource" id="Resource_888jp"]
+script = ExtResource("5_exutt")
+id = 17
+name = "Node_17"
+type = 1
+icon = SubResource("AtlasTexture_4hnjp")
+border_normal = ExtResource("18_u57n0")
+border_intermediate = ExtResource("17_2xvug")
+border_active = ExtResource("16_ouiow")
+position = Vector2(320, -320)
+line_data = {}
+out_nodes = []
+in_nodes = [8, 4]
+attributes = {
+"cost_blue": [0],
+"cost_green": [0],
+"cost_red": [0]
+}
 max_allocations = 1
 
 [sub_resource type="Resource" id="Resource_40gie"]
@@ -423,7 +462,7 @@ script = ExtResource("1_ajawj")
 id = "main"
 name = "main"
 preallocation = false
-id_counter = 16
+id_counter = 17
 icon_sizes = {
 0: Vector2(0, 0),
 1: Vector2(0, 0),
@@ -431,7 +470,7 @@ icon_sizes = {
 }
 icons = {
 0: ExtResource("2_r7kue"),
-1: ExtResource("2_r7kue"),
+1: ExtResource("3_ho1np"),
 2: ExtResource("3_do6et")
 }
 node_size = {
@@ -439,7 +478,7 @@ node_size = {
 1: Vector2(96, 96),
 2: Vector2(128, 128)
 }
-nodes = [SubResource("Resource_exutt"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ouiow"), SubResource("Resource_xfhs0"), SubResource("Resource_ded0j"), SubResource("Resource_1qr1y"), SubResource("Resource_sne0t"), SubResource("Resource_x6pt5"), SubResource("Resource_0kb1k"), SubResource("Resource_wvwur"), SubResource("Resource_563sl"), SubResource("Resource_ftbt0")]
+nodes = [SubResource("Resource_exutt"), SubResource("Resource_8mbeu"), SubResource("Resource_do6et"), SubResource("Resource_ouiow"), SubResource("Resource_xfhs0"), SubResource("Resource_ded0j"), SubResource("Resource_1qr1y"), SubResource("Resource_sne0t"), SubResource("Resource_x6pt5"), SubResource("Resource_0kb1k"), SubResource("Resource_wvwur"), SubResource("Resource_563sl"), SubResource("Resource_ftbt0"), SubResource("Resource_888jp")]
 decorations = []
 prefabs = {
 0: [SubResource("Resource_40gie")]

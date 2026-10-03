@@ -153,11 +153,14 @@ func _can_preallocate(node: YggdrasilNodeButton) -> bool:
 			return true
 
 	return false
+	
 
+		
 func _can_allocate(node: YggdrasilNodeButton) -> bool:
 	if allocation_check and not allocation_check.call(node):
 		return false
-
+	if(not _tree_view.nodes_service.can_progress(node)):
+		return false
 	if node.allocated:
 		return false
 	
