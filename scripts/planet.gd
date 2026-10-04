@@ -170,7 +170,7 @@ func _physics_process(delta: float) -> void:
 					consumption_successful = false
 				else:
 					%OverlayLayer.set_cell(cell)
-					handle_resource(item, -amount)
+					handle_resource(item, -amount * tick_scaler)
 				i += 2
 			if not consumption_successful: continue
 			# production
@@ -196,7 +196,7 @@ func _physics_process(delta: float) -> void:
 	%ElectricityStorageLabel.text = str(int(planet.storage.energy))
 
 func handle_resource(item: String, amount: float):
-	set_item_var(item, clamp_resource(get_item_var(item) + amount * tick_scaler, get_item_storage(item)))
+	set_item_var(item, clamp_resource(get_item_var(item) + amount, get_item_storage(item)))
 
 func clamp_resource(amount, max_amount):
 	if max_amount == -1:

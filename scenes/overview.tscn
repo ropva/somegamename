@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5rg6j5hx2tm0" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
 [ext_resource type="PackedScene" uid="uid://mowp81ngx08e" path="res://scenes/building_cost_template.tscn" id="5_poc3d"]
 [ext_resource type="Texture2D" uid="uid://c6tvp3yttvvv2" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
+[ext_resource type="FontFile" uid="uid://fiuxthuyqvow" path="res://res/Audiowide-Regular.ttf" id="7_aoocy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja1hi"]
 bg_color = Color(0, 0, 0, 0)
@@ -38,6 +39,30 @@ bg_color = Color(1, 1, 1, 1)
 border_width_top = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o51qx"]
+bg_color = Color(0, 0.057499982, 0.15, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.05882353, 0.15294118, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp8vc"]
+bg_color = Color(0, 0.057499982, 0.15, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.0054305885, 0.023046987, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Overview" type="Node2D" unique_id=1347622079]
 script = ExtResource("1_eg1db")
@@ -73,7 +98,7 @@ texture = ExtResource("2_2b8kb")
 
 [node name="Store" type="CanvasLayer" parent="." unique_id=1568244394]
 unique_name_in_owner = true
-layer = 10000
+layer = 102
 
 [node name="Resources" type="FlowContainer" parent="Store" unique_id=671101401]
 z_index = 1001
@@ -228,10 +253,44 @@ layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxFlat_hmfft")
 
-[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=616791563]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=808795583]
 layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer2" unique_id=1788837265]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("2_pfq4m")
-text = "Total for 13 items:"
+text = "Shipping"
+
+[node name="StoreShipping" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer2" unique_id=419396424 instance=ExtResource("5_poc3d")]
+layout_mode = 2
+item = "money"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=2083855953]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer3" unique_id=612081988]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_pfq4m")
+text = "Total"
+
+[node name="StoreTotal" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer3" unique_id=1989818134 instance=ExtResource("5_poc3d")]
+layout_mode = 2
+item = "money"
+
+[node name="StoreBuy" type="Button" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=224148445]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_aoocy")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wp8vc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o51qx")
+text = "Buy"
 
 [node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
 z_index = 1002
@@ -438,5 +497,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Not enough steel"
 
+[connection signal="pressed" from="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/StoreBuy" to="." method="_on_store_buy_pressed"]
 [connection signal="pressed" from="Store/FlowContainer/MarginContainer/HBoxContainer/ExitStoreButton" to="." method="_on_exit_store_button_pressed"]
 [connection signal="pressed" from="TechTree/FlowContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

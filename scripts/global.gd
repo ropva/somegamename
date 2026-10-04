@@ -99,6 +99,7 @@ class Planet:
 	}
 	var mini_node: Sprite2D
 	var layer: CanvasLayer
+	var node: Node2D
 	var container: SubViewportContainer
 	var id = ""
 	var name = ""
@@ -244,16 +245,16 @@ const STORE_ITEMS = [
 	{
 		id = "steel",
 		name = "Steel",
-		price = 100
+		price = 3
 	},
 	{
 		id = "titanium",
 		name = "Titanium",
-		price = 100
+		price = 5
 	},
 	{
 		id = "electronics",
 		name = "Electronics",
-		price = 100
+		price = 20
 	}
 ]

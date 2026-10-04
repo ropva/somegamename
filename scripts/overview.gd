@@ -228,6 +228,7 @@ func draw_planets():
 		add_child(new_planet)
 		p.mini_node = new_planet
 		var planetScene: Node2D = PlanetScene.instantiate()
+		p.node = planetScene
 		
 		planetScene.planetIndex = idx
 
@@ -271,6 +272,8 @@ func update_store():
 		child.queue_free()
 	
 	for item in Global.STORE_ITEMS:
+		if item.id == "electronics" and not Global.electronics_unlocked:
+			continue
 		var storeCard = BASE_SHOP_ITEM.instantiate()
 		storeCard.title = item.name
 		storeCard.id = item.id
@@ -302,7 +305,11 @@ func update_store_receipt():
 		%StoreCart.add_child(newEntry)
 	
 	%StoreSubtotal.amount = total_price
+	%StoreTotal.amount = total_price + 10
+	%StoreShipping.amount = 10
 	%StoreSubtotal.update()
+	%StoreTotal.update()
+	%StoreShipping.update()
 
 func _physics_process(delta: float) -> void:
 	
@@ -348,3 +355,22 @@ func _on_exit_button_pressed() -> void:
 
 func _on_exit_store_button_pressed() -> void:
 	close_store()
+
+
+func _on_store_buy_pressed() -> void:
+	var total_price = 10
+	
+	for item in store_cart:
+		total_price += item[0].price * item[1]
+	
+	if (Global.money < total_price):
+		toast("Not enough money")
+	elif total_price <= 10:
+		toast("Cannot buy nothing")
+	else:
+		Global.money -= total_price
+		for item in store_cart:
+			Global.planets[Global.selected_planet].node.handle_resource(item[0].id, item[1])
+		store_cart.clear()
+		update_store()
+		toast("Purchase succesful")
