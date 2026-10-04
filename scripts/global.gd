@@ -240,4 +240,20 @@ var tiles: Array[Tile] = [
 	10, true)
 ]
 
-	
+const STORE_ITEMS = [
+	{
+		id = "steel",
+		name = "Steel",
+		price = 100
+	},
+	{
+		id = "titanium",
+		name = "Titanium",
+		price = 100
+	},
+	{
+		id = "electronics",
+		name = "Electronics",
+		price = 100
+	}
+]

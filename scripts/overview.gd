@@ -1,7 +1,11 @@
 extends Node2D
 
-var PlanetScene = load("res://scenes/planet.tscn")
+var PlanetScene = preload("res://scenes/planet.tscn")
+const BASE_SHOP_ITEM = preload("res://scenes/base_shop_item.tscn")
+
 var _tree_view: YggdrasilTreeView
+
+var store_cart = []
 
 func hovered_planet(screen_position: Vector2) -> int:
 	var screen_size = get_viewport_rect().size
@@ -255,6 +259,46 @@ func draw_planets():
 func _on_global_update():
 	%ScienceRed.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
 	%ScienceBlue.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
+	update_store()
+	
+func update_store():
+	
+	for child in %StoreItems.get_children():
+		child.queue_free()
+	
+	for item in Global.STORE_ITEMS:
+		var storeCard = BASE_SHOP_ITEM.instantiate()
+		storeCard.title = item.name
+		storeCard.id = item.id
+		storeCard.price = item.price
+		%StoreItems.add_child(storeCard)
+		storeCard.buy.connect(func buy(n): store_add_list(item, n))
+	
+	update_store_receipt()
+
+func store_add_list(item, amount):
+	store_cart.push_back([item, amount])
+	
+	update_store_receipt() 
+	
+func update_store_receipt():
+	
+	for child in %StoreCart.get_children():
+		child.queue_free()
+	
+	var total_price = 0
+	
+	for item in store_cart:
+		var newEntry = %CartTemplate.duplicate()
+		newEntry.visible = true
+		newEntry.title = item[0].name
+		newEntry.price = item[0].price
+		total_price += item[0].price * item[1]
+		newEntry.amount = item[1]
+		%StoreCart.add_child(newEntry)
+	
+	%StoreSubtotal.amount = total_price
+	%StoreSubtotal.update()
 
 func _physics_process(delta: float) -> void:
 	
@@ -288,7 +332,6 @@ func open_store():
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(%Store as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,0)), 1.0)
 func close_store():
-	print("hshhs")
 	var screen_size = get_viewport_rect().size
 	var tween = %Store.create_tween()
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
@@ -298,7 +341,6 @@ func close_store():
 
 func _on_exit_button_pressed() -> void:
 	close_tech_tree()
-
 
 func _on_exit_store_button_pressed() -> void:
 	close_store()

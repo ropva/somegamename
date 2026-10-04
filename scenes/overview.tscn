@@ -5,8 +5,9 @@
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="2_pfq4m"]
 [ext_resource type="Texture2D" uid="uid://dgs0oyl51sx5q" path="res://res/asset_icon_money_0.5x.png" id="3_wsv40"]
 [ext_resource type="Texture2D" uid="uid://d1xd48j2t6vaa" path="res://res/asset_icon_science_green_0.5x.png" id="4_poc3d"]
+[ext_resource type="Script" uid="uid://c3pfbata5jql2" path="res://scenes/cart_template.gd" id="5_aoocy"]
 [ext_resource type="Texture2D" uid="uid://5rg6j5hx2tm0" path="res://res/asset_icon_science_red_0.5x.png" id="5_bmlk8"]
-[ext_resource type="Texture2D" uid="uid://c44aen12cmicr" path="res://res/asset_icon_steel_1x.png" id="5_poc3d"]
+[ext_resource type="PackedScene" uid="uid://mowp81ngx08e" path="res://scenes/building_cost_template.tscn" id="5_poc3d"]
 [ext_resource type="Texture2D" uid="uid://c6tvp3yttvvv2" path="res://res/asset_icon_science_blue_0.5x.png" id="6_aoocy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja1hi"]
@@ -31,18 +32,6 @@ bg_color = Color(0, 0.11885359, 0.26421797, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poc3d"]
 bg_color = Color(0, 0.05882353, 0.15294118, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbdsw"]
-bg_color = Color(0.9999997, 0.6505058, 0.14703435, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.79684466, 0.5026372, 1.92523e-07, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmfft"]
 bg_color = Color(1, 1, 1, 1)
@@ -85,7 +74,6 @@ texture = ExtResource("2_2b8kb")
 [node name="Store" type="CanvasLayer" parent="." unique_id=1568244394]
 unique_name_in_owner = true
 layer = 10000
-visible = false
 
 [node name="Resources" type="FlowContainer" parent="Store" unique_id=671101401]
 z_index = 1001
@@ -161,46 +149,25 @@ theme_override_constants/margin_bottom = 24
 [node name="HSplitContainer" type="HSplitContainer" parent="Store/MarginContainer" unique_id=1990508507]
 layout_mode = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_poc3d")
-split_offsets = PackedInt32Array(1400)
-split_offset = 1400
+split_offsets = PackedInt32Array(1200)
+split_offset = 1200
 
 [node name="ShopItems" type="ScrollContainer" parent="Store/MarginContainer/HSplitContainer" unique_id=1574127816]
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems" unique_id=1229863497]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2" unique_id=2105557308]
+[node name="StoreItems" type="HFlowContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2" unique_id=2105557308]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="BaseShopItem" type="PanelContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2/HFlowContainer" unique_id=1308774777]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cbdsw")
-
-[node name="MarginContainer" type="MarginContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2/HFlowContainer/BaseShopItem" unique_id=652730676]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2/HFlowContainer/BaseShopItem/MarginContainer" unique_id=1628682771]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2/HFlowContainer/BaseShopItem/MarginContainer/VBoxContainer" unique_id=1778723891]
-layout_mode = 2
-texture = ExtResource("5_poc3d")
-
-[node name="Label" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopItems/MarginContainer2/HFlowContainer/BaseShopItem/MarginContainer/VBoxContainer" unique_id=829290479]
-layout_mode = 2
-theme = ExtResource("2_pfq4m")
-theme_override_font_sizes/font_size = 32
-text = "Steel"
-horizontal_alignment = 1
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 
 [node name="ShopCart" type="ScrollContainer" parent="Store/MarginContainer/HSplitContainer" unique_id=1777979795]
 layout_mode = 2
@@ -217,66 +184,54 @@ theme_override_constants/margin_bottom = 24
 [node name="VBoxContainer" type="VBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer" unique_id=704266010]
 layout_mode = 2
 
-[node name="CartItems" type="VBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer" unique_id=920953110]
+[node name="CartTemplate" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer" unique_id=1888709623]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("5_aoocy")
+
+[node name="Label" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTemplate" unique_id=212387277]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_pfq4m")
+text = "Steel x1"
+
+[node name="BuildingCostTemplate" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTemplate" unique_id=2021260901 instance=ExtResource("5_poc3d")]
+unique_name_in_owner = false
+layout_mode = 2
+item = "money"
+
+[node name="StoreCart" type="VBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer" unique_id=311490556]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-alignment = 2
 
 [node name="CartTotal" type="VBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer" unique_id=1122906081]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=1703160330]
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=919067474]
 layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer" unique_id=903830867]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("2_pfq4m")
-text = "Total for 13 items:"
+text = "Subtotal"
+
+[node name="StoreSubtotal" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer" unique_id=1992736542 instance=ExtResource("5_poc3d")]
+layout_mode = 2
+item = "money"
 
 [node name="HSeparator" type="HSeparator" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=909257749]
 layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxFlat_hmfft")
 
-[node name="GridContainer" type="GridContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=721377699]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 2
-
-[node name="Label" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer" unique_id=212387277]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pfq4m")
-text = "Steel x1"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer" unique_id=621151460]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer/HBoxContainer" unique_id=1041046531]
+[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=616791563]
 layout_mode = 2
 theme = ExtResource("2_pfq4m")
-text = "15"
-
-[node name="TextureRect" type="TextureRect" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer/HBoxContainer" unique_id=1120560398]
-layout_mode = 2
-texture = ExtResource("3_wsv40")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer" unique_id=1661100565]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_pfq4m")
-text = "Steel x1"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer" unique_id=1380790252]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer/HBoxContainer2" unique_id=1280492300]
-layout_mode = 2
-theme = ExtResource("2_pfq4m")
-text = "15"
-
-[node name="TextureRect" type="TextureRect" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/GridContainer/HBoxContainer2" unique_id=596943847]
-layout_mode = 2
-texture = ExtResource("3_wsv40")
-expand_mode = 2
+text = "Total for 13 items:"
 
 [node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
 z_index = 1002
