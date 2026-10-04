@@ -443,7 +443,7 @@ script = ExtResource("5_exutt")
 id = 18
 external_id = "Industrial Expansion"
 name = "Industrial Expansion"
-description = "-10% mine building cost"
+description = "-5% mine building cost"
 type = 1
 icon = SubResource("AtlasTexture_4hnjp")
 border_normal = ExtResource("18_u57n0")
@@ -499,7 +499,7 @@ script = ExtResource("5_exutt")
 id = 22
 external_id = "Industrial Expansion III"
 name = "Industrial Expansion III"
-description = "-20% mine building cost"
+description = "-25% mine building cost"
 icon = SubResource("AtlasTexture_3oxt1")
 border_normal = ExtResource("18_u57n0")
 border_intermediate = ExtResource("17_2xvug")
@@ -643,8 +643,9 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_0ofnk"]
 script = ExtResource("5_exutt")
 id = 28
-external_id = "Node_28"
-name = "Node_28"
+external_id = "wind_farms"
+name = "Wind Farms"
+description = "Unlocks wind farms"
 type = 1
 icon = SubResource("AtlasTexture_r6b4r")
 border_normal = ExtResource("4_h2abi")
@@ -795,8 +796,9 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_0c4yu"]
 script = ExtResource("5_exutt")
 id = 33
-external_id = "Node_33"
-name = "Node_33"
+external_id = "geothermal_plants"
+name = "Geothermal Plants"
+description = "Unlocks geothermal plants"
 type = 1
 icon = SubResource("AtlasTexture_nc5ln")
 border_normal = ExtResource("4_h2abi")
@@ -844,8 +846,10 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_ov220"]
 script = ExtResource("5_exutt")
 id = 35
-external_id = "Node_35"
-name = "Node_35"
+external_id = "new_turbines"
+name = "New Turbines"
+description = "+10% wind farm energy 
+production"
 icon = SubResource("AtlasTexture_4bd2y")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
@@ -869,8 +873,10 @@ atlas = ExtResource("2_4hnjp")
 [sub_resource type="Resource" id="Resource_fxtrt"]
 script = ExtResource("5_exutt")
 id = 36
-external_id = "Node_36"
-name = "Node_36"
+external_id = "new_turbines"
+name = "New Turbines"
+description = "+20% wind farm energy 
+production"
 icon = SubResource("AtlasTexture_nvaju")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
@@ -895,8 +901,10 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_57kcv"]
 script = ExtResource("5_exutt")
 id = 37
-external_id = "Node_37"
-name = "Node_37"
+external_id = "core_research"
+name = "Core Research"
+description = "+5% geothermal plant energy 
+production"
 icon = SubResource("AtlasTexture_2loou")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")
@@ -920,8 +928,10 @@ atlas = ExtResource("22_ded0j")
 [sub_resource type="Resource" id="Resource_4rkvi"]
 script = ExtResource("5_exutt")
 id = 38
-external_id = "Node_38"
-name = "Node_38"
+external_id = "core_research_ii"
+name = "Core Research II"
+description = "+15% geothermal plant energy 
+production"
 icon = SubResource("AtlasTexture_02hn2")
 border_normal = ExtResource("4_h2abi")
 border_intermediate = ExtResource("3_eomsr")

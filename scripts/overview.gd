@@ -126,12 +126,38 @@ func _ready():
 			elif n.name == "Node_7":
 				# Blue science
 				Global.tiles.push_back(Global.RED_LAB_TILE)
-			elif n.name == "Node_30":
-				Global.production_multiplier.solar_plant = 1.1
+			elif n.name == "Node_18":
+				Global.building_cost_multiplier.open_pit_mine = 0.95 
+			elif n.name == "Node_21":
+				Global.building_cost_multiplier.open_pit_mine = 0.85
+			elif n.name == "Node_22":
+				Global.building_cost_multiplier.open_pit_mine = 0.75
+			elif n.name == "Node_23":
+				Global.production_multiplier.open_pit_mine = 10.5
+			elif n.name == "Node_25":
+				Global.production_multiplier.open_pit_mine = 11.5 #starts at 10 for some reason
+			elif n.name == "Node_26":
+				Global.battery_capacity_mult = 1.5
+			elif n.name == "Node_28":
+				Global.tiles.push_back(Global.WIND_FARM)
 			elif n.name == "Node_29":
 				Global.production_multiplier.solar_plant = 1.15
+			elif n.name == "Node_30":
+				Global.production_multiplier.solar_plant = 1.1
 			elif n.name == "Node_31":
 				Global.production_multiplier.solar_plant = 1.25
+			elif n.name == "Node_32":
+				Global.building_cost_multiplier.solar_plant = 0.90
+			elif n.name == "Node_33":
+				Global.tiles.push_back(Global.GEOTHERMAL_PLANT)
+			elif n.name == "Node_35":
+				Global.production_multiplier.wind_farm = 1.10
+			elif n.name == "Node_36":
+				Global.production_multiplier.wind_farm = 1.20
+			elif n.name == "Node_37":
+				Global.production_multiplier.geothermal_plant = 1.05
+			elif n.name == "Node_38":
+				Global.production_multiplier.geothermal_plant = 1.15
 			elif n.name == "Node_1":
 				# Root node, nothing to do
 				pass
