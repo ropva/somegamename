@@ -311,8 +311,8 @@ func update_store_receipt():
 		%StoreCart.add_child(newEntry)
 	
 	%StoreSubtotal.amount = total_price
-	%StoreTotal.amount = total_price + -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
-	%StoreShipping.amount = -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
+	%StoreTotal.amount = total_price + (-Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST)
+	%StoreShipping.amount = (-Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST)
 	%StoreSubtotal.update()
 	%StoreTotal.update()
 	%StoreShipping.update()
@@ -364,7 +364,7 @@ func _on_exit_store_button_pressed() -> void:
 
 
 func _on_store_buy_pressed() -> void:
-	var total_price = -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
+	var total_price = (-Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST)
 	
 	for item in store_cart:
 		total_price += item[0].price * item[1]

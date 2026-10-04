@@ -122,7 +122,7 @@ func _ready():
 	var best_planet = 0
 	var best_score = 0
 	
-	seed("fooba12".hash())
+	seed("fooba123".hash())
 	
 	
 	while i < TOTAL_PLANETS:

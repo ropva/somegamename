@@ -99,6 +99,7 @@ texture = ExtResource("2_2b8kb")
 [node name="Store" type="CanvasLayer" parent="." unique_id=1568244394]
 unique_name_in_owner = true
 layer = 102
+visible = false
 
 [node name="Resources" type="FlowContainer" parent="Store" unique_id=671101401]
 z_index = 1001
