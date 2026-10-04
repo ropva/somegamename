@@ -162,6 +162,10 @@ func _ready():
 				Global.production_multiplier.geothermal_plant = 1.05
 			elif n.name == "Node_38":
 				Global.production_multiplier.geothermal_plant = 1.15
+			#nodes 41-49 (inclusive)
+			elif n.name == "Node_41" or n.name == "Node_42" or n.name == "Node_43"  or n.name == "Node_44"\
+			or n.name == "Node_45" or n.name == "Node_46" or n.name == "Node_47" or n.name == "Node_48" or n.name == "Node_49":
+				Global.planets_unlocked = min(Global.planets_unlocked+1, Global.TOTAL_PLANETS)
 			elif n.name == "Node_1":
 				# Root node, nothing to do
 				pass
