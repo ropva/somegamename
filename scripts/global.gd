@@ -28,6 +28,17 @@ var production_multiplier = {
 	wind_farm = 1,
 	geothermal_plant = 1,
 }
+var building_cost_multiplier = {
+	solar_plant = 1,
+	electronics_plant = 1,
+	robot_plant = 1,
+	open_pit_mine = 1,
+	science_lab_green = 1,
+	science_lab_red = 1,
+	science_lab_blue = 1,
+	wind_farm = 1,
+	geothermal_plant = 1,
+}
 
 # config
 const BATTERY_BASE_CAPACITY = 4
