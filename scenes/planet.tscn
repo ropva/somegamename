@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bjo5y5g1y5eky" path="res://scripts/camera_2d.gd" id="13_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://boev0y1kbsew8" path="res://res/asset_housing_0.5x.png" id="13_n1t4m"]
 [ext_resource type="Script" uid="uid://bppjoq14twqyu" path="res://scripts/tile_button.gd" id="14_kp5tw"]
+[ext_resource type="Texture2D" uid="uid://1fstymek4wqo" path="res://res/asset_icon_electronics_0.5x.png" id="14_m4of0"]
 [ext_resource type="Texture2D" uid="uid://b3ct7qhmgb3yx" path="res://res/asset_icon_energy_storage_0.5x.png" id="14_y5i4l"]
 [ext_resource type="Texture2D" uid="uid://d1xd48j2t6vaa" path="res://res/asset_icon_science_green_0.5x.png" id="16_c8igh"]
 [ext_resource type="Texture2D" uid="uid://5rg6j5hx2tm0" path="res://res/asset_icon_science_red_0.5x.png" id="17_egja1"]
@@ -230,6 +231,23 @@ text = "100"
 [node name="TextureRect5" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Metal/Titanium" unique_id=1148502600]
 layout_mode = 2
 texture = ExtResource("9_kp5tw")
+expand_mode = 2
+
+[node name="Electronics" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Metal" unique_id=2002379628]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ElectronicsLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Metal/Electronics" unique_id=85074742]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect5" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Metal/Electronics" unique_id=1746372471]
+layout_mode = 2
+texture = ExtResource("14_m4of0")
 expand_mode = 2
 
 [node name="Energy" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1330047634]

@@ -3,9 +3,9 @@ extends Node
 signal prop_update
 
 var money = 100
-var science_green = 10000
-var science_red = 10000
-var science_blue = 10000
+var science_green = 0
+var science_red = 0
+var science_blue = 0
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -45,6 +45,7 @@ const BATTERY_BASE_CAPACITY = 4
 const HOUSING_BASE_CAPACITY = 16
 const TOTAL_PLANETS = 10.0
 const PLANET_SPACING = -0.01
+const SHIPPING_COST = 10
 
 const IRON_COLOR = Color(0.82, 0.219, 0.0, 1.0)
 const TITANIUM_COLOR=Color(0.0, 0.0, 0.0, 1.0)
@@ -106,6 +107,7 @@ class Planet:
 	
 	var storage = {
 		titanium = -1,
+		electronics = -1,
 		steel = -1,
 		people = 0,
 		robots = -1,
@@ -120,7 +122,7 @@ func _ready():
 	var best_planet = 0
 	var best_score = 0
 	
-	seed("TESTING".hash())
+	seed("fooba12".hash())
 	
 	
 	while i < TOTAL_PLANETS:
@@ -245,16 +247,19 @@ const STORE_ITEMS = [
 	{
 		id = "steel",
 		name = "Steel",
-		price = 3
+		price = 3,
+		sell = 2
 	},
 	{
 		id = "titanium",
 		name = "Titanium",
-		price = 5
+		price = 5,
+		sell = 4
 	},
 	{
 		id = "electronics",
 		name = "Electronics",
-		price = 20
+		price = 20,
+		sell = 15
 	}
 ]

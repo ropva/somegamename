@@ -261,7 +261,7 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_pfq4m")
-text = "Shipping"
+text = "Transport costs"
 
 [node name="StoreShipping" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/HBoxContainer2" unique_id=419396424 instance=ExtResource("5_poc3d")]
 layout_mode = 2
@@ -282,6 +282,7 @@ layout_mode = 2
 item = "money"
 
 [node name="StoreBuy" type="Button" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=224148445]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_aoocy")
 theme_override_font_sizes/font_size = 32
@@ -291,6 +292,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o51qx")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_o51qx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_o51qx")
 text = "Buy"
+
+[node name="StoreClear" type="Button" parent="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal" unique_id=151624542]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_aoocy")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wp8vc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o51qx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o51qx")
+text = "Clear cart"
 
 [node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
 z_index = 1002
@@ -316,6 +328,15 @@ size_flags_horizontal = 0
 theme = ExtResource("2_pfq4m")
 theme_override_font_sizes/font_size = 40
 text = " Back "
+
+[node name="StoreBuySellButton" type="Button" parent="Store/FlowContainer/MarginContainer/HBoxContainer" unique_id=2116286347]
+unique_name_in_owner = true
+z_index = 2001
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_pfq4m")
+theme_override_font_sizes/font_size = 40
 
 [node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
 unique_name_in_owner = true
@@ -498,5 +519,7 @@ layout_mode = 2
 text = "Not enough steel"
 
 [connection signal="pressed" from="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/StoreBuy" to="." method="_on_store_buy_pressed"]
+[connection signal="pressed" from="Store/MarginContainer/HSplitContainer/ShopCart/MarginContainer/VBoxContainer/CartTotal/StoreClear" to="." method="_on_store_clear_pressed"]
 [connection signal="pressed" from="Store/FlowContainer/MarginContainer/HBoxContainer/ExitStoreButton" to="." method="_on_exit_store_button_pressed"]
+[connection signal="pressed" from="Store/FlowContainer/MarginContainer/HBoxContainer/StoreBuySellButton" to="." method="_on_store_buy_sell_button_pressed"]
 [connection signal="pressed" from="TechTree/FlowContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -6,6 +6,7 @@ const BASE_SHOP_ITEM = preload("res://scenes/base_shop_item.tscn")
 var _tree_view: YggdrasilTreeView
 
 var store_cart = []
+var store_sell = false
 
 func hovered_planet(screen_position: Vector2) -> int:
 	var screen_size = get_viewport_rect().size
@@ -268,6 +269,9 @@ func _on_global_update():
 	
 func update_store():
 	
+	%StoreBuySellButton.text = " Switch to buying " if store_sell else " Switch to selling "
+	%StoreBuy.text = "Sell" if store_sell else "Buy"
+	
 	for child in %StoreItems.get_children():
 		child.queue_free()
 	
@@ -277,7 +281,8 @@ func update_store():
 		var storeCard = BASE_SHOP_ITEM.instantiate()
 		storeCard.title = item.name
 		storeCard.id = item.id
-		storeCard.price = item.price
+		storeCard.sell = store_sell
+		storeCard.price = item.sell if store_sell else item.price
 		%StoreItems.add_child(storeCard)
 		storeCard.buy.connect(func buy(n): store_add_list(item, n))
 	
@@ -297,16 +302,17 @@ func update_store_receipt():
 	
 	for item in store_cart:
 		var newEntry = %CartTemplate.duplicate()
+		var price = item[0].sell if store_sell else item[0].price
 		newEntry.visible = true
 		newEntry.title = item[0].name
-		newEntry.price = item[0].price
-		total_price += item[0].price * item[1]
+		newEntry.price = price
+		total_price += price * item[1]
 		newEntry.amount = item[1]
 		%StoreCart.add_child(newEntry)
 	
 	%StoreSubtotal.amount = total_price
-	%StoreTotal.amount = total_price + 10
-	%StoreShipping.amount = 10
+	%StoreTotal.amount = total_price + -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
+	%StoreShipping.amount = -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
 	%StoreSubtotal.update()
 	%StoreTotal.update()
 	%StoreShipping.update()
@@ -358,15 +364,29 @@ func _on_exit_store_button_pressed() -> void:
 
 
 func _on_store_buy_pressed() -> void:
-	var total_price = 10
+	var total_price = -Global.SHIPPING_COST if store_sell else Global.SHIPPING_COST
 	
 	for item in store_cart:
 		total_price += item[0].price * item[1]
 	
-	if (Global.money < total_price):
+	if (Global.money < total_price and not store_sell):
 		toast("Not enough money")
-	elif total_price <= 10:
+	elif total_price <= -Global.SHIPPING_COST and store_sell:
+		toast("Cannot sell nothing")
+	elif total_price <= Global.SHIPPING_COST and not store_sell:
 		toast("Cannot buy nothing")
+	elif store_sell:
+		var enoughItems = true
+		# check items
+		for item in store_cart:
+			if Global.planets[Global.selected_planet].node.get_item_var(item[0].id) < item[1]: 
+				enoughItems = false
+				toast("Not enough %s" % [item[0].name])
+		if enoughItems: 
+			for item in store_cart:
+				print(total_price)
+				Global.planets[Global.selected_planet].node.handle_resource(item[0].id, -item[1])
+				Global.money += total_price
 	else:
 		Global.money -= total_price
 		for item in store_cart:
@@ -374,3 +394,13 @@ func _on_store_buy_pressed() -> void:
 		store_cart.clear()
 		update_store()
 		toast("Purchase succesful")
+
+
+func _on_store_clear_pressed() -> void:
+	store_cart.clear()
+	update_store()
+
+
+func _on_store_buy_sell_button_pressed() -> void:
+	store_sell = not store_sell
+	update_store()

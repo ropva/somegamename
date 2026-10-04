@@ -139,6 +139,7 @@ func _on_tile_update():
 		)
 	
 	%Robots.visible = Global.robots_unlocked
+	%Electronics.visible = Global.electronics_unlocked
 	%ScienceRed.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
 	%ScienceBlue.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
 	
@@ -192,6 +193,7 @@ func _physics_process(delta: float) -> void:
 	%RobotsJobsLabel.text = str(int(0))
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
+	%ElectronicsLabel.text = str(int(planet.resources.electronics))
 	%ElectricityLabel.text = str(int(planet.resources.energy))
 	%ElectricityStorageLabel.text = str(int(planet.storage.energy))
 

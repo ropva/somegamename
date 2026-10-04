@@ -5,11 +5,13 @@ signal buy
 @export var id = ""
 @export var title = ""
 @export var price = 0
+@export var sell = false
 
 func _ready() -> void:
 	%TextureRect.texture = load("res://res/asset_icon_%s_4x.png" % [id])
 	%Label.text = title
 	%Cost.amount = price
+	%BuySell.text = "Sell" if sell else "Buy"
 	%Cost.update()
 	%Buy.pressed.connect(func buy(): buy.emit(1))
 	%Buy10.pressed.connect(func buy(): buy.emit(10))
