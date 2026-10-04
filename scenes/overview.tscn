@@ -87,30 +87,6 @@ unique_name_in_owner = true
 layer = 10000
 visible = false
 
-[node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
-z_index = 1001
-offset_right = 850.0
-offset_bottom = 132.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Store/FlowContainer" unique_id=811975574]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Store/FlowContainer/MarginContainer" unique_id=284815166]
-layout_mode = 2
-theme_override_constants/separation = 24
-
-[node name="ExitStoreButton" type="Button" parent="Store/FlowContainer/MarginContainer/HBoxContainer" unique_id=277116222]
-layout_mode = 2
-size_flags_horizontal = 0
-mouse_filter = 1
-theme = ExtResource("2_pfq4m")
-theme_override_font_sizes/font_size = 40
-text = " Back "
-
 [node name="Resources" type="FlowContainer" parent="Store" unique_id=671101401]
 z_index = 1001
 anchors_preset = 11
@@ -158,7 +134,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ja1hi")
 
 [node name="Panel3" type="Panel" parent="Store" unique_id=1205133751]
@@ -168,7 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_wsv40")
 
 [node name="MarginContainer" type="MarginContainer" parent="Store" unique_id=1858089317]
@@ -302,10 +278,34 @@ layout_mode = 2
 texture = ExtResource("3_wsv40")
 expand_mode = 2
 
+[node name="FlowContainer" type="FlowContainer" parent="Store" unique_id=682094278]
+z_index = 1002
+offset_right = 850.0
+offset_bottom = 132.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/FlowContainer" unique_id=811975574]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Store/FlowContainer/MarginContainer" unique_id=284815166]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ExitStoreButton" type="Button" parent="Store/FlowContainer/MarginContainer/HBoxContainer" unique_id=277116222]
+z_index = 2001
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_pfq4m")
+theme_override_font_sizes/font_size = 40
+text = " Back "
+
 [node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
 unique_name_in_owner = true
 layer = 102
-visible = false
 
 [node name="Panel2" type="Panel" parent="TechTree" unique_id=1160831412]
 z_index = 1000
@@ -342,8 +342,8 @@ mouse_filter = 1
 
 [node name="FlowContainer" type="FlowContainer" parent="TechTree" unique_id=810858813]
 z_index = 1000
-offset_right = 850.0
-offset_bottom = 132.0
+offset_right = 185.0
+offset_bottom = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="TechTree/FlowContainer" unique_id=120007711]
 layout_mode = 2
@@ -369,13 +369,13 @@ z_index = 1001
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1113.0
+offset_left = -157.0
+offset_bottom = 190.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="TechTree/Resources" unique_id=1116300265]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20

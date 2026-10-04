@@ -288,6 +288,7 @@ func open_store():
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(%Store as CanvasLayer, "transform", Transform2D(0, screen_size * Vector2(0,0)), 1.0)
 func close_store():
+	print("hshhs")
 	var screen_size = get_viewport_rect().size
 	var tween = %Store.create_tween()
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
