@@ -306,6 +306,7 @@ text = " Back "
 [node name="TechTree" type="CanvasLayer" parent="." unique_id=197525578]
 unique_name_in_owner = true
 layer = 102
+visible = false
 
 [node name="Panel2" type="Panel" parent="TechTree" unique_id=1160831412]
 z_index = 1000
