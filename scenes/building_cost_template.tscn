@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mowp81ngx08e"]
 
 [ext_resource type="Script" uid="uid://bck3opltq0ywq" path="res://scripts/building_cost_template.gd" id="1_gemj1"]
-[ext_resource type="Texture2D" uid="uid://vi6ubqv6x2in" path="res://res/asset_icon_steel_0.5x.png" id="2_r62h4"]
+[ext_resource type="Texture2D" uid="uid://bcxlelkcd5o6g" path="res://res/asset_icon_steel_0.5x.png" id="2_r62h4"]
 [ext_resource type="Theme" uid="uid://b0wbuiovkk1bo" path="res://res/hud_style.theme" id="3_hycqw"]
 
 [node name="BuildingCostTemplate" type="HBoxContainer" unique_id=2021260901]

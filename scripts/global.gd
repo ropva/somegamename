@@ -2,10 +2,10 @@ extends Node
 
 signal prop_update
 
-var money = 100
-var science_green = 0
-var science_red = 0
-var science_blue = 0
+var money = 10000
+var science_green = 10000
+var science_red = 10000
+var science_blue = 10000
 
 var planets: Array[Planet]
 var selected_planet: int = -1
@@ -261,5 +261,11 @@ const STORE_ITEMS = [
 		name = "Electronics",
 		price = 20,
 		sell = 15
+	},
+	{
+		id = "robots",
+		name = "Robots",
+		price = 100,
+		sell = 40
 	}
 ]

@@ -15,7 +15,6 @@ const BUILDING_COST_TEMPLATE = preload("res://scenes/building_cost_template.tscn
 
 var selected_tile: String = "housing"
 
-
 func _ready() -> void:
 	
 	var planet = Global.planets[planetIndex]
@@ -77,7 +76,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_on_tile_update()
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		var tileIndex = Global.tiles.find_custom(func find(t: Global.Tile): return t.sprite == %BuildingLayer.get_cell_source_id(tile_coord))
-		if tileIndex != -1: 
+		if Global.demolition_loss == -1:
+			on_toast.emit("Demolition not unlocked")
+		elif tileIndex != -1: 
 			var tile: Global.Tile = Global.tiles[tileIndex]
 			var i = 0
 			while i < tile.recipe.size():
@@ -88,6 +89,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				i += 2
 			%BuildingLayer.set_cell(tile_coord)
 			_on_tile_update()
+	elif event is InputEventMouseMotion:
+		var tileIndex = Global.tiles.find_custom(func find(t: Global.Tile): return t.sprite == %BuildingLayer.get_cell_source_id(tile_coord))
+		
+		%BuildingTooltip.visible = tileIndex != -1
+		
+		if (tileIndex != -1):
+			var tile = Global.tiles[tileIndex]
+
+			%BuildingTooltip.position = event.position
+			%BuildingTooltipTitle.text = tile.name
+			
 
 func get_item_var(item):
 	var planet = Global.planets[planetIndex]
@@ -112,8 +124,11 @@ func set_item_var(item, value):
 	
 func _on_tile_update():
 	var planet = Global.planets[planetIndex]
+	
+	# clear storage
 	for item in planet.storage.keys():
 		if (planet.storage[item] != -1): planet.storage[item] = 0
+	# add storage 
 	var cells = %BuildingLayer.get_used_cells()
 	for cell in cells:
 		# this relies on declarations in global.gd matching the actual TileSet
@@ -125,6 +140,7 @@ func _on_tile_update():
 		elif(tile.id == "battery_bank"):
 			planet.storage.energy += Global.BATTERY_BASE_CAPACITY * Global.battery_capacity_mult
 
+	# update hotbar
 	for child in %Hotbar.get_children():
 		if child.visible: 
 			child.queue_free()
@@ -138,20 +154,28 @@ func _on_tile_update():
 			func button_pressed(): _on_tile_button_selected(tile.id)
 		)
 	
+	# update resource ui
 	%Robots.visible = Global.robots_unlocked
 	%Electronics.visible = Global.electronics_unlocked
 	%ScienceRed.visible = Global.tiles.find_custom(func find(e): return e.id == Global.RED_LAB_TILE.id) != -1
 	%ScienceBlue.visible = Global.tiles.find_custom(func find(e): return e.id == Global.BLUE_LAB_TILE.id) != -1
 	
+var robots_working = 0
+var people_working = 0
 func _physics_process(delta: float) -> void:
 	
 	var planet = Global.planets[planetIndex]
 	#Do we really have to update money and ui every tick
 	tick_timer=tick_timer+delta
 	
+	
 	#building output
 	if(tick_scaler<tick_timer):
 		tick_timer=tick_timer-tick_scaler
+		
+		robots_working = 0
+		people_working = 0
+		
 		
 		var cells = %BuildingLayer.get_used_cells()
 		for cell in cells:
@@ -159,6 +183,25 @@ func _physics_process(delta: float) -> void:
 			var tileIndex = Global.tiles.find_custom(func find(t: Global.Tile): return t.sprite == %BuildingLayer.get_cell_source_id(cell))
 			if tileIndex == -1: continue
 			var tile: Global.Tile = Global.tiles[tileIndex]
+			
+			# workers
+			var remaining_robots = planet.resources.robots - robots_working
+			var remaining_people = planet.resources.people - people_working
+			
+			var working_speed = 1
+			
+			if not tile.human_only and tile.workers > 0:
+				var used_robots = min(tile.workers, remaining_robots)
+				var used_people = min(tile.workers - remaining_robots, remaining_people)
+				people_working += used_people
+				robots_working += used_robots
+				working_speed = (used_people + used_robots) / float(tile.workers)
+			elif tile.human_only and tile.workers > 0:
+				var used_people = max(tile.workers, remaining_people)
+				people_working += used_people
+				working_speed = used_people / float(tile.workers)
+			
+			if working_speed == 0: continue
 			
 			# consumption
 			var i = 0
@@ -174,6 +217,7 @@ func _physics_process(delta: float) -> void:
 					handle_resource(item, -amount * tick_scaler)
 				i += 2
 			if not consumption_successful: continue
+			
 			# production
 			i = 0
 			while i < tile.produces.size():
@@ -181,16 +225,19 @@ func _physics_process(delta: float) -> void:
 				var item = tile.produces[i+1]
 				handle_resource(item, amount * tick_scaler * get_building_production_multiplier(tile.id, item))
 				i += 2
-	# update ui
+				
+				
+				
+	# update resource ui
 	%MoneyLabel.text = str(int(Global.money))
 	%GreenScienceLabel.text = str(int(Global.science_green))
 	%RedScienceLabel.text = str(int(Global.science_red))
 	%BlueScienceLabel.text = str(int(Global.science_blue))
 	%PopLabel.text = str(int(planet.resources.people))
-	%PopJobsLabel.text = str(int(0))
+	%PopJobsLabel.text = str(int(people_working))
 	%FreeHousingLabel.text = str(int(planet.storage.people))
 	%RobotsLabel.text = str(int(planet.resources.robots))
-	%RobotsJobsLabel.text = str(int(0))
+	%RobotsJobsLabel.text = str(int(robots_working))
 	%SteelLabel.text = str(int(planet.resources.steel))
 	%TitaniumLabel.text = str(int(planet.resources.titanium))
 	%ElectronicsLabel.text = str(int(planet.resources.electronics))

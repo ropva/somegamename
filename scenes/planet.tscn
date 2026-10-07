@@ -596,6 +596,30 @@ texture_normal = ExtResource("13_n1t4m")
 stretch_mode = 5
 script = ExtResource("14_kp5tw")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1160051124]
+
+[node name="BuildingTooltip" type="VBoxContainer" parent="CanvasLayer2" unique_id=280693732]
+unique_name_in_owner = true
+offset_right = 156.0
+offset_bottom = 108.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.5)
+
+[node name="BuildingTooltipTitle" type="Label" parent="CanvasLayer2/BuildingTooltip" unique_id=464968429]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 40
+text = "Planet 8"
+
+[node name="BuildingTooltipDesc" type="Label" parent="CanvasLayer2/BuildingTooltip" unique_id=112611072]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+theme_override_font_sizes/font_size = 16
+text = "30% Titanium
+11% Iron"
+
 [connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/TechTreeButton" to="." method="_on_tech_tree_button_pressed"]
 [connection signal="pressed" from="UI/Top Left/MarginContainer/Left/HBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
