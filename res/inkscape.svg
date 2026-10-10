@@ -7,7 +7,7 @@
    viewBox="0 0 400 400"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    sodipodi:docname="inkscape.svg"
    inkscape:export-batch-path="C:\Users\unto.ahti\Documents\koodit\somegamename\res"
    inkscape:export-batch-name="asset"
@@ -27,14 +27,14 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="4"
-     inkscape:cx="796.75001"
-     inkscape:cy="44"
-     inkscape:window-width="2560"
-     inkscape:window-height="1368"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:cx="797"
+     inkscape:cy="43.875"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1-5-0-4-9-3-5"
+     inkscape:current-layer="layer4-2-7-6"
      inkscape:export-bgcolor="#ffffff00"
      showguides="false">
     <inkscape:grid
@@ -1676,7 +1676,7 @@
        id="filter10202"
        x="-2.078461"
        y="-1.3635443"
-       width="5.1569221"
+       width="5.1569219"
        height="3.7219452">
       <feFlood
          flood-opacity="0.498039"
@@ -1776,9 +1776,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10274"
-       x="-0.18895107"
-       y="-0.12863437"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.12863439"
+       width="1.377902"
        height="1.2521254">
       <feFlood
          flood-opacity="0.498039"
@@ -1812,9 +1812,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10286"
-       x="-0.18895107"
-       y="-0.12863437"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.12863439"
+       width="1.377902"
        height="1.2521254">
       <feFlood
          flood-opacity="0.498039"
@@ -1848,9 +1848,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10298"
-       x="-0.18895107"
-       y="-0.12863437"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.12863439"
+       width="1.377902"
        height="1.2521254">
       <feFlood
          flood-opacity="0.498039"
@@ -1884,9 +1884,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10310"
-       x="-0.18895107"
-       y="-0.18566009"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.18566011"
+       width="1.377902"
        height="1.3638967">
       <feFlood
          flood-opacity="0.498039"
@@ -1920,9 +1920,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10322"
-       x="-0.18895107"
-       y="-0.18566009"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.18566011"
+       width="1.377902"
        height="1.3638967">
       <feFlood
          flood-opacity="0.498039"
@@ -1956,9 +1956,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10334"
-       x="-0.18895107"
-       y="-0.18566009"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.18566011"
+       width="1.377902"
        height="1.3638967">
       <feFlood
          flood-opacity="0.498039"
@@ -1992,9 +1992,9 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10346"
-       x="-0.18895107"
-       y="-0.18566009"
-       width="1.3779021"
+       x="-0.188951"
+       y="-0.18566011"
+       width="1.377902"
        height="1.3638967">
       <feFlood
          flood-opacity="0.498039"
@@ -2028,10 +2028,10 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter10363"
-       x="-0.25980774"
-       y="-0.2535899"
-       width="1.5196155"
-       height="1.5071798">
+       x="-0.25980763"
+       y="-0.25358982"
+       width="1.5196153"
+       height="1.5071796">
       <feFlood
          flood-opacity="0.498039"
          flood-color="rgb(0,0,0)"
@@ -3374,9 +3374,9 @@
        inkscape:label="Drop Shadow"
        id="filter28349"
        x="-0.11959397"
-       y="-0.11183568"
+       y="-0.11183572"
        width="1.2391879"
-       height="1.2209023">
+       height="1.2209024">
       <feFlood
          flood-opacity="0.498039"
          flood-color="rgb(0,0,0)"
@@ -3410,9 +3410,9 @@
        inkscape:label="Drop Shadow"
        id="filter28560"
        x="-0.11959397"
-       y="-0.11183568"
+       y="-0.11183572"
        width="1.2391879"
-       height="1.2209023">
+       height="1.2209024">
       <feFlood
          flood-opacity="0.498039"
          flood-color="rgb(0,0,0)"
@@ -3446,9 +3446,9 @@
        inkscape:label="Drop Shadow"
        id="filter28591"
        x="-0.11959397"
-       y="-0.11183568"
+       y="-0.11183572"
        width="1.2391879"
-       height="1.2209023">
+       height="1.2209024">
       <feFlood
          flood-opacity="0.498039"
          flood-color="rgb(0,0,0)"
@@ -3704,10 +3704,10 @@
        style="color-interpolation-filters:sRGB;"
        inkscape:label="Drop Shadow"
        id="filter22"
-       x="-0.23092111"
-       y="-0.13333389"
-       width="1.4618422"
-       height="1.2666678">
+       x="-0.23092102"
+       y="-0.13333384"
+       width="1.461842"
+       height="1.2666677">
       <feFlood
          result="flood"
          in="SourceGraphic"
@@ -3743,9 +3743,9 @@
        inkscape:label="Drop Shadow"
        id="filter27"
        x="-0.083135108"
-       y="-0.08296404"
-       width="1.1662703"
-       height="1.1659281">
+       y="-0.082964022"
+       width="1.1662702"
+       height="1.165928">
       <feFlood
          result="flood"
          in="SourceGraphic"
@@ -3873,10 +3873,10 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter27-2"
-       x="-0.69282062"
-       y="-1.2000005"
-       width="2.3856412"
-       height="3.400001">
+       x="-0.0784276"
+       y="-0.08593648"
+       width="1.1568552"
+       height="1.171873">
       <feFlood
          result="flood"
          in="SourceGraphic"
@@ -4178,9 +4178,9 @@
        inkscape:label="Drop Shadow"
        id="filter12284"
        x="-0.10392305"
-       y="-0.085574996"
+       y="-0.08557496"
        width="1.2078461"
-       height="1.17115">
+       height="1.1711499">
       <feFlood
          flood-opacity="0.498039"
          flood-color="rgb(0,0,0)"
@@ -4371,7 +4371,7 @@
        style="color-interpolation-filters:sRGB;"
        inkscape:label="Drop Shadow"
        id="filter13473"
-       x="-0.055315556"
+       x="-0.055315557"
        y="-0.063826322"
        width="1.1106311"
        height="1.1276751">
@@ -4479,7 +4479,7 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter13473-7"
-       x="-0.055315556"
+       x="-0.055315557"
        y="-0.063826322"
        width="1.1106311"
        height="1.1276751">
@@ -4551,7 +4551,7 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter13473-8"
-       x="-0.055315556"
+       x="-0.055315557"
        y="-0.063826322"
        width="1.1106311"
        height="1.1276751">
@@ -4623,7 +4623,7 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter13473-3"
-       x="-0.055315556"
+       x="-0.055315557"
        y="-0.063826322"
        width="1.1106311"
        height="1.1276751">
@@ -4695,7 +4695,7 @@
        style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter13473-74"
-       x="-0.055315556"
+       x="-0.055315557"
        y="-0.063826322"
        width="1.1106311"
        height="1.1276751">
@@ -7148,7 +7148,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4-2-7-6"
-     inkscape:label="icon_human"
+     inkscape:label="icon_people"
      transform="translate(45.999999)">
     <rect
        style="fill:#5f8dd3;fill-opacity:1;stroke:#2c5aa0;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -7175,7 +7175,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4-2-7-6-6"
-     inkscape:label="icon_human_job"
+     inkscape:label="icon_people_job"
      transform="translate(46,15.249999)">
     <rect
        style="fill:#5f8dd3;fill-opacity:1;stroke:#2c5aa0;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -7235,7 +7235,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4-2-7-6-1"
-     inkscape:label="icon_robot"
+     inkscape:label="icon_robots"
      transform="translate(60.78579,-0.2554586)">
     <rect
        style="fill:#d45500;fill-opacity:1;stroke:#aa4400;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -7263,7 +7263,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4-2-7-6-1-2"
-     inkscape:label="icon_robot_job"
+     inkscape:label="icon_robots_job"
      transform="translate(60.785789,15.173111)">
     <rect
        style="fill:#d45500;fill-opacity:1;stroke:#aa4400;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"

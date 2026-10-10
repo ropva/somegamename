@@ -9,9 +9,11 @@ A resource management game where you have to balance resources and expand your c
     - Adding new buildings is very easy
 - Science system and tech tree
     - Red, blue and green science resources
-    - Tons of upgrades ranging from space exploration to an improved mine available
+    - Tons of upgrades ranging from space exploration to improved buildings
 - Store
     - Buy and sell materials
+- Interplanetary logistics
+- Worker management
 
 ## Godot configuration
 - All scripts in /scrips/
