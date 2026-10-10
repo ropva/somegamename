@@ -27,6 +27,7 @@ var production_multiplier = {
 	science_lab_blue = 1,
 	wind_farm = 1,
 	geothermal_plant = 1,
+	housing = 1,
 }
 var building_cost_multiplier = {
 	solar_plant = 1,
@@ -104,6 +105,7 @@ class Planet:
 	var container: SubViewportContainer
 	var id = ""
 	var name = ""
+	var tiles: Dictionary[Vector2i, Tile] = {}
 	
 	var storage = {
 		titanium = -1,
@@ -146,6 +148,7 @@ func _ready():
 	planets[selected_planet].resources.people = 10
 	
 	tech_tree = YggdrasilLoader.load_tree("tech/main")
+
 class Tile:
 	var id: String
 	var name: String
@@ -157,6 +160,29 @@ class Tile:
 	var produces: Array
 	var workers: int
 	var human_only: bool
+	var _errors: Dictionary[String, String] = {}
+	var working_speed = 1.0
+	func set_error(_id, _message):
+		_errors.set(_id, _message)
+	func get_error(_id, _message):
+		return _errors.get(_id)
+	func clear_error(_id):
+		if _errors.has(_id): _errors.erase(_id)
+	func has_error(_id):
+		return _errors.has(_id)
+	static func from_tile(obj: Tile):
+		return Tile.new(
+		obj.id,
+		obj.name,
+		obj.desc,
+		obj.sprite,
+		obj.sprite_path,
+		obj.recipe,
+		obj.consumes,
+		obj.produces,
+		obj.workers,
+		obj.human_only,
+		)
 	func _init(_id: String,_name: String,
 	_desc: String, _sprite: int,
 	 _sprite_path: String, _recipe: Array, 
@@ -221,7 +247,7 @@ var tiles: Array[Tile] = [
 	"Basically storage for humans.", 
 	0, "res://res/asset_housing_0.5x.png", 
 	[10, "steel", 20, "money"], 
-	[], [],
+	[], [1, "people"],
 	0, false),
 	Tile.new("open_pit_mine", "Open pit mine", 
 	"Basic mine. Generated resource is determined by planet properties",
