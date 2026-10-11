@@ -51,7 +51,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				tile_ref.clear_error("paused")
 				%OverlayLayer.set_cell(tile_coord)
 			else:
-				%OverlayLayer.set_cell(tile_coord, 0, Vector2(0,0))
+				%OverlayLayer.set_cell(tile_coord, 1, Vector2(0,0))
 				tile_ref.set_error("paused", "Paused (Click to unpause)")
 			return
 		

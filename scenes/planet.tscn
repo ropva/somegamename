@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgs0oyl51sx5q" path="res://res/asset_icon_money_0.5x.png" id="5_qw1i6"]
 [ext_resource type="Texture2D" uid="uid://bqgtw406bix2g" path="res://res/asset_icon_human_0.5x.png" id="6_ekhpw"]
 [ext_resource type="Texture2D" uid="uid://cs0iaaaswdg6i" path="res://res/asset_icon_robot_0.5x.png" id="7_11eka"]
+[ext_resource type="Texture2D" uid="uid://b1cpw24o6geq6" path="res://res/asset_icon_job_0.5x.png" id="7_alve8"]
 [ext_resource type="Texture2D" uid="uid://c2wux76nf8wut" path="res://res/asset_icon_human_job_0.5x.png" id="7_kp5tw"]
 [ext_resource type="Texture2D" uid="uid://bcxlelkcd5o6g" path="res://res/asset_icon_steel_0.5x.png" id="8_n1t4m"]
 [ext_resource type="Texture2D" uid="uid://br0tsx8hkbkpl" path="res://res/asset_icon_titanium_0.5x.png" id="9_kp5tw"]
@@ -111,6 +112,24 @@ text = "100"
 [node name="TextureRect" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Money" unique_id=237672390]
 layout_mode = 2
 texture = ExtResource("5_qw1i6")
+expand_mode = 2
+
+[node name="Jobs" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=1006424978]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Jobs" type="HBoxContainer" parent="UI/Resources/MarginContainer/Top Bar/Jobs" unique_id=1202948854]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="JobsLabel" type="Label" parent="UI/Resources/MarginContainer/Top Bar/Jobs/Jobs" unique_id=199287028]
+layout_mode = 2
+theme = ExtResource("4_0k1rn")
+text = "100"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Resources/MarginContainer/Top Bar/Jobs/Jobs" unique_id=4289753]
+layout_mode = 2
+texture = ExtResource("7_alve8")
 expand_mode = 2
 
 [node name="People" type="VBoxContainer" parent="UI/Resources/MarginContainer/Top Bar" unique_id=272234448]
