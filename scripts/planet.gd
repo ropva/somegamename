@@ -46,7 +46,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		var tile: Global.Tile = Global.tiles[Global.tiles.find_custom(func find(t: Global.Tile): return t.id == selected_tile)]
 		
 		if %BuildingLayer.get_cell_source_id(tile_coord) != -1:
-			on_toast.emit("Tile occupied")
+			var tile_ref = Global.planets[planetIndex].tiles[tile_coord]
+			if tile_ref.has_error("paused"):
+				tile_ref.clear_error("paused")
+				%OverlayLayer.set_cell(tile_coord)
+			else:
+				%OverlayLayer.set_cell(tile_coord, 0, Vector2(0,0))
+				tile_ref.set_error("paused", "Paused (Click to unpause)")
 			return
 		
 		var enoughItems = true
@@ -192,7 +198,7 @@ func _physics_process(delta: float) -> void:
 			# this relies on declarations in global.gd matching the actual TileSet
 			if not planet.tiles.has(cell): continue
 			var tile: Global.Tile = planet.tiles.get(cell)
-			
+			if tile.has_error("paused"): continue
 			# workers
 			var remaining_robots = planet.resources.robots - robots_working
 			var remaining_people = planet.resources.people - people_working
@@ -214,8 +220,10 @@ func _physics_process(delta: float) -> void:
 				tile.set_error("workers", "No workers. Operations halted")
 				continue
 			elif tile.working_speed < 1:
+				%OverlayLayer.set_cell(cell, 0, Vector2(0,0))
 				tile.set_error("workers", "Not enough workers. Production reduced by {0}%".format([str(int((1-tile.working_speed) * 100))]))
 			else:
+				%OverlayLayer.set_cell(cell)
 				tile.clear_error("workers")
 			
 			# storage
@@ -228,7 +236,7 @@ func _physics_process(delta: float) -> void:
 		for cell in cells:
 			var tile: Global.Tile = planet.tiles.get(cell)
 			
-			if tile.has_error("workers"): continue
+			if tile.has_error("workers") or tile.has_error("paused"): continue
 			
 			# consumption
 			var i = 0
@@ -236,7 +244,7 @@ func _physics_process(delta: float) -> void:
 			while i < tile.consumes.size():
 				var amount = tile.consumes[i]
 				var item = tile.consumes[i+1]
-				if amount > get_item_var(item):
+				if amount >= get_item_var(item):
 					%OverlayLayer.set_cell(cell, 0, Vector2(0,0))
 					tile.set_error("no_resources", "Not enough %s" % [item])
 					consumption_successful = false

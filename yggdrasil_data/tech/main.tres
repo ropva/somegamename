@@ -520,6 +520,9 @@ attributes = {
 }
 max_allocations = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvwur"]
+atlas = ExtResource("2_2xvug")
+
 [sub_resource type="Resource" id="Resource_dvkup"]
 script = ExtResource("6_h2abi")
 
@@ -533,7 +536,7 @@ external_id = "Industrial Experimenting"
 name = "Industrial Experimenting"
 description = "+5% mine output"
 type = 1
-icon = ExtResource("19_2xvug")
+icon = SubResource("AtlasTexture_wvwur")
 border_normal = ExtResource("18_u57n0")
 border_intermediate = ExtResource("17_2xvug")
 border_active = ExtResource("16_ouiow")
@@ -551,6 +554,9 @@ attributes = {
 }
 max_allocations = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hxfa"]
+atlas = ExtResource("2_2xvug")
+
 [sub_resource type="Resource" id="Resource_1gsu7"]
 script = ExtResource("6_h2abi")
 
@@ -564,7 +570,7 @@ external_id = "Efficient Designs"
 name = "Efficient Designs"
 description = "-10% mine energy use"
 type = 1
-icon = ExtResource("19_2xvug")
+icon = SubResource("AtlasTexture_0hxfa")
 border_normal = ExtResource("18_u57n0")
 border_intermediate = ExtResource("17_2xvug")
 border_active = ExtResource("16_ouiow")
@@ -582,6 +588,9 @@ attributes = {
 }
 max_allocations = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_563sl"]
+atlas = ExtResource("2_2xvug")
+
 [sub_resource type="Resource" id="Resource_btlo1"]
 script = ExtResource("6_h2abi")
 
@@ -592,7 +601,7 @@ external_id = "Partial Automation"
 name = "Partial Automation"
 description = "+15% mine output"
 type = 1
-icon = ExtResource("19_2xvug")
+icon = SubResource("AtlasTexture_563sl")
 border_normal = ExtResource("18_u57n0")
 border_intermediate = ExtResource("17_2xvug")
 border_active = ExtResource("16_ouiow")
@@ -828,7 +837,7 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_7ll7e"]
 script = ExtResource("5_exutt")
 id = 34
-external_id = "ionospheric_probing"
+external_id = "Ionospheric Probing"
 name = "Ionospheric Probing"
 type = 1
 border_normal = ExtResource("4_h2abi")
@@ -963,7 +972,7 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_1e383"]
 script = ExtResource("5_exutt")
 id = 39
-external_id = "astronautics"
+external_id = "Astronautics"
 name = "Astronautics"
 type = 1
 icon = ExtResource("19_2xvug")
@@ -1297,7 +1306,7 @@ script = ExtResource("6_h2abi")
 [sub_resource type="Resource" id="Resource_3cuni"]
 script = ExtResource("5_exutt")
 id = 52
-external_id = "interstellar_transport"
+external_id = "Interstellar Transport"
 name = "Interstellar Transport"
 description = "Unlock the transfer of 
 goods between planets"
@@ -1343,7 +1352,7 @@ icon_sizes = {
 }
 icons = {
 0: ExtResource("2_3oxt1"),
-1: ExtResource("2_3oxt1"),
+1: ExtResource("2_2xvug"),
 2: ExtResource("3_do6et")
 }
 node_size = {

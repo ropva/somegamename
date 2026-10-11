@@ -221,7 +221,7 @@ var ELECTRONICS_PLANT = Tile.new("electronics_plant", "Electronics Factory",
 	"thing",
 	 11, "res://res/asset_electronics_plant_0.5x.png", 
 	[200, "steel", 50, "titanium"], 
-	[20, "energy", 5, "steel", 3, "titanium"], [3, "electronics"],
+	[20, "energy", 5, "steel", 3, "titanium"], [1, "electronics"],
 	10, true)
 var WIND_FARM = Tile.new("wind_farm", "Wind Farm", 
 	"The most basic way of producing power.", 
